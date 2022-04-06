@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
