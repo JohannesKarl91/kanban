@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- import favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <!-- import local fonts and main style -->
     <link rel="stylesheet" href="./styles/fonts/fonts.css">
     <link rel="stylesheet" href="./style.css">
+
+    <!-- import mini backend and script.js -->
+    <script src="./mini_backend.js"></script>
+    <script src="./script.js"></script>
+
     <title>Join</title>
+
+    <script>
+        setURL('http://developerakademie.com/smallest_backend_ever');
+        let users = [];
+
+        async function init() {
+            await downloadFromServer();
+            users = JSON.parse(backend.getItem('users')) || [];
+            backend.setItem('Test', "Ich bin ein Test");
+        }
+    </script>
+
 </head>
-<body>
+
+<body onload="init()">
     <span>Ich bin PT Sans regular</span><br>
     <span style="font-weight: 700;">Ich bin PT Sans regular</span>
 </body>
+
 </html>
