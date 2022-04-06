@@ -18,21 +18,9 @@
     <script src="./script.js"></script>
 
     <title>Join</title>
-
-    <script>
-        setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
-        let users = [];
-
-        async function init() {
-            await downloadFromServer();
-            users = JSON.parse(backend.getItem('users')) || [];
-            backend.setItem('Test', "Ich bin ein Test");
-        }
-    </script>
-
 </head>
 
-<body onload="init()">
+<body onload="initUsers()">
     <span>Ich bin PT Sans regular</span><br>
     <span style="font-weight: 700;">Ich bin PT Sans bold 700</span>
 </body>
