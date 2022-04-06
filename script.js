@@ -9,5 +9,5 @@ let users = [];
  */
 async function initUsers() {
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('test')) || [];
+    users = JSON.parse(backend.getItem('users')) || [];
 }
