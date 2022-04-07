@@ -19,40 +19,48 @@
             <h1>Add Task</h1>
             <span class="text-color">Learning Management System Project</span>
         </div>
-        <form class="form" onsubmit="addToBoard()">
-            <div class="taskcolumn">
-                <div>
-                    <label>TITLE:</label><br>
-                    <input type="text" id="title" value="Placeholder"><br>
+
+        <form class="form" onsubmit="addTask()">
+            <div class="inside">
+                <div class="row">
+                    <div>
+                        <label class="input center">TITLE:</label><br>
+                        <input type="text" id="title" value="Placeholder"><br>
+                    </div>
+                    <div>
+                        <label class="input center">DUE DATE:</label><br>
+                        <input type="date" id="date" value="date" img src="img\icons8-calendar-150.png"><br>
+                    </div>
                 </div>
-                <div>
-                    <label>CATEGORY:</label><br>
-                    <select placeholder="Marketing" id="category" img src="img\chevron.png">
-                        <option>Marketing</option>
-                        <option>IT</option>
+
+                <div class="row">
+                    <div class="center">
+                        <label class="input center">CATEGORY:</label><br>
+                            <select class="input" placeholder="Marketing" id="category" img src="img\chevron.png">
+                                <option>Marketing</option>
+                                <option>IT</option>
+                            </select>
+                    </div>
+                    <div>
+                        <label class="input center">URGENCY:</label><br>
+                        <select class="input center" placeholder="High" id="urgency" img src="img\chevron.png">
+                            <option>High</option>
+                            <option>Middle</option>
+                            <option>Low</option>
                         </select>
+                    </div>
                 </div>
-                <div>
-                    <label>DESCRIPTION:</label><br>
-                    <textarea id="description" rows="5"></textarea>
+
+                <div class="row">
+                    <div class="input center">
+                        <label>DESCRIPTION:</label><br>
+                        <textarea id="description" rows="5"></textarea>
+                    </div>
+                    <div class="input center">
+                        <label>ASSIGNED TO:</label><br>
+                    </div>
                 </div>
             </div>
-
-            <div class="taskcolumn">
-                <div>
-                    <label>DUE DATE:</label><br>
-                    <input type="date" id="date" value="date" img src="img\icons8-calendar-150.png"><br>
-                </div>
-                <div>
-                    <label>URGENCY:</label><br>
-                    <select placeholder="High" id="urgency" img src="img\chevron.png">
-                        <option>High</option>
-                        <option>Middle</option>
-                        <option>Low</option>
-                        </select>
-                </div>
-            </div>
-
 
 
 
