@@ -21,8 +21,29 @@
 </head>
 
 <body onload="initUsers()">
-    <span>Ich bin PT Sans regular</span><br>
-    <span style="font-weight: 700;">Ich bin PT Sans bold 700</span>
+    <div class="login-container">
+        <form onsubmit="validateUser(event)" autocomplete="on">
+            <div class="login-area">
+                <div class="logo-badge-container">
+                    <img class="logo-badge" src="img/logo.png">
+                </div>
+                <div class="user-img"></div>
+                <span id="invalid-data" class="d-none"></span>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter email" name="email" class="email-input" id="email" required
+                    autofocus onfocus="clearAlertspan()">
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter password" name="password" class="password-input" id="password"
+                    required onfocus="clearAlertspan()">
+                <div>
+                    <label for="guest">
+                        <input type="checkbox" id="guest" value="guest" onclick="loginAsGuest()"> Log-in as guest
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
