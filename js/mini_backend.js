@@ -109,3 +109,4 @@ function determineProxySettings() {
         return 'https://cors-anywhere.herokuapp.com/';
     }
 }
+
