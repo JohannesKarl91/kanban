@@ -1,0 +1,39 @@
+.space{
+    margin: 200px;
+}
+
+.text-color{
+    color: rgb(30, 49, 144);
+}
+
+form{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: rgb(240, 248, 256);
+    padding: 30px;
+    margin-top: 50px;
+    width: 50;
+    height: 50vh;
+}
+
+label{
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(30, 49, 144);
+}
+form input{
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.taskcolumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+select{
+    margin-top: 20px;
+    padding: 5px;
+}

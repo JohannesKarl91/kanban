@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/addtaskstyle.css">
+    <script src="js/mini_backend.js"></script>
+    <script src="js/addtaskscript.js"></script>
+
+    <title>Add Task</title>
+</head>
+
+<body onload="initUsers()">
+    <div class="space">
+        <div>
+            <h1>Add Task</h1>
+            <span class="text-color">Learning Management System Project</span>
+        </div>
+        <form class="form" onsubmit="addToBoard()">
+            <div class="taskcolumn">
+                <div>
+                    <label>TITLE:</label><br>
+                    <input type="text" id="title" value="Placeholder"><br>
+                </div>
+                <div>
+                    <label>CATEGORY:</label><br>
+                    <select placeholder="Marketing" id="category" img src="img\chevron.png">
+                        <option>Marketing</option>
+                        <option>IT</option>
+                        </select>
+                </div>
+                <div>
+                    <label>DESCRIPTION:</label><br>
+                    <textarea id="description" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="taskcolumn">
+                <div>
+                    <label>DUE DATE:</label><br>
+                    <input type="date" id="date" value="date" img src="img\icons8-calendar-150.png"><br>
+                </div>
+                <div>
+                    <label>URGENCY:</label><br>
+                    <select placeholder="High" id="urgency" img src="img\chevron.png">
+                        <option>High</option>
+                        <option>Middle</option>
+                        <option>Low</option>
+                        </select>
+                </div>
+            </div>
+
+
+
+
+
+
+        </form>
+
+    </div>
+</body>
+
+</html>
