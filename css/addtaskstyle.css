@@ -5,3 +5,22 @@
 .text-color{
     color: rgb(30, 49, 144);
 }
+
+form{
+    border-radius: 5px;
+    background-color: rgb(240, 248, 256);
+    padding: 30px;
+    margin-top: 50px;
+    width: 50;
+    height: 50vh;
+}
+
+label{
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(30, 49, 144);
+}
+form input{
+    margin-top: 20px;
+    padding: 5px;
+}
