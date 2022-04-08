@@ -12,14 +12,40 @@
     <!-- import local fonts and main style -->
     <link rel="stylesheet" href="./css/fonts/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/header.css">
 
     <!-- import mini backend and script.js -->
     <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/header.js"></script>
 
     <title>Join</title>
 </head>
-<body>
-    
+
+<body onload="includeHTML()">
+
+    <div class="content">
+        <!--Default header for all pages where the function onload="includeHTML()" is connect to file "header.js" and CSS props with file "header.css" (see <head>)-->
+        <div w3-include-html="header.html"></div>
+        <div class="board">
+            <div class="boardSection">
+                <div class="boardSectionHeader">TO DO</div>
+                <div class="boardSectionField"></div>
+            </div>
+            <div class="boardSection">
+                <div class="boardSectionHeader">IN PROGRESS</div>
+                <div class="boardSectionField"></div>
+            </div>
+            <div class="boardSection">
+                <div class="boardSectionHeader">TESTING</div>
+                <div class="boardSectionField"></div>
+            </div>
+            <div class="boardSection">
+                <div class="boardSectionHeader">DONE</div>
+                <div class="boardSectionField"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

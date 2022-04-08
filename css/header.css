@@ -1,0 +1,147 @@
+/*CSS properties for the header template.*/
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+    height: 94vh;
+    width: 8rem;
+    background-color: rgb(30, 49, 144);
+}
+
+.headerTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.headerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.headerProfile {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.mainNav {
+    display: flex;
+    margin-bottom: 48px;
+    margin-top: 48px;
+}
+
+.navbarLink {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.navbarLink:hover {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbarLinkBottom {
+    color: white;
+    font-weight: normal;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navbarListitem {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    width: 89%;
+    padding-left: 16px;
+}
+
+.navbarListitem:hover {
+    border-left: 2px solid white;
+    transition: 225ms ease-in-out;
+}
+
+
+.mobileMenu {
+    font-size: 48px;
+    color: white;
+    text-decoration: none;
+    align-self: center;
+    display: none;
+    cursor: pointer;
+}
+
+
+/*Responsive header part*/
+@media (max-width: 1100px) {
+    .header {
+        width: 100vw !important;
+        height: 8rem;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        position: fixed;
+    }
+
+    .mobileMenu {
+        display: block;
+    }
+
+    .board {
+        flex-wrap: wrap;
+        width: 100%;
+        padding-bottom: 16px;
+        margin-top: 128px;
+    }
+
+    .boardSection {
+        height: 65vh;
+        width: 100%;
+    }
+
+    .mainNav {
+        justify-content: space-between;
+        align-items: center;
+
+        width: 90%;
+        margin-bottom: 24px !important;
+        margin-top: 24px !important;
+        padding-left: 16px;
+        padding-right: 16px;
+
+    }
+
+    .navbar{
+        background-color: lightgray;
+        display: none;
+    }
+
+    .headerBottom {
+        display: none;
+    }
+}

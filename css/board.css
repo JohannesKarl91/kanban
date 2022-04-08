@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+}
+
+.content{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board{
+    display: flex;
+}
+
+.boardSection{
+    display: flex;
+    align-items: space-between;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 24px;
+    margin-right: 16px;
+    margin-left: 16px; 
+    height: 94vh;
+    min-width: 12.5rem;
+}
+
+.boardSectionHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.boardSectionField{
+    height: 100%;
+    border-radius: 15px;
+    background-color: rgb(244, 243, 251);
+}
