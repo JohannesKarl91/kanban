@@ -3,6 +3,29 @@ setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
 
 let users = [];
 
+
+/**
+ * This function is called if board.html is onload.
+ * 
+ */
+async function initBoard() {
+    await initUsers();
+    let session = sessionStorage.getItem('session');
+    let email = users.filter(s => s['email'] == window.atob(session));
+    if (session != null && email.length > 0 ){
+        //logged in
+    } else {
+        location.href = 'index.html'; //redirect to login
+    }
+}
+
+
+async function initLogin(){
+    await initUsers();
+    checkSession();
+}
+
+
 /**
  * Load users from backend
  * 
@@ -10,7 +33,6 @@ let users = [];
 async function initUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
-    checkSession();
 }
 
 
@@ -130,10 +152,12 @@ function saveSession(email) {
  * 
  */
 function checkSession() {
-    if (sessionStorage.getItem('session') != null){
+    let session = sessionStorage.getItem('session');
+    let email = users.filter(s => s['email'] == window.atob(session));
+    if (session != null && email.length > 0 ){
         location.href = 'board.html'; //redirect to board
     } else {
-        // user have to log in
+         // user have to log in
     }
 }
 
