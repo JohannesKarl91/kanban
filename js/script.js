@@ -10,6 +10,7 @@ let users = [];
 async function initUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    checkSession();
 }
 
 
@@ -17,12 +18,12 @@ async function initUsers() {
  * This function checks whether you want to log in as a guest. If yes, the input fields are disabled.
  * 
  */
-function loginAsGuest(){
+function loginAsGuest() {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     let guestCheckbox = document.getElementById('guest');
 
-    if(!guestCheckbox.checked) {
+    if (!guestCheckbox.checked) {
         email.value = "";
         password.value = "";
         email.disabled = false;
@@ -32,7 +33,7 @@ function loginAsGuest(){
         password.value = window.btoa(users[3]['password']);
         email.disabled = true;
         password.disabled = true;
-    }  
+    }
 }
 
 
@@ -114,8 +115,26 @@ function clearAlertspan() {
 }
 
 
+/**
+ * This function saves the current session
+ * 
+ * @param {string} email 
+ */
 function saveSession(email) {
-    
+    sessionStorage.setItem('session', window.btoa(email));
+}
+
+
+/**
+ * This function checks if usersession is available
+ * 
+ */
+function checkSession() {
+    if (sessionStorage.getItem('session') != null){
+        location.href = 'board.html'; //redirect to board
+    } else {
+        // user have to log in
+    }
 }
 
 
@@ -124,25 +143,25 @@ function includeHTML() {
     /* Loop through a collection of all HTML elements: */
     z = document.getElementsByTagName("*");
     for (i = 0; i < z.length; i++) {
-      elmnt = z[i];
-      /*search for elements with a certain atrribute:*/
-      file = elmnt.getAttribute("w3-include-html");
-      if (file) {
-        /* Make an HTTP request using the attribute value as the file name: */
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4) {
-            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-            /* Remove the attribute, and call this function once more: */
-            elmnt.removeAttribute("w3-include-html");
-            includeHTML();
-          }
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                    /* Remove the attribute, and call this function once more: */
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
         }
-        xhttp.open("GET", file, true);
-        xhttp.send();
-        /* Exit the function: */
-        return;
-      }
     }
-  }
+}
