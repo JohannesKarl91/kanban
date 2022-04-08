@@ -128,7 +128,7 @@ function checkPasswordToUsername(searchResult, email, encodedPassword) {
 }
 
 
-/**
+/**1
  * This function turns off the error display. 
  * 
  */

@@ -1,4 +1,8 @@
+setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
+
+
 let allTasks=[];
+
 
 function addTask(){
     let title = document.getElementById('title');
@@ -9,11 +13,13 @@ function addTask(){
 
 
     let task={
-        'title': title,
-        'category': category,
-        'description': description,
-        'urgency': urgency,
+        'title': title.value,
+        'category': category.value,
+        'description': description.value,
+        'urgency': urgency.value,
         'date': date
     };
+
+    allTasks.push(task);
 
 }
