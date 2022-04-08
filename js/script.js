@@ -49,6 +49,7 @@ function validateUser(event) {
     let guestCheckbox = document.getElementById('guest').checked;
 
     if (guestCheckbox) { //log-in as guest
+        saveSession(email);
         location.href = 'board.html'; //redirect to board
     } else if (email && encodedPassword) {
         checkUserdata(email, encodedPassword);
@@ -91,6 +92,7 @@ function checkPasswordToUsername(searchResult, email, encodedPassword) {
     let passwordOfsearchResult = searchResult[0]['password'];
 
     if (email == emailOfsearchResult && encodedPassword == passwordOfsearchResult) {
+        saveSession(email);
         location.href = 'board.html'; //redirect to board
 
     } else {
@@ -109,6 +111,11 @@ function checkPasswordToUsername(searchResult, email, encodedPassword) {
  */
 function clearAlertspan() {
     document.getElementById('invalid-data').classList.add('d-none');
+}
+
+
+function saveSession(email) {
+    
 }
 
 
