@@ -13,7 +13,7 @@ async function initBoard() {
     let session = sessionStorage.getItem('session');
     let email = users.filter(s => s['email'] == window.atob(session));
     if (session != null && email.length > 0 ){
-        //logged in
+        includeHTML();
     } else {
         location.href = 'index.html'; //redirect to login
     }
