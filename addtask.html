@@ -61,14 +61,17 @@
                     </div>
                     <div class="input center">
                         <label>ASSIGNED TO:</label><br>
-                        <div class="setImages">
-                            <div id="images"></div>
+                        <div>
+                            <div class="image-container" id="images"></div>
                             <div id="dropdown" class="dropdown">
                                 <button type="button" onclick="DropdownList()" class="assigned_button"></button>
                                 <div id="myDropdown" class="dropdown-content">
-                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\alex.jpg">
-                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\johannes.jpg">
-                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\rebecca.jpg">
+                                    <img onclick="imageInfos('Alexander', 'Bachmann','img/users/alex.jpg')"
+                                        class="assigned_img" src="img\users\alex.jpg">
+                                    <img onclick="imageInfos('Johannes', 'Weber', 'img/users/johannes.jpg')"
+                                        class="assigned_img" src="img\users\johannes.jpg">
+                                    <img onclick="imageInfos('Rebecca', 'Häckl', 'img/users/rebecca.jpg')"
+                                        class="assigned_img" src="img\users\rebecca.jpg">
                                     <img onclick="imageInfos()" class="assigned_img" src="img\users\test.jpg">
                                 </div>
                             </div>

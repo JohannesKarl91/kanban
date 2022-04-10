@@ -17,7 +17,8 @@ function CreateTask(){
         'category': category.value,
         'description': description.value,
         'urgency': urgency.value,
-        'date': date
+        'date': date,
+        'assigned':[]
     };
 
     addTask(task);
@@ -43,24 +44,11 @@ function DropdownList() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-imageInfos(prename, mail, picture)
-    let information = {
-        'firstname': prename,
-        
-        'Mail': mailadress,
-        'picture': bild
-    }
-
-
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
+function imageInfos(prename, name, picture){
+let infos={
+    'Vorname': prename,
+    'Nachname': name,
+    'bild': picture
+};
+document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
+}

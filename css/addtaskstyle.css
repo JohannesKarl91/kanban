@@ -109,8 +109,12 @@ textarea{
     top: 20px;
 }
 
+.show {
+    display: flex !important;
+}
+
 .assigned_button{
-    background-image: url(img\iconplus.png);
+    background-image: url(iconplus.png);
     background-repeat: no-repeat;
     background-position: center;
     padding: 16px;
@@ -140,19 +144,24 @@ textarea{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
+    background-color: #F4F3FB;
+    min-width: 150px;
     overflow: auto;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    margin-left: 60px;
+    margin-left: 50px;
     height: 54px;
     align-items: center;
-    border-radius: 21px;
+    border-radius: 5px;
     padding: 10px;
 }
 
 
-.show {
-    display: flex !important;
+textarea {
+    resize: none;
+}
+
+.image-container {
+    display: flex;
+
 }
