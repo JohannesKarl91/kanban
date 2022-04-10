@@ -129,3 +129,15 @@ body {
 .login-btn:hover {
     background-color: rgba(30, 49, 144, 0.8);
 }
+
+.legal-links{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-top:1px solid #ccc;
+}
+
+.legal-links a {
+    text-decoration: none;
+    margin-top: 8px;
+}
