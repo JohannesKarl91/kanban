@@ -108,3 +108,51 @@ textarea{
     right: 5px;
     top: 20px;
 }
+
+.assigned_button{
+    background-image: url(img\iconplus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 16px;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background-color: #d8d8d8;
+    margin-left: 5px; 
+}
+
+.assigned_img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 2px solid lightgray;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 60px;
+    height: 54px;
+    align-items: center;
+    border-radius: 21px;
+    padding: 10px;
+}
+
+
+.show {
+    display: flex !important;
+}

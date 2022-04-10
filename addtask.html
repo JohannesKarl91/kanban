@@ -21,7 +21,7 @@
             <span class="text-color">Learning Management System Project</span>
         </div>
 
-        <form class="form" onsubmit="addTask()">
+        <form class="form" onsubmit="CreateTask()">
             <div class="inside">
                 <div class="row">
                     <div>
@@ -31,18 +31,18 @@
                     <div>
                         <label class="input center">DUE DATE:</label><br>
                         <div class="relative">
-                            <input class="relative bgr-input" type="date" id="date" value="date"> 
-                            </div><br>
+                            <input class="relative bgr-input" type="date" id="date" value="date">
+                        </div><br>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="center">
                         <label class="input center">CATEGORY:</label><br>
-                            <select class="input relative" placeholder="Marketing" id="category" img src="img\chevron.png">
-                                <option>Marketing</option>
-                                <option>IT</option>
-                            </select>
+                        <select class="input relative" placeholder="Marketing" id="category" img src="img\chevron.png">
+                            <option>Marketing</option>
+                            <option>IT</option>
+                        </select>
                     </div>
                     <div>
                         <label class="input center">URGENCY:</label><br>
@@ -61,13 +61,25 @@
                     </div>
                     <div class="input center">
                         <label>ASSIGNED TO:</label><br>
-                        
+                        <div class="setImages">
+                            <div id="images"></div>
+                            <div id="dropdown" class="dropdown">
+                                <button type="button" onclick="DropdownList()" class="assigned_button"></button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\alex.jpg">
+                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\johannes.jpg">
+                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\rebecca.jpg">
+                                    <img onclick="imageInfos()" class="assigned_img" src="img\users\test.jpg">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div>
-                <button onclick="addTask()">Create</button>
-                <button onclick="emptyTask()">Cancel</button>
-            </div>
+                    <button type="submit">Create</button>
+                    <button type="reset">Cancel</button>
+                </div>
             </div>
         </form>
 
