@@ -22,6 +22,8 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
 
 .space{
     margin: 200px;
+    position: absolute;
+    top:0;
 }
 
 button{
@@ -34,6 +36,7 @@ button{
 }
 
 form{
+    min-width: 550px;
     display: flex;
     justify-content: center;
     border-radius: 5px;
@@ -43,7 +46,7 @@ form{
 }
 
 .inside {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -85,9 +88,11 @@ center{
 }
 
 .row{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 20px;
+    padding-left: 0;
 }
 
 .input{
@@ -155,6 +160,7 @@ textarea{
     border-radius: 5px;
     padding: 10px;
 }
+
 
 
 textarea {

@@ -1,6 +1,4 @@
 
-let allTasks=[];
-setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
 
 
 
@@ -17,7 +15,7 @@ function CreateTask(){
         'category': category.value,
         'description': description.value,
         'urgency': urgency.value,
-        'date': date,
+        'date': date.value,
         'assigned':[]
     };
 
@@ -28,27 +26,21 @@ function CreateTask(){
 function addTask(task){
 
     allTasks.push(task);
-    backend.setItem('tasks', JSON.stringify(allTasks));
+    // backend.setItem('tasks', JSON.stringify(allTasks));
     title.value='';
     description.value='';
-    addTasksToServer(task);
-
 }
 
-async function addTasksToServer(allTasks) {
-    allTasks.push(task);
-    await saveJSONToServer('allTasks');
-}
 
 function DropdownList() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-function imageInfos(prename, name, picture){
+function imageInfos(id, picture){
 let infos={
-    'Vorname': prename,
-    'Nachname': name,
+    'id': id,
     'bild': picture
 };
+// allTasks.assigned.push(infos);
 document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
 }
