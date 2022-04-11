@@ -9,7 +9,10 @@
     margin-bottom: 24px;
     height: 94vh;
     width: 8rem;
-    background-color: rgb(30, 49, 144);
+    background-color: rgb(93, 156, 112);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 1px 1px rgb(93, 156, 0.8);
 }
 
 .headerTop {
@@ -46,8 +49,8 @@ ul {
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .mainNav {
@@ -71,7 +74,14 @@ ul {
 .navbarLinkBottom {
     color: white;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navbarLinkBottom:hover {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -102,10 +112,13 @@ ul {
 @media (max-width: 1100px) {
     .header {
         width: 100vw !important;
-        height: 8rem;
+        height: 5rem;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         position: fixed;
+        z-index: 3;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
     }
 
     .mobileMenu {
@@ -114,9 +127,9 @@ ul {
 
     .board {
         flex-wrap: wrap;
-        width: 100%;
+        width: 100% !important;
         padding-bottom: 16px;
-        margin-top: 128px;
+        margin-top: 80px;
     }
 
     .boardSection {
@@ -127,18 +140,15 @@ ul {
     .mainNav {
         justify-content: space-between;
         align-items: center;
-
         width: 90%;
-        margin-bottom: 24px !important;
-        margin-top: 24px !important;
-        padding-left: 16px;
-        padding-right: 16px;
-
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
     }
 
     .navbar{
-        background-color: lightgray;
+        background-color: rgb(125, 192, 145);
         display: none;
+        margin-top: 0;
     }
 
     .headerBottom {

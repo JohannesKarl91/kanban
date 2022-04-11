@@ -8,8 +8,14 @@ body{
     flex-wrap: wrap;
 }
 
+.boardSection {
+    height: 65vh;
+    width: 100%;
+}
+
 .board{
     display: flex;
+    width: 85%;
 }
 
 .boardSection{
@@ -22,20 +28,26 @@ body{
     margin-right: 16px;
     margin-left: 16px; 
     height: 94vh;
-    min-width: 12.5rem;
+    min-width: 18vw;
 }
 
 .boardSectionHeader{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 60px;
     font-weight: bold;
     font-size: 24px;
+
+    background-color: rgb(93, 156, 112);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .boardSectionField{
     height: 100%;
+    margin-top: -10px;
     border-radius: 15px;
-    background-color: rgb(244, 243, 251);
+    background-color: rgb(93, 156, 112);
+    opacity: 10%;
 }
