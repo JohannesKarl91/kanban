@@ -148,7 +148,7 @@ ul {
     .navbar{
         background-color: rgb(125, 192, 145);
         display: none;
-        margin-top: 0;
+        margin-top: 7px;
     }
 
     .headerBottom {
