@@ -40,7 +40,7 @@ form{
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    background-color: rgb(240, 248, 256);
+    background-color: rgba(93, 156, 112, 0.4);
     padding: 30px;
     margin-top: 50px;
 }
@@ -170,4 +170,10 @@ textarea {
 .image-container {
     display: flex;
 
+}
+
+@media(max-width:1000px){
+    .space{
+        margin-left: 50px;
+    }
 }

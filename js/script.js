@@ -2,7 +2,6 @@
 setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
 
 let users = [];
-let allTasks = [];
 
 
 /**
@@ -34,7 +33,6 @@ async function initLogin(){
 async function initUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
-    allTasks = JSON.parse(backend.getItem('tasks')) || [];
 }
 
 

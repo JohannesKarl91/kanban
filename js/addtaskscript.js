@@ -1,5 +1,10 @@
+let tasks= [];
 
-
+async function initBoard() {
+    await initUsers();}
+// async function initTasks(){
+//     tasks = JSON.parse(backend.getItem('tasks')) || [];
+// }
 
 
 function CreateTask(){
@@ -25,8 +30,8 @@ function CreateTask(){
 
 function addTask(task){
 
-    allTasks.push(task);
-    // backend.setItem('tasks', JSON.stringify(allTasks));
+    tasks.push(task);
+    // backend.setItem('tasks', JSON.stringify(tasks));
     title.value='';
     description.value='';
 }
