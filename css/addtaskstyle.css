@@ -184,7 +184,12 @@ textarea {
     .row{
         display: flex;
         flex-direction: column;
+        padding: 0;
+    }
 
+    .form input, select, textarea{
+        margin-top: 0;
+        margin-bottom: 10px;
     }
 
     .top{
@@ -193,9 +198,6 @@ textarea {
 }
 
 @media(max-width:500px){
-    .row{
-        padding: 0;
-    }
 
     
     form{
@@ -212,8 +214,4 @@ textarea {
         align-content: center;
     }
 
-    .form input, select, textarea{
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
     }
