@@ -55,8 +55,8 @@ ul {
 
 .mainNav {
     display: flex;
-    margin-bottom: 48px;
-    margin-top: 48px;
+    margin-bottom: 32px;
+    margin-top: 32px;
 }
 
 .navbarLink {
@@ -86,8 +86,8 @@ ul {
 }
 
 .navbarListitem {
-    margin-bottom: 16px;
-    margin-top: 16px;
+    margin-bottom: 8px;
+    margin-top: 8px;
     width: 89%;
     padding-left: 16px;
 }
