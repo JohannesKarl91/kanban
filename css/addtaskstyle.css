@@ -22,6 +22,7 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
 
 .space{
     margin: 200px;
+    margin-top: 75px;
     position: absolute;
     top:0;
 }
