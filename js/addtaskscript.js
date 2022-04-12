@@ -7,7 +7,8 @@ async function initTasks() {
 // }
 
 
-function CreateTask(){
+function CreateTask(event){
+    event.preventDefault(); 
     let title = document.getElementById('title');
     let date= document.getElementById('date');
     let category = document.getElementById('category');
