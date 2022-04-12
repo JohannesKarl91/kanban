@@ -2,7 +2,7 @@
 setURL('http://gruppe-221.developerakademie.net/smallest_backend_ever');
 
 let users = [];
-let allTasks = [];
+let allTasks =[];
 
 
 /**

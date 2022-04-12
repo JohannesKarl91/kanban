@@ -31,16 +31,13 @@ button{
     padding: 5px;
 }
 
-.text-color{
-    color: rgb(30, 49, 144);
-}
 
 form{
     min-width: 550px;
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    background-color: rgb(240, 248, 256);
+    background-color: rgba(93, 156, 112, 0.1);
     padding: 30px;
     margin-top: 50px;
 }
@@ -63,7 +60,6 @@ form{
 label{
     font-size: larger;
     font-weight: 600;
-    color: rgb(30, 49, 144);
 }
 form input{
     font-size: 1rem;
@@ -171,3 +167,48 @@ textarea {
     display: flex;
 
 }
+
+@media(max-width:1000px){
+    .space{
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+
+    form{
+        min-width: 300px;
+    }
+}
+
+@media(max-width:800px){
+    .row{
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+
+@media(max-width:500px){
+    .row{
+        padding: 0;
+    }
+
+    
+    form{
+        padding: 5;
+    }
+
+    .space{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .inside{
+        display: flex;
+        align-content: center;
+    }
+
+    .form input, select, textarea{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    }
