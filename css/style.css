@@ -28,7 +28,7 @@ body {
     padding: 6px;
     display: flex;
     justify-content: center;
-    background-color: rgba(30, 49, 144, 1);
+    background-color: rgba(93, 156, 112, 1);
     border-radius: 4px;
     animation-name: joinbounce;
     animation-duration: 1s;
@@ -114,7 +114,7 @@ body {
 
 .login-btn {
     width: 100%;
-    background-color: rgba(30, 49, 144, 0.6);
+    background-color: rgba(93, 156, 112, 0.9);
     border: unset;
     border-radius: 4px;
     box-shadow: 0 0 2px 0 rgb(0 0 0 / 60%);
@@ -127,7 +127,7 @@ body {
 }
 
 .login-btn:hover {
-    background-color: rgba(30, 49, 144, 0.8);
+    background-color: rgba(93, 156, 112, 0.8);
 }
 
 .legal-links{
@@ -140,4 +140,5 @@ body {
 .legal-links a {
     text-decoration: none;
     margin-top: 8px;
+    color:rgba(93, 156, 112, 1)
 }
