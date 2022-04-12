@@ -1,10 +1,7 @@
-
+let assigned=[];
 
 async function initTasks() {
     await initUsers();}
-// async function initTasks(){
-//     tasks = JSON.parse(backend.getItem('tasks')) || [];
-// }
 
 
 function CreateTask(event){
@@ -32,7 +29,7 @@ function CreateTask(event){
 function addTask(task){
 
     allTasks.push(task);
-    backend.setItem('tasks', JSON.stringify(allTasks));    
+    // backend.setItem('tasks', JSON.stringify(allTasks));    
     title.value='';
     description.value='';
 }
@@ -43,10 +40,14 @@ function DropdownList() {
 }
 
 function imageInfos(id, picture){
+    if (assigned.some(any =>any.id === id)){
+   }
+    else
+    {
+
 let infos={
-    'id': id,
-    'bild': picture
+    'id': id
 };
-// allTasks.assigned.push(infos);
+assigned.push(infos);
 document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
-}
+}}
