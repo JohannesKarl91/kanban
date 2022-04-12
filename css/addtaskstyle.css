@@ -31,16 +31,13 @@ button{
     padding: 5px;
 }
 
-.text-color{
-    color: rgb(30, 49, 144);
-}
 
 form{
     min-width: 550px;
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    background-color: rgba(93, 156, 112, 0.4);
+    background-color: rgba(93, 156, 112, 0.1);
     padding: 30px;
     margin-top: 50px;
 }
@@ -63,7 +60,6 @@ form{
 label{
     font-size: larger;
     font-weight: 600;
-    color: rgb(30, 49, 144);
 }
 form input{
     font-size: 1rem;
