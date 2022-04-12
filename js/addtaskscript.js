@@ -1,13 +1,14 @@
-let tasks= [];
 
-async function initBoard() {
+
+async function initTasks() {
     await initUsers();}
 // async function initTasks(){
 //     tasks = JSON.parse(backend.getItem('tasks')) || [];
 // }
 
 
-function CreateTask(){
+function CreateTask(event){
+    event.preventDefault(); 
     let title = document.getElementById('title');
     let date= document.getElementById('date');
     let category = document.getElementById('category');
@@ -30,8 +31,8 @@ function CreateTask(){
 
 function addTask(task){
 
-    tasks.push(task);
-    // backend.setItem('tasks', JSON.stringify(tasks));
+    allTasks.push(task);
+    backend.setItem('tasks', JSON.stringify(allTasks));    
     title.value='';
     description.value='';
 }

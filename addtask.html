@@ -15,7 +15,7 @@
     <title>Add Task</title>
 </head>
 
-<body onload="includeHTML()">  <!--  includeHTML() initTasks()-->
+<body onload="includeHTML(), initTasks()">  <!--  includeHTML() initTasks()-->
     <div w3-include-html="header.html"></div>
     <div class="space">
         <div>
@@ -23,7 +23,7 @@
             <span class="text-color">Learning Management System Project</span>
         </div>
 
-        <form class="form" onsubmit="CreateTask()">
+        <form class="form" onsubmit="CreateTask(event)">
             <div class="inside">
                 <div class="row">
                     <div>
