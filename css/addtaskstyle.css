@@ -186,6 +186,10 @@ textarea {
         flex-direction: column;
 
     }
+
+    .top{
+        text-align: center;
+    }
 }
 
 @media(max-width:500px){
