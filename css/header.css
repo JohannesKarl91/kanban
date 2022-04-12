@@ -76,6 +76,7 @@ ul {
     font-weight: normal;
     font-size: 16px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbarLinkBottom:hover {
@@ -94,7 +95,7 @@ ul {
 
 .navbarListitem:hover {
     border-left: 2px solid white;
-    transition: 225ms ease-in-out;
+    transition: 125ms ease-in-out;
 }
 
 
