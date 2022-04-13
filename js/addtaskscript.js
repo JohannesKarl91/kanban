@@ -7,7 +7,7 @@ async function initTasks() {
 function CreateTask(event){
     event.preventDefault(); 
     let title = document.getElementById('title');
-    let date= document.getElementById('date');
+    let date = validatedate('');
     let category = document.getElementById('category');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency')
@@ -51,3 +51,16 @@ let infos={
 assigned.push(infos);
 document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
 }}
+
+function validatedate(){
+    let date= document.getElementById('date').value;
+    let todayinms = Date.now();
+    let dateinms = Date.now(date);
+
+    if (todayinms>dateinms){
+        alert('Das eingegebene Datum liegt in der Vergangenheit')
+    }
+    else{
+        return date
+    }
+}
