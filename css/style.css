@@ -196,6 +196,8 @@ body {
 }
 
 .close {
+    position: sticky;
+    top: 0px;
     color: #aaaaaa;
     float: right;
     font-size: 68px;
