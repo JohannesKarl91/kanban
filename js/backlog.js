@@ -28,7 +28,6 @@ function renderBacklogItems() {
 
     checkEmptyArray();
     console.log(addTaskArray);
-    let backlogContent = document.getElementById('backlogContentTaskAsElement');
     for (let i = 0; i < addTaskArray.length; i++) {
         renderBacklogCardTemplate(i);
     }
