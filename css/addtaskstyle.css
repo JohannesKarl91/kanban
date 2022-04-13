@@ -16,6 +16,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 25px;
     border-width: thin;
     cursor: pointer;
+    
 }
 /* Hide Calendar Icon In Chrome 
 input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }*/ 
@@ -68,7 +69,6 @@ form input{
     padding: 5px;
     height: 40px;
     width: 300px;
-    z-index: 10;
 }
 
 select{
