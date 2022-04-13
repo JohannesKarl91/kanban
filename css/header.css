@@ -63,6 +63,7 @@ ul {
     color: white;
     font-size: 24px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbarLink:hover {
@@ -94,7 +95,7 @@ ul {
 }
 
 .navbarListitem:hover {
-    border-left: 2px solid white;
+    border-left: 4px solid white;
     transition: 125ms ease-in-out;
 }
 

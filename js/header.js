@@ -19,3 +19,15 @@ function closeMobileMenu() {
   document.getElementById('mobileMenu-btn').innerHTML = "&#9776;"
   document.getElementById('mobileMenu-btn').onclick = openMobileMenu;
 }
+
+/**
+ * Function to render content on right side.
+ * 
+ * @param {string} nav 
+ */
+function renderContent(navContent) {
+  document.getElementById('innercontent').innerHTML = `
+  <div w3-include-html="${navContent}.html"></div>
+  `;
+  includeHTML();
+}
