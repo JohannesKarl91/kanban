@@ -23,3 +23,8 @@ let task=[{
     'assigned': 'Johannes Weber'
 },
 ];
+
+
+function consoleCheck(){
+    console.log(task)
+}
