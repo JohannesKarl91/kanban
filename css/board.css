@@ -20,13 +20,10 @@ body {
     align-items: space-between;
     justify-content: center;
     flex-direction: column;
-
     margin-right: 16px;
     margin-left: 16px;
     margin-bottom: 16px;
     min-width: 18rem;
-    height: 46vh;
-
 }
 
 .boardSectionHeader {
@@ -46,14 +43,120 @@ body {
     height: 100%;
     margin-top: -10px;
     border-radius: 15px;
-    background-color: rgb(93, 156, 112);
-    opacity: 10%;
+    background-color: rgba(93, 156, 112, 0.1);
 }
 
 .innercontent {
     margin-top: 24px;
     margin-bottom: 24px;
 }
+
+/* Kanban-Tasks */
+.task-card {
+    width: 18rem;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    margin-top: 24px;
+    margin-bottom: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+}
+
+.task-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d72700;
+    border-radius: 6px 6px 0 0;
+    padding: 6px;
+}
+
+.task-title h4{
+    font-weight: bold;
+    margin: 0;
+}
+
+.task-meta-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+.calendar-img{
+    width: 16px;
+    height: auto;
+}
+
+.task-duedate{
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+
+.task-duedate span{
+    font-size: 12px;
+    font-weight: bold;
+    color: #545454;
+}
+
+.task-assigned{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 6px;
+}
+
+.member-img{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.task-description{
+    padding: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-description span{
+    font-size: 14px;
+    font-weight: bold;
+    color: #545454;
+}
+
+.task-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.task-category span{
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px;
+    background-color: #ff623e;
+}
+
+.task-delete-btn span,
+.task-action-btn span{
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.task-delete-btn span{
+    color: white;
+}
+
+
 
 
 @media (max-width: 768px) {
