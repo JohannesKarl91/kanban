@@ -95,7 +95,7 @@ ul {
 }
 
 .navbarListitem:hover {
-    border-left: 2px solid white;
+    border-left: 4px solid white;
     transition: 125ms ease-in-out;
 }
 
