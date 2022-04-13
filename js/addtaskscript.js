@@ -19,7 +19,7 @@ function CreateTask(event){
         'description': description.value,
         'urgency': urgency.value,
         'date': date.value,
-        'assigned':[assigned]
+        'assigned':assigned
     };
 
     addTask(task);
