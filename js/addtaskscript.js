@@ -55,7 +55,7 @@ document.getElementById('images').innerHTML += `<div><img id="picture" class="as
 function validatedate(){
     let date= document.getElementById('date').value;
     let todayinms = Date.now();
-    let dateinms = Date.now(date);
+    let dateinms = Date.parse(date);
 
     if (todayinms>dateinms){
         alert('Das eingegebene Datum liegt in der Vergangenheit')
