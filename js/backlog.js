@@ -24,7 +24,14 @@ let task=[{
 },
 ];
 
-
+/**
+ * Check test array via console-log() function
+ */
 function consoleCheck(){
     console.log(task)
+}
+
+
+function renderBacklogItems(){
+    
 }

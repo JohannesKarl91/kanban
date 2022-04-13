@@ -51,3 +51,7 @@ body{
     background-color: rgb(93, 156, 112);
     opacity: 10%;
 }
+
+.innercontent{
+    margin-top: 24px;
+}
