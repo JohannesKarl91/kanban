@@ -1,7 +1,33 @@
+.backlog{
+    width: 84vw;
+}
+
 .backlogHeader{
+    display: flex;
+    flex-direction: column;
     margin-left: 16px;
+    margin-bottom: 24px;
+}
+
+.backlogHeaderText{
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .backlogContent{
     margin-left: 16px;
+}
+
+.backlogContentHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.backlogContentHeaderElement{
+    min-width: 33vw;
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(93, 156, 112);
+    font-size: 24px;
+    font-weight: bold;
 }

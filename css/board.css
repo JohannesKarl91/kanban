@@ -1,37 +1,35 @@
-body{
+body {
     margin: 0;
 }
 
-.content{
+.content {
     position: relative;
     display: flex;
     flex-wrap: wrap;
 }
 
-.boardSection {
-    height: 65vh;
-    width: 100%;
-}
-
-.board{
+.board {
+    position: absolute;
     display: flex;
-    width: 85%;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-.boardSection{
+.boardSection {
     display: flex;
     align-items: space-between;
     justify-content: center;
     flex-direction: column;
 
-    margin-top: 24px;
     margin-right: 16px;
-    margin-left: 16px; 
-    height: 94vh;
-    min-width: 18vw;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    min-width: 18rem;
+    height: 46vh;
+
 }
 
-.boardSectionHeader{
+.boardSectionHeader {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +42,7 @@ body{
     border-top-left-radius: 15px;
 }
 
-.boardSectionField{
+.boardSectionField {
     height: 100%;
     margin-top: -10px;
     border-radius: 15px;
@@ -52,6 +50,23 @@ body{
     opacity: 10%;
 }
 
-.innercontent{
+.innercontent {
     margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+
+@media (max-width: 768px) {
+    .board {
+        flex-wrap: wrap;
+        width: 100% !important;
+        padding-bottom: 16px;
+        margin-top: 80px;
+    }
+
+    .boardSection {
+        height: 35vh;
+        margin-bottom: 16px;
+        min-width: 90vw !important;
+    }
 }

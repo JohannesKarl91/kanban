@@ -26,11 +26,22 @@
 
 <body onload="consoleCheck()">
 
-    <div class="backlogHeader">
-        <h1>Your Project</h1>
-        <span>Learning Management System Project</span>
-    </div>
+    <div class="backlog">
+        <div class="backlogHeader">
+            <span class="backlogHeaderText">Your Project</span>
+            <span>Learning Management System Project</span>
+        </div>
 
-    <div class="backlogContent" id="backlogContent">Test Backlog Container</div>
+        <div class="backlogContent" id="backlogContent">
+            <div class="backlogContentHeader">
+                <span class="backlogContentHeaderElement">Assigned To</span>
+                <span class="backlogContentHeaderElement">Category</span>
+                <span class="backlogContentHeaderElement">Description</span>
+            </div>
+
+            <div id="backlogContentTaskAsElement" class="backlogContentTaskAsElement"></div>
+
+        </div>
+    </div>
 
 </html>

@@ -1,4 +1,4 @@
-let task=[{
+let backlogTask = [{
     'title': 'Titel 1',
     'category': 'Sales',
     'description': 'Beschreibung 1',
@@ -27,11 +27,15 @@ let task=[{
 /**
  * Check test array via console-log() function
  */
-function consoleCheck(){
-    console.log(task)
+function consoleCheck() {
+    console.log(backlogTask)
 }
 
 
-function renderBacklogItems(){
-    
+function renderBacklogItems() {
+    let backlogContent = document.getElementById('backlogContentTaskAsElement')
+
+    if (backlogTask.length == 0) {
+        backlogContent.innerHTML = 'Add task'
+    }
 }
