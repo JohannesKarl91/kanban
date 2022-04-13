@@ -6,8 +6,6 @@ function openMobileMenu() {
   document.getElementById('navbarResponsive').style = "display:block;";
   document.getElementById('mobileMenu-btn').innerHTML = "&#10006;"
   document.getElementById('mobileMenu-btn').onclick = closeMobileMenu;
-  //Highlight mobileNav
-  highlightNav("mobile" + saveNav);
 }
 
 /**

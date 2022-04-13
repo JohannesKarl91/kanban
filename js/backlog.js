@@ -1,5 +1,5 @@
 let addTaskArray = [{
-    'title': 'Titel 1',
+    'title': 'Board mit Drag and Drop erstellen',
     'category': 'Sales',
     'description': 'Beschreibung 1',
     'urgency': 'High',
@@ -27,7 +27,7 @@ let addTaskArray = [{
 function renderBacklogItems() {
 
     checkEmptyArray();
-
+    console.log(addTaskArray);
     let backlogContent = document.getElementById('backlogContentTaskAsElement');
     for (let i = 0; i < addTaskArray.length; i++) {
         renderBacklogCardTemplate(i);
@@ -50,13 +50,19 @@ function checkEmptyArray() {
 
 function renderBacklogCardTemplate(i) {
     let task = addTaskArray[i];
+    let background = task['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
-    <div class="backlogElementField">
+    <div id="backlogElementField(${i})" class="backlogElementField">
+        <div class="backlogElementTitle">${task['title']}</div>
         <div class="backlogElement">${task['assigned']}</div>
-        <div class="backlogElement">${task['urgency']}</div>
         <div class="backlogElement">${task['category']}</div>
-        <div class="backlogElement">${task['description']}</div>
+        <div class="backlogElementContainer">
+                <img class="backlogElementBtn" src="./img/delete.svg">
+                <img class="backlogElementBtn" src="./img/send.svg">
+            </div>
     </div>
 `;
+    document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background)
+    console.log(background);
 }

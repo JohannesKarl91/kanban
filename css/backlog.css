@@ -18,6 +18,7 @@
 
 .backlogContent{
     margin-left: 16px;
+    width: 80vw;
 }
 
 .backlogContentHeader{
@@ -25,14 +26,34 @@
     justify-content: space-between;
 }
 
-.backlogContentHeaderElement{
-    min-width: 31vw;
+.backlogContentHeaderElementTitle{
     display: flex;
     justify-content: flex-start;
     color: rgb(93, 156, 112);
     font-size: 24px;
     font-weight: bold;
     margin-left: 8px;
+    min-width: 40%;
+}
+
+.backlogContentHeaderElement{
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(93, 156, 112);
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 8px;
+    min-width: 20%;
+}
+
+.backlogContentHeaderElementContainer{
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(93, 156, 112);
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 8px;
+    min-width: 15%;
 }
 
 .backlogContentTaskAsElement{
@@ -43,7 +64,7 @@
 .backlogElementField{
     display: flex;
     align-items: center;
-    min-height: 15vh;
+    min-height: 10vh;
     width: 80vw;
     margin-top: 24px;
     margin-bottom: 24px;
@@ -51,17 +72,66 @@
     border-radius: 25px;
 }
 
-.backlogElement{
-    display: flex;
-    width: 100%;
+.backlogElementTitle{
     height: 100%;
-    min-width: 31vw;
     display: flex;
     justify-content: flex-start;
     font-size: 16px;
+    font-weight: bold;
     margin-left: 8px;
+    min-width: 40%;
+}
+
+.backlogElement{
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 8px;
+    min-width: 20%;
+}
+
+.backlogElementContainer{
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 8px;
+    min-width: 15%;
+}
+
+.backlogElementBtn{
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 30px;
+    height: 30px;
+    
+}
+
+.backlogElementBtn:hover{
+cursor: pointer;
 }
 
 .d-none{
     display: none;
+}
+
+.border-left-High{
+    border-left-style: solid;
+    border-left-color: rgb(222, 78, 78);
+    border-left-width: 10px;
+}
+
+.border-left-Middle{
+    border-left-style: solid;
+    border-left-color: rgb(237, 158, 0);
+    border-left-width: 10px;
+}
+
+.border-left-Low{
+    border-left-style: solid;
+    border-left-color: rgb(83, 118, 201);
+    border-left-width: 10px;
 }
