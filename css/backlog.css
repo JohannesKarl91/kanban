@@ -76,14 +76,24 @@
     border-radius: 25px;
 }
 
-.backlogElementTitle{
+.backlogElementTitleDescription{
     height: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
     min-width: 40%;
+}
+
+.titleElement{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.descriptionElement{
+    font-size: 12px;
 }
 
 .backlogElement{
@@ -93,7 +103,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 21%;
+    min-width: 20.5%;
 }
 
 .backlogElementContainer{

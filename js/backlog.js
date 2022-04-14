@@ -1,7 +1,7 @@
 let backlog = [{
     'title': 'Board mit Drag and Drop erstellen',
     'category': 'Sales',
-    'description': 'Beschreibung 1',
+    'description': 'Hierbei muss das Video von Junus nochmal angesehen und sodann die Funktionalitäten in den Code überführt werden.',
     'urgency': 'High',
     'date': '14.04.2022',
     'assigned': 'Alex Bachmann'
@@ -63,7 +63,7 @@ function renderBacklogItems() {
     for (let i = 0; i < backlog.length; i++) {
         renderBacklogCardTemplate(i);
     }
-    updateBoardArrayToBackend();
+    //updateBoardArrayToBackend();
 }
 
 
@@ -72,8 +72,8 @@ function renderBacklogItems() {
  */
 // function loadAllTasks(){
 //     let tasks = backend.getItem('tasks');
-//     let backlogJSON = JSON.parse(tasks);
-//     backlog.push(backlogJSON);
+//     let backlogText = JSON.parse(tasks);
+//     backlog.push(backlogText);
 //     console.log(backlog); 
 // }
 
@@ -99,13 +99,16 @@ function checkEmptyArray() {
  */
 function renderBacklogCardTemplate(i) {
     let backlogItem = backlog[i];
-    let background = backlog['urgency'];
+    let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
     <div id="backlogElementField(${i})" class="backlogElementField">
-        <div class="backlogElementTitle">${backlogItem['title']}</div>
         <div class="backlogElement">${backlogItem['assigned']}</div>
         <div class="backlogElement">${backlogItem['category']}</div>
+        <div class="backlogElementTitleDescription">
+            <div class="titleElement">${backlogItem['title']}</div>
+            <div class="descriptionElement">${backlogItem['description']}</div>
+        </div>
         <div class="backlogElementContainer">
                 <img onclick="deleteBacklogItem(${i})" class="backlogElementBtn" src="./img/delete.svg">
                 <img onclick="addBacklogItem(${i})" class="backlogElementBtn" src="./img/send.svg">
@@ -144,7 +147,7 @@ function cleanBacklogContentRow() {
 }
 
 
-function updateBoardArrayToBackend(){
-    let boardArrayAsJSON = JSON.stringify(board);
-    backend.setItem('board', boardArrayAsJSON);
-}
+// function updateBoardArrayToBackend(){
+//     let boardArrayAsJSON = JSON.stringify(board);
+//     backend.setItem('board', boardArrayAsJSON);
+// }
