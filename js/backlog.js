@@ -40,7 +40,7 @@ function renderBacklogItems() {
 
 
 /**
- * Loads all tasks from the backend in list 'tasks' 
+ * Loads all tasks from the backend in list 'tasks'.
  */
 function loadAllTasks(){
     let tasks = backend.getItem('tasks');
@@ -66,8 +66,8 @@ function checkEmptyArray() {
 
 
 /**
- * 
- * @param {} i 
+ * Renders the backlog template list.
+ * @param {*} i 
  */
 function renderBacklogCardTemplate(i) {
     let task = addTaskArray[i];
