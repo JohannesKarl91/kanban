@@ -1,6 +1,4 @@
-let backlog =[];
-
-let addTaskArray = [{
+let backlog = [{
     'title': 'Board mit Drag and Drop erstellen',
     'category': 'Sales',
     'description': 'Beschreibung 1',
@@ -9,7 +7,7 @@ let addTaskArray = [{
     'assigned': 'Alex Bachmann'
 },
 {
-    'title': 'Titel 2',
+    'title': 'Backlog erstellen',
     'category': 'IT',
     'description': 'Beschreibung 2',
     'urgency': 'Middle',
@@ -17,7 +15,7 @@ let addTaskArray = [{
     'assigned': 'Rebecca Häckl'
 },
 {
-    'title': 'Titel 3',
+    'title': 'Board rendern',
     'category': 'Marketing',
     'description': 'Beschreibung 3',
     'urgency': 'Low',
@@ -25,29 +23,59 @@ let addTaskArray = [{
     'assigned': 'Johannes Weber'
 }];
 
+let board = [];
+
+let addTaskArray = [
+    {
+        'title': 'Board mit Drag and Drop erstellen',
+        'category': 'Sales',
+        'description': 'Beschreibung 1',
+        'urgency': 'High',
+        'date': '14.04.2022',
+        'assigned': 'Alex Bachmann'
+    },
+    {
+        'title': 'Titel 2',
+        'category': 'IT',
+        'description': 'Beschreibung 2',
+        'urgency': 'Middle',
+        'date': '15.04.2022',
+        'assigned': 'Rebecca Häckl'
+    },
+    {
+        'title': 'Titel 3',
+        'category': 'Marketing',
+        'description': 'Beschreibung 3',
+        'urgency': 'Low',
+        'date': '16.04.2022',
+        'assigned': 'Johannes Weber'
+    }];
+
 
 /**
  * Renders the backlog list initially.
  */
 function renderBacklogItems() {
-    loadAllTasks();
+    // loadAllTasks();
     checkEmptyArray();
-    console.log(addTaskArray);
-    for (let i = 0; i < addTaskArray.length; i++) {
+    console.log(backlog);
+    cleanBacklogContentRow();
+    for (let i = 0; i < backlog.length; i++) {
         renderBacklogCardTemplate(i);
     }
+    updateBoardArrayToBackend();
 }
 
 
 /**
  * Loads all tasks from the backend in list 'tasks'.
  */
-function loadAllTasks(){
-    let tasks = backend.getItem('tasks');
-    let backlogJSON = JSON.parse(tasks);
-    backlog.push(backlogJSON);
-    console.log(backlog); 
-}
+// function loadAllTasks(){
+//     let tasks = backend.getItem('tasks');
+//     let backlogJSON = JSON.parse(tasks);
+//     backlog.push(backlogJSON);
+//     console.log(backlog); 
+// }
 
 
 /**
@@ -57,7 +85,7 @@ function loadAllTasks(){
 function checkEmptyArray() {
     let textByEmptyArray = document.getElementById('emptyArray');
 
-    if (addTaskArray.length == 0) {
+    if (backlog.length == 0) {
         console.log('Array is empty!');
         textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
         document.getElementById('backlogContent').classList.add('d-none');
@@ -70,22 +98,53 @@ function checkEmptyArray() {
  * @param {*} i 
  */
 function renderBacklogCardTemplate(i) {
-    let task = addTaskArray[i];
-    let background = task['urgency'];
+    let backlogItem = backlog[i];
+    let background = backlog['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
     <div id="backlogElementField(${i})" class="backlogElementField">
-        <div class="backlogElementTitle">${task['title']}</div>
-        <div class="backlogElement">${task['assigned']}</div>
-        <div class="backlogElement">${task['category']}</div>
+        <div class="backlogElementTitle">${backlogItem['title']}</div>
+        <div class="backlogElement">${backlogItem['assigned']}</div>
+        <div class="backlogElement">${backlogItem['category']}</div>
         <div class="backlogElementContainer">
-                <img class="backlogElementBtn" src="./img/delete.svg">
-                <img class="backlogElementBtn" src="./img/send.svg">
+                <img onclick="deleteBacklogItem(${i})" class="backlogElementBtn" src="./img/delete.svg">
+                <img onclick="addBacklogItem(${i})" class="backlogElementBtn" src="./img/send.svg">
             </div>
     </div>
 `;
-    document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background)
-    console.log(background);
+    document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
 }
 
 
+/**
+ * Delete backlog item in beacklog array via the trash button
+ */
+function deleteBacklogItem(i) {
+    backlog.splice(i, 1);
+    renderBacklogItems();
+
+}
+
+
+function addBacklogItem(index){
+    let array = backlog[index];
+    board.push(array);
+    console.log('Board Array includes', board);
+    deleteBacklogItem(index);
+}
+
+
+/**
+ * 
+ * @returns Empty value for Id: 'backlogContentTaskAsElement'
+ */
+function cleanBacklogContentRow() {
+    let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
+    return backlogContentRow.innerHTML = '';
+}
+
+
+function updateBoardArrayToBackend(){
+    let boardArrayAsJSON = JSON.stringify(board);
+    backend.setItem('board', boardArrayAsJSON);
+}
