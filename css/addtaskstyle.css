@@ -4,6 +4,7 @@ body{
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
+    box-sizing: unset !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
@@ -28,6 +29,12 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
     margin-top: 75px;
     position: absolute;
     top:0;
+}
+
+.send {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
 }
 
 button{
@@ -66,6 +73,7 @@ label{
     font-weight: 600;
 }
 form input{
+    margin-right: 10px;
     font-size: 1rem;
     margin-top: 15px;
     padding: 5px;
@@ -75,8 +83,9 @@ form input{
 
 select{
     height: 55px;
-    width: 320px;
-    padding: 5px;
+    width: 300px;
+    padding: 10px;
+    margin-right: 5px;
     
 }
 
@@ -146,8 +155,10 @@ textarea{
 }
 
 .dropdown-content {
+    margin-top: 10px;
     display: none;
     position: absolute;
+    left: 58%;
     background-color: #F4F3FB;
     min-width: 150px;
     overflow: auto;
@@ -158,6 +169,7 @@ textarea{
     align-items: center;
     border-radius: 5px;
     padding: 10px;
+    min-height: 70px;
 }
 
 
@@ -197,6 +209,10 @@ textarea {
     .top{
         text-align: center;
     }
+
+    .dropdown-content {
+        left: 0%;
+        margin-top: 0;
 }
 
 @media(max-width:500px){
@@ -215,5 +231,6 @@ textarea {
         display: flex;
         align-content: center;
     }
+        
 
     }
