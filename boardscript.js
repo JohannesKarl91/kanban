@@ -1,5 +1,5 @@
 function generateHTML(task){
-    return` <div class="task-card">
+    return` <div draggable="true" ondragstart="startDragging()" class="task-card">
     <div class="task-header">
         <div class="task-title">
             <h4>§{task['title']}</h4>
@@ -27,4 +27,8 @@ function generateHTML(task){
     </div>
 </div>
 `
+}
+
+function allowDrop(ev){
+    ev.preventDefault();
 }

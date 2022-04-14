@@ -26,7 +26,7 @@
 
     <div class="board">
         <div class="boardSection">
-            <div class="boardSectionHeader" id="todo">TO DO</div>
+            <div class="boardSectionHeader" id="todo" ondragover="allowDrop(event)">TO DO</div>
             <div class="boardSectionField">
                 <div class="task-card">
                     <div class="task-header">
@@ -91,7 +91,7 @@
 
 
         <div class="boardSection">
-            <div class="boardSectionHeader" id="inprogress">IN PROGRESS</div>
+            <div class="boardSectionHeader" id="inprogress" ondragover="allowDrop(event)">IN PROGRESS</div>
             <div class="boardSectionField">
 
                 <div class="task-card">
@@ -128,13 +128,13 @@
             </div>
         </div>
 
-        <div class="boardSection" id="testing">
-            <div class="boardSectionHeader">TESTING</div>
+        <div class="boardSection">
+            <div class="boardSectionHeader" id="testing" ondragover="allowDrop(event)">TESTING</div>
             <div class="boardSectionField"></div>
         </div>
 
         <div class="boardSection">
-            <div class="boardSectionHeader" id="done">DONE</div>
+            <div class="boardSectionHeader" id="done" ondragover="allowDrop(event)">DONE</div>
             <div class="boardSectionField">
 
                 <div class="task-card">
