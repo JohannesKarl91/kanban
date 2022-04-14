@@ -36,6 +36,10 @@
     min-width: 40%;
 }
 
+.backlogMeta{
+    display: flex;
+}
+
 .backlogContentHeaderElement{
     display: flex;
     justify-content: flex-start;
@@ -63,6 +67,7 @@
 
 .backlogElementField{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     min-height: 10vh;
     width: 80vw;

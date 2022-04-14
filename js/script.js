@@ -13,12 +13,40 @@ async function initBoard() {
     await initUsers();
     let session = sessionStorage.getItem('session');
     let email = users.filter(s => s['email'] == window.atob(session));
+
     if (session != null && email.length > 0 ){
         includeHTML();
+        let awaitrenderProfileImg = setInterval(() => {
+            if(imgIncluded()){
+                renderProfileImg(email);
+                clearInterval(awaitrenderProfileImg);
+            }
+        }, 20);
     } else {
         location.href = 'index.html'; //redirect to login
     }
 }
+
+
+/**
+ * Check whether the headerProfile exists
+ * 
+ * @returns 
+ */
+function imgIncluded() {
+    return document.getElementById('headerProfile');
+}
+
+
+/**
+ * Function changes the image for the current user
+ * 
+ * @param {string} email 
+ */
+function renderProfileImg(email){
+    document.getElementById('headerProfile').src = `${email[0]['profileimage']}`;
+}
+
 
 
 async function initLogin(){
