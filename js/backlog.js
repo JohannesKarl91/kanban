@@ -1,3 +1,5 @@
+let backlog =[];
+
 let addTaskArray = [{
     'title': 'Board mit Drag and Drop erstellen',
     'category': 'Sales',
@@ -24,8 +26,11 @@ let addTaskArray = [{
 }];
 
 
+/**
+ * Renders the backlog list initially.
+ */
 function renderBacklogItems() {
-
+    loadAllTasks();
     checkEmptyArray();
     console.log(addTaskArray);
     for (let i = 0; i < addTaskArray.length; i++) {
@@ -35,8 +40,20 @@ function renderBacklogItems() {
 
 
 /**
- * Check test array via console-log() function
+ * Loads all tasks from the backend in list 'tasks' 
  */
+function loadAllTasks(){
+    let tasks = backend.getItem('tasks');
+    let backlogJSON = JSON.parse(tasks);
+    backlog.push(backlogJSON);
+    console.log(backlog); 
+}
+
+
+/**
+ * Check backlog array whether it is empty. If backlog array is empty,
+ *then backlog overview disapears and shows a text.
+*/
 function checkEmptyArray() {
     let textByEmptyArray = document.getElementById('emptyArray');
 
@@ -47,6 +64,11 @@ function checkEmptyArray() {
     }
 }
 
+
+/**
+ * 
+ * @param {} i 
+ */
 function renderBacklogCardTemplate(i) {
     let task = addTaskArray[i];
     let background = task['urgency'];
@@ -65,3 +87,5 @@ function renderBacklogCardTemplate(i) {
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background)
     console.log(background);
 }
+
+
