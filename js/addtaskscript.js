@@ -29,9 +29,8 @@ function CreateTask(event){
 function addTask(task){
 
     allTasks.push(task);
-    // backend.setItem('tasks', JSON.stringify(allTasks));    
-    title.value='';
-    description.value='';
+    // backend.setItem('tasks', JSON.stringify(allTasks));   
+    clearFormular(); 
 }
 
 
@@ -63,4 +62,18 @@ function validatedate(){
     else{
         return date
     }
+}
+
+function clearFormular(){
+    document.getElementById('images').innerHTML ='';
+    document.getElementById('title').value='';
+    document.getElementById('description').value='';
+    assigned =[];
+    document.getElementById('date').value='';
+    document.getElementById('category').value='';
+    document.getElementById('urgency').value='';
+
+
+
+
 }
