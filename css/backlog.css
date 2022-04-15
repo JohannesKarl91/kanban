@@ -196,11 +196,13 @@
         padding-left: 6px;
         padding-bottom: 8px;
         width: 95vw !important;
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
     }
 
     .backlogElement {
         min-width: 95% !important;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         margin-left: 0 !important;
     }
 
