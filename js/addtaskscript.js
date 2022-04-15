@@ -1,39 +1,40 @@
-let assigned=[];
-let today= new Date();
+let assigned = [];
+let today = new Date();
 let todayfix = today.toISOString().slice(0, 10);
 
 async function initTasks() {
-    await initUsers();}
+    await initUsers();
+}
 
 
-function CreateTask(event){
-    event.preventDefault(); 
+function CreateTask(event) {
+    event.preventDefault();
     let title = document.getElementById('title');
-    let date =  document.getElementById('date');
+    let date = document.getElementById('date');
     let category = document.getElementById('category');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency')
 
 
-    let task={
+    let task = {
         'title': title.value,
         'category': category.value,
         'description': description.value,
         'urgency': urgency.value,
         'date': date.value,
-        'assigned':assigned,
-        'status':'',
+        'assigned': assigned,
+        'status': '',
     };
 
     addTask(task);
 
 }
 
-function addTask(task){
+function addTask(task) {
 
     allTasks.push(task);
-    backend.setItem('tasks', JSON.stringify(allTasks));   
-    clearFormular(); 
+    backend.setItem('tasks', JSON.stringify(allTasks));
+    clearFormular();
 }
 
 
@@ -41,28 +42,28 @@ function DropdownList() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-function imageInfos(id, picture){
-    if (assigned.some(any =>any.id === id)){
-   }
-    else
-    {
+function imageInfos(id, picture) {
+    if (assigned.some(any => any.id === id)) {
+    }
+    else {
 
-let infos={
-    'id': id
-};
-assigned.push(infos);
-document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
-}}
+        let infos = {
+            'id': id
+        };
+        assigned.push(infos);
+        document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
+    }
+}
 
 
-function clearFormular(){
-    document.getElementById('images').innerHTML ='';
-    document.getElementById('title').value='';
-    document.getElementById('description').value='';
-    assigned =[];
-    document.getElementById('date').value='';
-    document.getElementById('category').value='';
-    document.getElementById('urgency').value='';
+function clearFormular() {
+    document.getElementById('images').innerHTML = '';
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+    assigned = [];
+    document.getElementById('date').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('urgency').value = '';
 
 }
 
