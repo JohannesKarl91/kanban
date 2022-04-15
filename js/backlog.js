@@ -120,7 +120,7 @@ function renderBacklogCardTemplate(i) {
 
 
 /**
- * Delete backlog item in beacklog array via the trash button
+ * Delete backlog item in beacklog array via the trash button.
  */
 function deleteBacklogItem(i) {
     backlog.splice(i, 1);
@@ -128,7 +128,10 @@ function deleteBacklogItem(i) {
 
 }
 
-
+/**
+ * Add backlog item into board array via the send button.
+ * @param {*} index 
+ */
 function addBacklogItem(index){
     let array = backlog[index];
     board.push(array);
@@ -139,7 +142,7 @@ function addBacklogItem(index){
 
 /**
  * 
- * @returns Empty value for Id: 'backlogContentTaskAsElement'
+ * @returns Empty value for Id: 'backlogContentTaskAsElement'.
  */
 function cleanBacklogContentRow() {
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
