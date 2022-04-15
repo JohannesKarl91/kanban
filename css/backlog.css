@@ -1,32 +1,32 @@
-.backlog{
+.backlog {
     width: 84vw;
     margin-left: 8px;
 }
 
-.backlogHeader{
+.backlogHeader {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
     margin-bottom: 24px;
 }
 
-.backlogHeaderText{
+.backlogHeaderText {
     font-size: 32px;
     font-weight: bold;
     margin-top: 24px;
 }
 
-.backlogContent{
+.backlogContent {
     margin-left: 16px;
     width: 80vw;
 }
 
-.backlogContentHeader{
+.backlogContentHeader {
     display: flex;
     justify-content: space-between;
 }
 
-.backlogContentHeaderElementTitle{
+.backlogContentHeaderElementTitle {
     display: flex;
     justify-content: flex-start;
     color: rgb(93, 156, 112);
@@ -36,11 +36,11 @@
     min-width: 40%;
 }
 
-.backlogMeta{
+.backlogMeta {
     display: flex;
 }
 
-.backlogContentHeaderElement{
+.backlogContentHeaderElement {
     display: flex;
     justify-content: flex-start;
     color: rgb(93, 156, 112);
@@ -50,7 +50,7 @@
     min-width: 20%;
 }
 
-.backlogContentHeaderElementContainer{
+.backlogContentHeaderElementContainer {
     display: flex;
     justify-content: flex-start;
     color: rgb(93, 156, 112);
@@ -60,12 +60,12 @@
     min-width: 15%;
 }
 
-.backlogContentTaskAsElement{
+.backlogContentTaskAsElement {
     width: 30vw;
     height: 100%;
 }
 
-.backlogElementField{
+.backlogElementField {
     display: flex;
     align-items: center;
     min-height: 10vh;
@@ -76,7 +76,7 @@
     border-radius: 25px;
 }
 
-.backlogElementTitleDescription{
+.backlogElementTitleDescription {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -85,18 +85,19 @@
     font-weight: bold;
     margin-left: 8px;
     min-width: 40%;
+    max-width: 40%;
 }
 
-.titleElement{
+.titleElement {
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.descriptionElement{
+.descriptionElement {
     font-size: 12px;
 }
 
-.backlogElement{
+.backlogElement {
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -106,7 +107,7 @@
     min-width: 20.5%;
 }
 
-.backlogElementContainer{
+.backlogElementContainer {
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -116,36 +117,100 @@
     min-width: 12%;
 }
 
-.backlogElementBtn{
+.backlogElementBtn {
     margin-left: 4px;
     margin-right: 4px;
     width: 30px;
     height: 30px;
-    
+
 }
 
-.backlogElementBtn:hover{
-cursor: pointer;
+.backlogElementBtn:hover {
+    cursor: pointer;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
-.border-left-High{
+.border-left-High {
     border-left-style: solid;
     border-left-color: rgb(222, 78, 78);
     border-left-width: 10px;
 }
 
-.border-left-Middle{
+.border-left-Middle {
     border-left-style: solid;
     border-left-color: rgb(237, 158, 0);
     border-left-width: 10px;
 }
 
-.border-left-Low{
+.border-left-Low {
     border-left-style: solid;
     border-left-color: rgb(83, 118, 201);
     border-left-width: 10px;
+}
+
+.emptyArray {
+    margin-left: 16px;
+}
+
+/*Responsive props for backlog*/
+@media (max-width: 768px) {
+    .backlog {
+        margin-left: 0px !important;
+        width: 100vw !important;
+    }
+
+    .backlogHeader {
+        margin-right: 8px;
+        margin-left: 8px !important;
+        margin-bottom: 16px !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .backlogHeaderText {
+        font-size: 24px !important;
+        margin-top: 16px !important;
+    }
+
+    .backlogHeaderSubtext {
+        font-size: 13px;
+    }
+
+    .backlogContentHeader {
+        display: none !important;
+    }
+
+    .backlogContent {
+        margin-left: 8px !important;
+        margin-right: 8px;
+        width: 95vw !important;
+    }
+
+    .backlogElementField {
+        display: block !important;
+        padding-top: 6px;
+        padding-right: 6px;
+        padding-left: 6px;
+        padding-bottom: 8px;
+        width: 95vw !important;
+    }
+
+    .backlogElement {
+        min-width: 95% !important;
+        margin-bottom: 6px;
+        margin-left: 0 !important;
+    }
+
+    .backlogElementTitleDescription {
+        min-width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .backlogContentTaskAsElement{
+        width: 0 !important;
+    }
 }
