@@ -12,7 +12,7 @@ function renderTaskstoBoard(){
                 boardcolum.innerHTML+=generateHTML(i);
             
         }
-
+    }
     }
 }
 
