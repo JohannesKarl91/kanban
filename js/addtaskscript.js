@@ -1,4 +1,6 @@
 let assigned=[];
+let today= new Date();
+let todayfix = today.toISOString().slice(0, 10);
 
 async function initTasks() {
     await initUsers();}
@@ -7,7 +9,7 @@ async function initTasks() {
 function CreateTask(event){
     event.preventDefault(); 
     let title = document.getElementById('title');
-    let date = validatedate('');
+    let date =  document.getElementById('date');
     let category = document.getElementById('category');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency')
@@ -19,7 +21,8 @@ function CreateTask(event){
         'description': description.value,
         'urgency': urgency.value,
         'date': date.value,
-        'assigned':assigned
+        'assigned':assigned,
+        'status':'',
     };
 
     addTask(task);
@@ -29,7 +32,7 @@ function CreateTask(event){
 function addTask(task){
 
     allTasks.push(task);
-    // backend.setItem('tasks', JSON.stringify(allTasks));   
+    backend.setItem('tasks', JSON.stringify(allTasks));   
     clearFormular(); 
 }
 
@@ -51,18 +54,6 @@ assigned.push(infos);
 document.getElementById('images').innerHTML += `<div><img id="picture" class="assigned_img" src="${picture}"></img>`;
 }}
 
-function validatedate(){
-    let date= document.getElementById('date').value;
-    let todayinms = Date.now();
-    let dateinms = Date.parse(date);
-
-    if (todayinms>dateinms){
-        alert('Das eingegebene Datum liegt in der Vergangenheit')
-    }
-    else{
-        return date
-    }
-}
 
 function clearFormular(){
     document.getElementById('images').innerHTML ='';
@@ -73,7 +64,9 @@ function clearFormular(){
     document.getElementById('category').value='';
     document.getElementById('urgency').value='';
 
+}
 
-
-
+function duedate() {
+    let Date = document.getElementById('date');;
+    Date.min = todayfix;
 }
