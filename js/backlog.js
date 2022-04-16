@@ -52,11 +52,17 @@ let addTaskArray = [
     }];
 
 
+ async function initBacklog() {
+ await initUsers();
+ // loadAllTasks();
+ renderBacklogItems();
+}
+
+
 /**
  * Renders the backlog list initially.
  */
 function renderBacklogItems() {
-    // loadAllTasks();
     checkEmptyArray();
     console.log(backlog);
     cleanBacklogContentRow();
@@ -70,8 +76,8 @@ function renderBacklogItems() {
 /**
  * Loads all tasks from the backend in list 'tasks'.
  */
-// function loadAllTasks(){
-//     let tasks = backend.getItem('tasks');
+// async function loadAllTasks(){
+//     let tasks = await backend.getItem('tasks');
 //     let backlogText = JSON.parse(tasks);
 //     backlog.push(backlogText);
 //     console.log(backlog); 
@@ -132,7 +138,7 @@ function deleteBacklogItem(i) {
  * Add backlog item into board array via the send button.
  * @param {*} index 
  */
-function addBacklogItem(index){
+function addBacklogItem(index) {
     let array = backlog[index];
     board.push(array);
     console.log('Board Array includes', board);

@@ -110,6 +110,14 @@ ul {
     cursor: pointer;
 }
 
+.d-bold{
+    font-weight: bold;
+}
+
+.d-border{
+    border-left: 4px solid white;
+}
+
 
 /*Responsive header part*/
 @media (max-width: 768px) {
