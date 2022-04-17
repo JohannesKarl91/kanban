@@ -39,16 +39,28 @@ function renderTaskstoBoard(){
             const task = testtask[i];
             if (task.status==progress){
                 boardcolum.innerHTML+=generateHTML(i);
+                colors(i);
             
         }
     }
     }
 }
-
+function colors(i){
+    let color =testtask[i].urgency
+    if (color== 'High'){
+        document.getElementById('header'+i).style='background-color: #d72700'
+    }
+    if (color== 'Middle'){
+        document.getElementById('header'+i).style='background-color: #ed9e00'
+    }
+    if (color== 'Low'){
+        document.getElementById('header'+i).style='background-color: #4caf50'
+    }
+}
 
 function generateHTML(i){
     return` <div draggable="true" ondragstart="startDragging(${i})" class="task-card">
-    <div class="task-header">
+    <div id='header${i}' style="background-color: black" class="task-header">
         <div class="task-title">
             <h4>${testtask[i].title}</h4>
         </div>
