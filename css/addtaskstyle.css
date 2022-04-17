@@ -26,6 +26,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Hide Calendar Icon In Chrome 
 input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }*/
 
+
+
 .send {
     display: flex;
     justify-content: space-around;
