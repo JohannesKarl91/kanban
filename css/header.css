@@ -18,7 +18,7 @@
 }
 
 .header-include{
-    margin-right: 130px;
+    margin-right: 150px;
 }
 
 .headerTop {
@@ -137,6 +137,10 @@ ul {
         z-index: 3;
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
+    }
+
+    .header-include{
+        margin-right: 0;
     }
 
     .mobileMenu {

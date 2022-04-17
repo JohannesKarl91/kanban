@@ -77,7 +77,7 @@ function renderBacklogItems() {
  * Loads all tasks from the backend in list 'tasks'.
  */
 // async function loadAllTasks(){
-//     let tasks = await backend.getItem('tasks');
+//     let tasks = await backend.getItem('allTasks');
 //     let backlogText = JSON.parse(tasks);
 //     backlog.push(backlogText);
 //     console.log(backlog); 
