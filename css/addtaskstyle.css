@@ -111,11 +111,17 @@ textarea {
     width: 300px;
 }
 
+.space{
+    position: absolute;
+    top:0;
+    left: 150px;
+}
+
 /* .relative {
     position: relative;
-} */
+}
 
-/* .absolute {
+.absolute {
     position: absolute;
     right: 5px;
     top: 20px;
@@ -185,6 +191,11 @@ textarea {
     form {
         min-width: 300px;
     }
+
+    .space{
+        margin-left: 50px;
+        margin-top: 100px;
+    }
 }
 
 @media(max-width:800px) {
@@ -210,7 +221,10 @@ textarea {
 }
 
 @media(max-width:500px) {
-
+    .space{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 
     form {
         padding: 5;
