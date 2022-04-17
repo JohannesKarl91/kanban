@@ -33,7 +33,8 @@ function renderTaskstoBoard(){
 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
-        let boardcolum= document.getElementById(progress).innerHTML='';
+        let boardcolum= document.getElementById(progress);
+        boardcolum.innerHTML='';
         for (let i=0; i<testtask.length; i++){
             const task = testtask[i];
             if (task.status==progress){
@@ -82,4 +83,9 @@ function allowDrop(ev){
 
 function startDragging(index){
     currentDraggedElement=index;
+}
+
+function moveto(newstatus){
+    testtask[currentDraggedElement].status=newstatus;
+    renderTaskstoBoard();
 }
