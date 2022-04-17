@@ -6,16 +6,16 @@
             <span href="#" class="mobileMenu" id="mobileMenu-btn" onclick="openMobileMenu()">☰</span>
         </div>
         <ul id="navbar" class="navbar">
-            <li id="navbarLine0" class="navbarListitem"><a id="navbarAnchor0" class="navbarLink" onclick="renderContent('kanban'), highlightNavbarItem('navbarAnchor0', 'navbarLine0')">Board</a></li>
-            <li id="navbarLine1" class="navbarListitem"><a id="navbarAnchor1" class="navbarLink" onclick="renderContent('backlog'), highlightNavbarItem('navbarAnchor1', 'navbarLine1')">Backlog</a></li>
-            <li id="navbarLine2" class="navbarListitem"><a id="navbarAnchor2" class="navbarLink" onclick="renderContent('addtask') , highlightNavbarItem('navbarAnchor2', 'navbarLine2')">Add Task</a></li>
-            <li id="navbarLine3" class="navbarListitem"><a id="navbarAnchor3" class="navbarLink" onclick="renderContent('help'), highlightNavbarItem('navbarAnchor3', 'navbarLine3')">Help</a></li>
+            <li id="navbarLine0" class="navbarListitem"><a href="./board.html" id="navbarAnchor0" class="navbarLink" onclick="highlightNavbarItem('navbarAnchor0', 'navbarLine0')">Board</a></li>
+            <li id="navbarLine1" class="navbarListitem"><a href="./backlog.html" id="navbarAnchor1" class="navbarLink" onclick="highlightNavbarItem('navbarAnchor1', 'navbarLine1')">Backlog</a></li>
+            <li id="navbarLine2" class="navbarListitem"><a href="./addtask.html" id="navbarAnchor2" class="navbarLink" onclick="highlightNavbarItem('navbarAnchor2', 'navbarLine2')">Add Task</a></li>
+            <li id="navbarLine3" class="navbarListitem"><a href="./help.html" id="navbarAnchor3" class="navbarLink" onclick="highlightNavbarItem('navbarAnchor3', 'navbarLine3')">Help</a></li>
         </ul>
         <ul id="navbarResponsive" class="navbar" style="display: none;">
-            <li id="navbarLine4" class="navbarListitem"><a id="navbarAnchor4" class="navbarLink" onclick="renderContent('kanban'), highlightNavbarItem('navbarAnchor4', 'navbarLine4')">Board</a></li>
-            <li id="navbarLine5" class="navbarListitem"><a id="navbarAnchor5" class="navbarLink" onclick="renderContent('backlog'), highlightNavbarItem('navbarAnchor5', 'navbarLine5')">Backlog</a></li>
-            <li id="navbarLine6" class="navbarListitem"><a id="navbarAnchor6" class="navbarLink" onclick="renderContent('addtask'), highlightNavbarItem('navbarAnchor6', 'navbarLine6')">Add Task</a></li>
-            <li id="navbarLine7" class="navbarListitem"><a id="navbarAnchor7" class="navbarLink" onclick="renderContent('help'), highlightNavbarItem('navbarAnchor7', 'navbarLine7')">Help</a></li>
+            <li id="navbarLine4" class="navbarListitem"><a href="./board.html" id="navbarAnchor4" class="navbarLink" onclick="renderContent('kanban'), highlightNavbarItem('navbarAnchor4', 'navbarLine4')">Board</a></li>
+            <li id="navbarLine5" class="navbarListitem"><a href="./backlog.html" id="navbarAnchor5" class="navbarLink" onclick="renderContent('backlog'), highlightNavbarItem('navbarAnchor5', 'navbarLine5')">Backlog</a></li>
+            <li id="navbarLine6" class="navbarListitem"><a href="./addtask.html" id="navbarAnchor6" class="navbarLink" onclick="renderContent('addtask'), highlightNavbarItem('navbarAnchor6', 'navbarLine6')">Add Task</a></li>
+            <li id="navbarLine7" class="navbarListitem"><a href="./help.html" id="navbarAnchor7" class="navbarLink" onclick="renderContent('help'), highlightNavbarItem('navbarAnchor7', 'navbarLine7')">Help</a></li>
             <li id="navbarLine8" class="navbarListitem"><a id="navbarAnchor8" class="navbarLink" onclick="openModal('legal-modal-dataprotection'), highlightNavbarItem('navbarAnchor8', 'navbarLine8')">Datenschutz</a></li>
             <li id="navbarLine9" class="navbarListitem"><a id="navbarAnchor9" class="navbarLink" onclick="openModal('legal-modal-imprint'), highlightNavbarItem('navbarAnchor9', 'navbarLine9')">Impressum</a></li>
         </ul>

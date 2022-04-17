@@ -55,6 +55,7 @@ let addTaskArray = [
  async function initBacklog() {
  await initUsers();
  // loadAllTasks();
+ includeHTML();
  renderBacklogItems();
 }
 
@@ -69,7 +70,6 @@ function renderBacklogItems() {
     for (let i = 0; i < backlog.length; i++) {
         renderBacklogCardTemplate(i);
     }
-    //updateBoardArrayToBackend();
 }
 
 

@@ -5,17 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- import favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- import local fonts and main style -->
     <link rel="stylesheet" href="./css/fonts/fonts.css">
-    <link rel="stylesheet" href="./css/addtaskstyle.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header.css">
-    <script src="js/mini_backend.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/addtaskscript.js"></script>
+    <link rel="stylesheet" href="./css/backlog.css">
+    <link rel="stylesheet" href="./css/addtaskstyle.css">
+
+    <!-- import mini backend and script.js -->
+    <script src="./js/mini_backend.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/addtaskscript.js"></script>
+    <script src="./js/boardscript.js"></script>
+    <script src="./js/backlog.js"></script>
 
     <title>Add Task</title>
 </head>
 
 <body onload="initTasks()"> 
+    <div w3-include-html="header.html"></div>
     <div class="space">
         <div class="top">
             <h1>Add Task</h1>
