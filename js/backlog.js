@@ -52,11 +52,13 @@ let addTaskArray = [
     }];
 
 
- async function initBacklog() {
- await initUsers();
- // loadAllTasks();
- includeHTML();
- renderBacklogItems();
+async function initBacklog() {
+    await initUsers();
+    // loadAllTasks();
+    includeHTML();
+    navHighlightDesktop('navbarAnchor1', 'navbarLine1');
+    navHighlightMobile('navbarAnchor5', 'navbarLine5');
+    renderBacklogItems();
 }
 
 
