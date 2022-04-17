@@ -68,7 +68,6 @@ function renderBacklogItems() {
     cleanBacklogContentRow();
     for (let i = 0; i < backlog.length; i++) {
         renderBacklogCardTemplate(i);
-        console.log('ich bin das Backlog');
     }
 }
 
