@@ -118,7 +118,7 @@ textarea {
     width: 300px;
 }
 
- .relative {
+.relative {
     position: relative;
 } 
 
@@ -126,7 +126,7 @@ textarea {
     position: absolute;
     right: 5px;
     top: 20px;
-} */
+}
 
 .show {
     display: flex !important;
