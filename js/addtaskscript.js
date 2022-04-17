@@ -24,7 +24,8 @@ function CreateTask(event) {
         'urgency': urgency.value,
         'date': date.value,
         'assigned': assigned,
-        'status': '',
+        'location': 'backlog',
+        'status': 'todo',
     };
 
     addTask(task);

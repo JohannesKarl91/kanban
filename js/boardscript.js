@@ -31,10 +31,9 @@ let testtask = [
 function renderTaskstoBoard(){
     let progresses= ['todo','inprogress','testing','done']
 
-    // 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
-        let boardcolum = document.getElementById(progress);
+        let boardcolum= document.getElementById(progress);
         boardcolum.innerHTML='';
         for (let i=0; i<testtask.length; i++){
             const task = testtask[i];
@@ -84,4 +83,9 @@ function allowDrop(ev){
 
 function startDragging(index){
     currentDraggedElement=index;
+}
+
+function moveto(newstatus){
+    testtask[currentDraggedElement].status=newstatus;
+    renderTaskstoBoard();
 }

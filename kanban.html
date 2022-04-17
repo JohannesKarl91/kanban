@@ -27,7 +27,7 @@
     <div class="board">
         <div class="boardSection">
             <div class="boardSectionHeader">TO DO</div>
-            <div class="boardSectionField" id="todo" ondragover="allowDrop(event)">
+            <div class="boardSectionField" id="todo" ondrop="moveto('todo')" ondragover="allowDrop(event)">
                 <div class="task-card">
                     <div class="task-header">
                         <div class="task-title">
@@ -92,7 +92,7 @@
 
         <div class="boardSection">
             <div class="boardSectionHeader">IN PROGRESS</div>
-            <div class="boardSectionField" id="inprogress" ondragover="allowDrop(event)">
+            <div class="boardSectionField" id="inprogress" ondrop="moveto('inprogress')" ondragover="allowDrop(event)">
 
                 <div class="task-card">
                     <div class="task-header" style="background-color: #4caf50;">
@@ -130,12 +130,12 @@
 
         <div class="boardSection">
             <div class="boardSectionHeader">TESTING</div>
-            <div class="boardSectionField" id="testing" ondragover="allowDrop(event)"></div>
+            <div class="boardSectionField" id="testing" ondrop="moveto('testing')" ondragover="allowDrop(event)"></div>
         </div>
 
         <div class="boardSection">
             <div class="boardSectionHeader">DONE</div>
-            <div class="boardSectionField" id="done" ondragover="allowDrop(event)">
+            <div class="boardSectionField" id="done" ondrop="moveto('done')" ondragover="allowDrop(event)">
 
                 <div class="task-card">
                     <div class="task-header" style="background-color: #ed9e00;">
