@@ -55,6 +55,7 @@ let addTaskArray = [
  async function initBacklog() {
  await initUsers();
  // loadAllTasks();
+ includeHTML();
  renderBacklogItems();
 }
 

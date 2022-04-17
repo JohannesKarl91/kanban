@@ -20,20 +20,6 @@ function closeMobileMenu() {
 
 
 /**
- * Function to render content on right side.
- * 
- * @param {string} nav 
- */
-function renderContent(navContent) {
-  document.getElementById('innercontent').innerHTML = `
-  <div w3-include-html="${navContent}.html"></div>
-  `;
-  includeHTML();
-  initBacklog();
-}
-
-
-/**
  * Highlight the chosen header / navbar item.
  * @param {string} anchor 
  * @param {string} line 

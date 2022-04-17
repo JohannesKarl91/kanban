@@ -13,11 +13,11 @@ body {
 }
 
 .board {
-    position: absolute;
     display: flex;
     align-items: flex-start;
-    width: 100%;
     flex-wrap: wrap;
+    width: 100%;
+    margin-top: 24px;
 }
 
 .boardSection {
@@ -175,7 +175,7 @@ body {
     .board {
         flex-wrap: wrap;
         padding-bottom: 16px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     .boardSection {

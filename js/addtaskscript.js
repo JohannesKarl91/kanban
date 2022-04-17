@@ -4,6 +4,7 @@ let todayfix = today.toISOString().slice(0, 10);
 
 async function initTasks() {
     await initUsers();
+    includeHTML();
 }
 
 
