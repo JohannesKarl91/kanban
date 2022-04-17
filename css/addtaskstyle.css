@@ -34,13 +34,6 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
     margin-top: 5px;
 }
 
-.space{
-    position: absolute;
-    top:0;
-    left: 150px;
-}
-
-
 button {
     width: 70px;
     padding: 5px;
@@ -114,19 +107,23 @@ center {
     flex-direction: column;
 }
 
+.dropdown{
+    width: 250px;
+}
+
+
 textarea {
     width: 300px;
 }
 
-.relative {
+/* .relative {
     position: relative;
 } 
-
 .absolute {
     position: absolute;
     right: 5px;
     top: 20px;
-}
+}  */
 
 .show {
     display: flex !important;
@@ -164,6 +161,7 @@ textarea {
     margin-top: 10px;
     display: none;
     position: absolute;
+    top:48%;
     background-color: #F4F3FB;
     min-width: 150px;
     overflow: auto;
@@ -174,6 +172,12 @@ textarea {
     border-radius: 5px;
     padding: 10px;
     min-height: 70px;
+}
+
+
+.dropdown{
+    display: flex;
+    justify-content: flex-end;
 }
 
 
@@ -190,11 +194,6 @@ textarea {
 @media(max-width:1000px) {
     form {
         min-width: 300px;
-    }
-
-    .space{
-        margin-left: 50px;
-        margin-top: 100px;
     }
 }
 
@@ -221,10 +220,7 @@ textarea {
 }
 
 @media(max-width:500px) {
-    .space{
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+
 
     form {
         padding: 5;
