@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: 'PT Sans';
@@ -6,6 +6,7 @@ body{
     font-weight: 400;
     box-sizing: unset !important;
 }
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
@@ -19,10 +20,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 25px;
     border-width: thin;
     cursor: pointer;
-    
+
 }
+
 /* Hide Calendar Icon In Chrome 
-input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }*/ 
+input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }*/
 
 
 
@@ -32,13 +34,13 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
     margin-top: 5px;
 }
 
-button{
+button {
     width: 70px;
     padding: 5px;
 }
 
 
-form{
+form {
     min-width: 550px;
     display: flex;
     justify-content: center;
@@ -55,7 +57,7 @@ form{
     justify-content: space-between;
 }
 
-.center{
+.center {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,11 +65,12 @@ form{
     text-align: center !important;
 }
 
-label{
+label {
     font-size: larger;
     font-weight: 600;
 }
-form input{
+
+form input {
     margin-right: 10px;
     font-size: 1rem;
     margin-top: 15px;
@@ -76,21 +79,21 @@ form input{
     width: 300px;
 }
 
-select{
+select {
     height: 55px;
     width: 300px;
     padding: 10px;
     margin-right: 5px;
-    
+
 }
 
-center{
+center {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.row{
+.row {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -98,12 +101,12 @@ center{
     padding-left: 0;
 }
 
-.input{
+.input {
     display: flex;
     flex-direction: column;
 }
 
-textarea{
+textarea {
     width: 300px;
 }
 
@@ -111,7 +114,7 @@ textarea{
     position: relative;
 }
 
-.absolute{
+.absolute {
     position: absolute;
     right: 5px;
     top: 20px;
@@ -121,7 +124,7 @@ textarea{
     display: flex !important;
 }
 
-.assigned_button{
+.assigned_button {
     background-image: url(iconplus.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -135,10 +138,10 @@ textarea{
     height: 50px;
     width: 50px;
     background-color: #d8d8d8;
-    margin-left: 5px; 
+    margin-left: 5px;
 }
 
-.assigned_img{
+.assigned_img {
     height: 50px;
     width: 50px;
     object-fit: cover;
@@ -177,43 +180,46 @@ textarea {
 
 }
 
-@media(max-width:1000px){
-    form{
+@media(max-width:1000px) {
+    form {
         min-width: 300px;
     }
 }
 
-@media(max-width:800px){
-    .row{
+@media(max-width:800px) {
+    .row {
         display: flex;
         flex-direction: column;
         padding: 0;
     }
 
-    .form input, select, textarea{
+    .form input, select, textarea {
         margin-top: 0;
         margin-bottom: 10px;
     }
 
-    .top{
+    .top {
         text-align: center;
     }
 
     .dropdown-content {
         left: 0%;
         margin-top: 0;
+    }
 }
 
-@media(max-width:500px){
+@media(max-width:500px) {
 
-    
-    form{
+
+    form {
         padding: 5;
     }
 
 
-    .inside{
+    .inside {
         display: flex;
         align-content: center;
-    }     
+    }
+
+
 }

@@ -5,6 +5,8 @@ let todayfix = today.toISOString().slice(0, 10);
 async function initTasks() {
     await initUsers();
     includeHTML();
+    navHighlightDesktop('navbarAnchor2', 'navbarLine2');
+    navHighlightMobile('navbarAnchor6', 'navbarLine6');
 }
 
 

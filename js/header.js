@@ -1,3 +1,6 @@
+let saveNavAnchor =""; //Save navpoints
+let saveNavLine =""; //Save navpoints
+
 /**
  * Opens header as responsive version.
  * @returns no return
@@ -25,22 +28,8 @@ function closeMobileMenu() {
  * @param {string} line 
  */
 function highlightNavbarItem(anchor, line) {
-  removeHighlightNavbarItem();
-  let highlightedAnchor = document.getElementById(`${anchor}`);
-  let highlightedLine = document.getElementById(`${line}`);
+  let highlightedAnchor = document.getElementById(anchor);
+  let highlightedLine = document.getElementById(line);
   highlightedAnchor.classList.add('d-bold');
   highlightedLine.classList.add('d-border');
-}
-
-
-/**
- * Removes all highlighted navbar items with class "d-bold" and "d-border".
- */
-function removeHighlightNavbarItem() {
-  for (i = 0; i < 12; i++) {
-    let highlightedAnchor = document.getElementById(`navbarAnchor${i}`);
-    highlightedAnchor.classList.remove('d-bold');
-    let highlightedLine = document.getElementById(`navbarLine${i}`);
-    highlightedLine.classList.remove('d-border');
-  }
 }

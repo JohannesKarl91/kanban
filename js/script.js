@@ -16,6 +16,8 @@ async function initBoard() {
 
     if (session != null && email.length > 0 ){
         includeHTML();
+        navHighlightDesktop('navbarAnchor0', 'navbarLine0');
+        navHighlightMobile('navbarAnchor4', 'navbarLine4');
         let awaitrenderProfileImg = setInterval(() => {
             if(imgIncluded()){
                 renderProfileImg(email);
@@ -28,6 +30,35 @@ async function initBoard() {
 }
 
 
+async function initHelp() {
+    await initUsers();
+    includeHTML();
+    navHighlightDesktop('navbarAnchor3', 'navbarLine3');
+    navHighlightMobile('navbarAnchor7', 'navbarLine7');
+}
+
+
+
+function navHighlightDesktop(navbarAnchor, navbarLine){
+    let awaitHeaderDesktop = setInterval(() => {
+        if(headerIncludedDesktop()){
+            highlightNavbarItem(navbarAnchor, navbarLine);
+            clearInterval(awaitHeaderDesktop);
+        }
+    },20);
+}
+
+
+function navHighlightMobile(navbarAnchor, navbarLine){
+    let awaitHeaderMobile = setInterval(() => {
+        if(headerIncludedMobile()){
+            highlightNavbarItem(navbarAnchor, navbarLine);
+            clearInterval(awaitHeaderMobile);
+        }
+    },20);
+}
+
+
 /**
  * Check whether the headerProfile exists
  * 
@@ -37,6 +68,15 @@ function imgIncluded() {
     return document.getElementById('headerProfile');
 }
 
+
+function headerIncludedDesktop(){
+    return document.getElementById('navbar');
+}
+
+
+function headerIncludedMobile(){
+    return document.getElementById('navbarResponsive');
+}
 
 /**
  * Function changes the image for the current user
@@ -192,7 +232,7 @@ function checkSession() {
 }
 
 
-function includeHTML() {
+function includeHTML(navbarAnchor, navbarLine) {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */
     z = document.getElementsByTagName("*");
@@ -214,6 +254,7 @@ function includeHTML() {
             }
             xhttp.open("GET", file, true);
             xhttp.send();
+           
             /* Exit the function: */
             return;
         }
