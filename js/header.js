@@ -29,6 +29,7 @@ function renderContent(navContent) {
   <div w3-include-html="${navContent}.html"></div>
   `;
   includeHTML();
+  initBacklog();
 }
 
 
