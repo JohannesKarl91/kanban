@@ -34,6 +34,13 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
     margin-top: 5px;
 }
 
+.space{
+    position: absolute;
+    top:0;
+    left: 150px;
+}
+
+
 button {
     width: 70px;
     padding: 5px;
@@ -111,15 +118,9 @@ textarea {
     width: 300px;
 }
 
-.space{
-    position: absolute;
-    top:0;
-    left: 150px;
-}
-
-/* .relative {
+ .relative {
     position: relative;
-}
+} 
 
 .absolute {
     position: absolute;
@@ -163,7 +164,6 @@ textarea {
     margin-top: 10px;
     display: none;
     position: absolute;
-    left: 58%;
     background-color: #F4F3FB;
     min-width: 150px;
     overflow: auto;
