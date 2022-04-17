@@ -31,14 +31,9 @@ let testtask = [
 function renderTaskstoBoard(){
     let progresses= ['todo','inprogress','testing','done']
 
-    // 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
-<<<<<<< HEAD
         let boardcolum= document.getElementById(progress);
-=======
-        let boardcolum = document.getElementById(progress);
->>>>>>> fabafb3d66c96c7c533900e8a0fe1f14d2506e59
         boardcolum.innerHTML='';
         for (let i=0; i<testtask.length; i++){
             const task = testtask[i];
