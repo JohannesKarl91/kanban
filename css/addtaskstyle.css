@@ -26,11 +26,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Hide Calendar Icon In Chrome 
 input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }*/
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> cd2542d2714e526722fa793379a8d21a68e5ccaa
 .send {
     display: flex;
     justify-content: space-around;
@@ -51,6 +46,7 @@ form {
     background-color: rgba(93, 156, 112, 0.1);
     padding: 30px;
     margin-top: 50px;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
 }
 
 .inside {
@@ -113,15 +109,15 @@ textarea {
     width: 300px;
 }
 
-.relative {
+/* .relative {
     position: relative;
-}
+} */
 
-.absolute {
+/* .absolute {
     position: absolute;
     right: 5px;
     top: 20px;
-}
+} */
 
 .show {
     display: flex !important;

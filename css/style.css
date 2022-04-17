@@ -2,7 +2,10 @@ body {
     margin: 0;
     padding: 0px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 
 * {
     box-sizing: border-box;
@@ -13,6 +16,10 @@ body {
 
 
 /* Login */
+.login-body{
+    justify-content: center;
+}
+
 .login-container {
     height: 100vh;
     font-size: 18px;
