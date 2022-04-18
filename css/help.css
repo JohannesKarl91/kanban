@@ -1,50 +1,88 @@
-.helpBackground{
+.helpBackground {
     width: 75vw;
     margin-top: 24px;
     margin-left: 16px;
     margin-bottom: 24px;
-    
+
 }
 
-.helpSection{
+.helpSection {
     background-color: rgb(239, 245, 241);
-    min-height: 30vh;
+    min-height: 23vh;
     margin-bottom: 16px;
     border-radius: 15px;
     box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
 }
 
-.helpSectionHeader{
-   background-color: rgb(93, 156, 112);
-   font-size: 24px;
-   font-weight: bold;
-   padding: 8px;
-   border-top-left-radius: 15px;
-   border-top-right-radius: 15px;
-   box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+.helpSectionHeader {
+    background-color: rgb(93, 156, 112);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
 }
 
-.helpSectionText{
+.helpSectionText {
     padding: 8px;
 }
 
-.helpIcon{
+.helpIcon {
     height: 30px;
-    width: 75px;
+    width: 20px;
     padding-top: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 4px;
 }
 
-.helpLine{
+.helpLine {
     display: flex;
     align-items: center;
     font-size: 12px;
+    height: 30px;
 }
 
-.helpTextElement{
+.helpTextElement {
     font-size: 12px;
+    min-width: 80px;
     justify-content: flex-start !important;
+    align-items: flex-start;
     padding-top: 0 !important;
+}
+
+.helpLineText {
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+
+@media (max-width: 768px) {
+    .helpBackground {
+        margin-left: 0px !important;
+        width: 100vw !important;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .helpSection {
+        width: 90vw;
+    }
+
+    .helpLine {
+        margin-bottom: 15px;
+    }
+
+    .helpLineText {
+        margin-bottom: 4px;
+    }
+
+    .helpSectionText{
+        font-size: 12px;
+    }
 }
