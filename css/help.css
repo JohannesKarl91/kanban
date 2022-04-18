@@ -61,6 +61,10 @@
 
 
 @media (max-width: 768px) {
+    .backlogHeaderSubtext{
+        text-align: center;
+    }
+    
     .helpBackground {
         margin-left: 0px !important;
         width: 100vw !important;
