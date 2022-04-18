@@ -68,7 +68,7 @@ function clearFormular() {
     document.getElementById('date').value = '';
     document.getElementById('category').value = '';
     document.getElementById('urgency').value = '';
-    document.getElementById('myDropdown').innerHTML = '';
+    document.getElementById('images').innerHTML = '';
 
 }
 
