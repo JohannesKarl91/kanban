@@ -37,6 +37,7 @@ function CreateTask(event) {
 function addTask(task) {
 
     allTasks.push(task);
+    console.log(task);
     backend.setItem('tasks', JSON.stringify(allTasks));
     clearFormular();
 }

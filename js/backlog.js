@@ -24,7 +24,7 @@ let backlog = [{
 }];
 
 let board = [];
-
+let sortTasks = [];
 let addTaskArray = [
     {
         'title': 'Board mit Drag and Drop erstellen',
@@ -54,7 +54,7 @@ let addTaskArray = [
 
 async function initBacklog() {
     await initUsers();
-    // loadAllTasks();
+    await loadTasks();
     includeHTML();
     navHighlightDesktop('navbarAnchor1', 'navbarLine1');
     navHighlightMobile('navbarAnchor5', 'navbarLine5');
@@ -67,36 +67,9 @@ async function initBacklog() {
  */
 function renderBacklogItems() {
     checkEmptyArray();
-    console.log(backlog);
     cleanBacklogContentRow();
-    for (let i = 0; i < backlog.length; i++) {
+    for (let i = 0; i < sortTasks[0].length; i++) {
         renderBacklogCardTemplate(i);
-    }
-}
-
-
-/**
- * Loads all tasks from the backend in list 'tasks'.
- */
-// async function loadAllTasks(){
-//     let tasks = await backend.getItem('allTasks');
-//     let backlogText = JSON.parse(tasks);
-//     backlog.push(backlogText);
-//     console.log(backlog); 
-// }
-
-
-/**
- * Check backlog array whether it is empty. If backlog array is empty,
- *then backlog overview disapears and shows a text.
-*/
-function checkEmptyArray() {
-    let textByEmptyArray = document.getElementById('emptyArray');
-
-    if (backlog.length == 0) {
-        console.log('Array is empty!');
-        textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
-        document.getElementById('backlogContent').classList.add('d-none');
     }
 }
 
@@ -105,8 +78,8 @@ function checkEmptyArray() {
  * Renders the backlog template list.
  * @param {*} i 
  */
-function renderBacklogCardTemplate(i) {
-    let backlogItem = backlog[i];
+ function renderBacklogCardTemplate(i) {
+    let backlogItem = sortTasks[0][i];
     let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
@@ -124,6 +97,32 @@ function renderBacklogCardTemplate(i) {
     </div>
 `;
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
+}
+
+
+/**
+ * Loads all tasks from the backend in list 'tasks'.
+ */
+async function loadTasks() {
+    let tasks = await backend.getItem('tasks');
+    sortTasks.push(JSON.parse(tasks));
+    console.log('sortTask', sortTasks);
+
+}
+
+
+/**
+ * Check backlog array whether it is empty. If backlog array is empty,
+ *then backlog overview disapears and shows a text.
+*/
+function checkEmptyArray() {
+    let textByEmptyArray = document.getElementById('emptyArray');
+
+    if (backlog.length == 0) {
+        console.log('Array is empty!');
+        textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
+        document.getElementById('backlogContent').classList.add('d-none');
+    }
 }
 
 
