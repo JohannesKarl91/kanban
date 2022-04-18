@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/backlog.css">
+    <link rel="stylesheet" href="./css/help.css">
 
     <!-- import mini backend and script.js -->
     <script src="./js/mini_backend.js"></script>
@@ -28,6 +30,59 @@
 
 <body onload="initHelp()">
     <div w3-include-html="header.html" class="header-include"></div>
-    <h1>help</h1>
+    <div class="helpBackground">
+        <div class="backlogHeader">
+            <span class="backlogHeaderText">Help</span>
+            <span class="backlogHeaderSubtext">KANBAN ist ein aus Japan stammendes Tool zur Abbildung und Visualisierung eines 
+                Workflows bzw. Projekts, um die Projektabarbeitung für alle Teammitglieder zu vereinfachen.</span>
+        </div>
+        <div class="helpSection">
+            <div class="helpSectionHeader">Board</div>
+            <div class="helpSectionText">
+                Im Board-Bereich haben Sie die vier Spalten "TO DO", "IN PROGRESS", "TESTING" und "DONE",
+                in denen die Aufgaben als Desktop-Version per Drag-and-Drop direkt verschoben werden können.<br>
+                Darüber hinaus gibt es noch folgende Funktionen im BOARD-Bereich:<br>
+                <ul>
+                    <li class="helpLine"><img class="helpIcon" src="./img/delete.svg">: Löschen einzelnen Aufgabe.</li>
+                    <li class="helpLine"><img class="helpIcon" src="./img/trending.svg">: Verschieben der einzelnen Aufgabe in das nächste rechte Feld bzw. zurück in die Spalte "TO DO".</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="helpSection">
+            <div class="helpSectionHeader">Backlog</div>
+            <div class="helpSectionText">
+                Im Backlog-Bereich werden alle hinzugefügten Aufgaben aus dem "Add Task"-Bereich aufgelistet.<br>
+                Sobald alle hinzugefügten Aufgaben geladen und angezeigt werden, können die folgenden Funktionen aufgerufen werden.<br>
+                Darüber hinaus enthält die Auflistung nicht nur die Funktionen, sondern auch die Farbgebung nach der angegebenen Priorität:<br>
+                <ul>
+                    <li class="helpLine"><img class="helpIcon" src="./img/send.svg">: Verschieben der einzelnen Aufgabe in das KANBAN-Board.</li>
+                    <li class="helpLine"><img class="helpIcon" src="./img/trending.svg">: Verschieben der einzelnen Aufgabe in das nächste rechte Feld bzw. zurück in die Spalte "TO DO".</li>
+                    <li class="helpLine"><div class="helpIcon"><div style="width: 12px; height: 24px; background-color: rgb(222, 78, 78);"></div></div>: Hohe Priorität einer Aufgabe.</li>
+                    <li class="helpLine"><div class="helpIcon"><div style="width: 12px; height: 24px; background-color: rgb(237, 158, 0);"></div></div>: Mittlere Priorität einer Aufgabe.</li>
+                    <li class="helpLine"><div class="helpIcon"><div style="width: 12px; height: 24px; background-color: rgb(83, 118, 201);"></div></div>: Niedrige Priorität einer Aufgabe.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="helpSection">
+            <div class="helpSectionHeader">Add Task</div>
+            <div class="helpSectionText">
+                Im Add Task-Bereich können beliebige Aufgaben hinzugefügt werden, um diese im Board-Bereich später anzeigen zu lassen.<br>
+                Um eine Aufgabe hinzufügen zu können, müssen die folgenden Felder ausgefüllt werden:<br>
+                 
+                <ul>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">TITLE</div>: Eingabe des Aufgabentitels.</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">DUE TO</div>: Eingabe des Erledigungsdatums.</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">CATEGORY</div>: Eingabe einer der folgenden Kategorien: Marketing, Sales oder IT.</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">URGENCY</div>: Eingabe einer der drei Prioritäten: High, Middle oder Low.</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">DESCRIPTION</div>: In der Beschreibung können zusätzliche Informationen beigefügt werden.(z.B. Userstory, Epic, Dauer & Bedingung)</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">ASSIGNED TO</div>: Im ASSIGNED TO-Bereich kann über den Plus-Button einer der vier Teammitglieder als Verantwortliche/r bestimmt werden.</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">Create-Button</div>: Über den Create-Button kann die einzelne Aufgabe im Backlog gespeichert werden (Voraussetzung: Muss-Felder sind ausgefüllt).</li>
+                    <li class="helpLine"><div class="helpIcon helpTextElement">Cancel-Button</div>: Mit dem Cancel-Button wird die Eingabe der einzelnen Aufgaben abgebrochen und anschließend neu geladen.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </html>

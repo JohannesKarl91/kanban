@@ -1,0 +1,50 @@
+.helpBackground{
+    width: 75vw;
+    margin-top: 24px;
+    margin-left: 16px;
+    margin-bottom: 24px;
+    
+}
+
+.helpSection{
+    background-color: rgb(239, 245, 241);
+    min-height: 30vh;
+    margin-bottom: 16px;
+    border-radius: 15px;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+}
+
+.helpSectionHeader{
+   background-color: rgb(93, 156, 112);
+   font-size: 24px;
+   font-weight: bold;
+   padding: 8px;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+}
+
+.helpSectionText{
+    padding: 8px;
+}
+
+.helpIcon{
+    height: 30px;
+    width: 75px;
+    padding-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.helpLine{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.helpTextElement{
+    font-size: 12px;
+    justify-content: flex-start !important;
+    padding-top: 0 !important;
+}
