@@ -1,5 +1,5 @@
+let backlogCounter = 0;
 let sortTasks = [];
-
 let board = [];
 let addTaskArray = [
     {
@@ -55,8 +55,14 @@ function renderBacklogItems() {
     checkEmptyArray();
     cleanBacklogContentRow();
     for (let i = 0; i < sortTasks[0].length; i++) {
-        renderBacklogCardTemplate(i);
+        console.log(sortTasks[0][i]['location']);
+        if (sortTasks[0][i]['location'] == 'backlog') {
+            renderBacklogCardTemplate(i);
+            backlogCounter = backlogCounter + 1;
+        }
     }
+    checkEmptyArray(backlogCounter);
+    backlogCounter = 0;
 }
 
 
@@ -140,10 +146,10 @@ function checkImgRebecca(j, id) {
  * Check backlog array whether it is empty. If backlog array is empty,
  *then backlog overview disapears and shows a text.
 */
-function checkEmptyArray() {
+function checkEmptyArray(backlogConter) {
     let textByEmptyArray = document.getElementById('emptyArray');
 
-    if (sortTasks.length == 0) {
+    if (backlogConter == 0) {
         console.log('Array is empty!');
         textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
         document.getElementById('backlogContent').classList.add('d-none');
@@ -155,7 +161,7 @@ function checkEmptyArray() {
  * Delete backlog item in beacklog array via the trash button.
  */
 function deleteBacklogItem(i) {
-//    console.log('Board Array includes', sortTasks[0][i]);
+    //    console.log('Board Array includes', sortTasks[0][i]);
     sortTasks[0].splice(i, 1);
     updateBoardTasksToBackend();
     renderBacklogItems();
@@ -170,6 +176,7 @@ function addBacklogItem(index) {
     let array = sortTasks[0][index];
     array['location'] = 'board';
     console.log('Array location is', array['location']);
+    renderBacklogItems();
 }
 
 
@@ -183,8 +190,8 @@ function cleanBacklogContentRow() {
 }
 
 
- function updateBoardTasksToBackend(){
-     let boardArrayAsJSON = sortTasks;
-     console.log('Loaded array from backlog', boardArrayAsJSON);
-//     backend.setItem('tasks', boardArrayAsJSON);
+function updateBoardTasksToBackend() {
+    let boardArrayAsJSON = sortTasks;
+    console.log('Loaded array from backlog', boardArrayAsJSON);
+    //     backend.setItem('tasks', boardArrayAsJSON);
 }
