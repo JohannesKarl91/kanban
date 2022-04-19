@@ -62,13 +62,13 @@ function renderTaskstoBoard(){
 function colors(i){
     let color =testtask[i].urgency
     if (color== 'High'){
-        document.getElementById('header'+i).style='background-color: #d72700'
+        document.getElementById('header'+i).style='background-color: #de4e4e'
     }
     if (color== 'Middle'){
         document.getElementById('header'+i).style='background-color: #ed9e00'
     }
     if (color== 'Low'){
-        document.getElementById('header'+i).style='background-color: #4caf50'
+        document.getElementById('header'+i).style='background-color: #5376c9'
     }
 }
 
