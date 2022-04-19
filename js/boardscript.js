@@ -151,6 +151,9 @@ function nextsection(position, progress) {
     if (progress == 'testing') {
         boardtasks[currentDraggedElement].status = 'done';
     }
+    if (progress == 'done') {
+        boardtasks[currentDraggedElement].status = 'todo';
+    }
     updateBoardTasksToBackend();
     renderTaskstoBoard();
 }
