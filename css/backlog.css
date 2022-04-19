@@ -32,7 +32,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 40%;
+    min-width: 41%;
 }
 
 .backlogMeta {
@@ -45,7 +45,7 @@
     color: rgb(93, 156, 112);
     font-size: 24px;
     font-weight: bold;
-    min-width: 20%;
+    min-width: 19.5%;
 }
 
 .backlogContentHeaderElementContainer {
@@ -103,7 +103,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 20.5%;
+    min-width: 19.5%;
 }
 
 .backlogElementContainer {
@@ -126,6 +126,14 @@
 
 .backlogElementBtn:hover {
     cursor: pointer;
+}
+
+.backlogImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .d-none {

@@ -63,6 +63,16 @@ async function initBacklog() {
 
 
 /**
+ * Loads all tasks from the backend in list 'tasks'.
+ */
+async function loadTasks() {
+    let tasks = await backend.getItem('tasks');
+    sortTasks.push(JSON.parse(tasks));
+    console.log('sortTask', sortTasks);
+}
+
+
+/**
  * Renders the backlog list initially.
  */
 function renderBacklogItems() {
@@ -78,13 +88,13 @@ function renderBacklogItems() {
  * Renders the backlog template list.
  * @param {*} i 
  */
- function renderBacklogCardTemplate(i) {
+function renderBacklogCardTemplate(i) {
     let backlogItem = sortTasks[0][i];
     let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
     <div id="backlogElementField(${i})" class="backlogElementField">
-        <div class="backlogElement">${backlogItem['assigned']}</div>
+        <div id="assigned${i}" class="backlogElement"></div>
         <div class="backlogElement">${backlogItem['category']}</div>
         <div class="backlogElementTitleDescription">
             <div class="titleElement">${backlogItem['title']}</div>
@@ -96,18 +106,57 @@ function renderBacklogItems() {
             </div>
     </div>
 `;
+    renderAssignedImg(i);
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
 }
 
 
-/**
- * Loads all tasks from the backend in list 'tasks'.
- */
-async function loadTasks() {
-    let tasks = await backend.getItem('tasks');
-    sortTasks.push(JSON.parse(tasks));
-    console.log('sortTask', sortTasks);
+function renderAssignedImg(j) {
+    for (let i = 0; i < sortTasks[0][j]['assigned'].length; i++) {
+        const id = sortTasks[0][j]['assigned'][i]['id'];
+        if (id !== 4) {
+            checkImgAlex(j, id);
+            checkImgJohannes(j, id);
+            checkImgRebecca(j, id)
+        }
 
+        else {
+            assignedImg = document.getElementById(`assigned${j}`);
+            assignedImg.innerHTML += /*html */`
+            <img class="backlogImg" src="./img/users/test.jpg">
+            `;
+        }
+    }
+}
+
+
+function checkImgAlex(j, id) {
+    if (id == 1) {
+        assignedImg = document.getElementById(`assigned${j}`);
+        assignedImg.innerHTML += /*html */`
+        <img class="backlogImg" src="./img/users/alex.jpg">
+        `;
+    }
+}
+
+
+function checkImgJohannes(j, id) {
+    if (id == 2) {
+        assignedImg = document.getElementById(`assigned${j}`);
+        assignedImg.innerHTML += /*html */`
+        <img class="backlogImg" src="./img/users/johannes.jpg">
+        `;
+    }
+}
+
+
+function checkImgRebecca(j, id) {
+    if (id == 3) {
+        assignedImg = document.getElementById(`assigned${j}`);
+        assignedImg.innerHTML += /*html */`
+    <img class="backlogImg" src="./img/users/rebecca.jpg">
+    `;
+    }
 }
 
 
@@ -130,7 +179,8 @@ function checkEmptyArray() {
  * Delete backlog item in beacklog array via the trash button.
  */
 function deleteBacklogItem(i) {
-    backlog.splice(i, 1);
+    console.log('Board Array includes', sortTasks[0][i]);
+    sortTasks.splice[0][i];
     renderBacklogItems();
 
 }
@@ -140,7 +190,7 @@ function deleteBacklogItem(i) {
  * @param {*} index 
  */
 function addBacklogItem(index) {
-    let array = backlog[index];
+    let array = sortTasks[0][index];
     board.push(array);
     console.log('Board Array includes', board);
     deleteBacklogItem(index);
