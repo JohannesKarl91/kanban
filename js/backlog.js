@@ -167,8 +167,8 @@ function deleteBacklogItem(i) {
  */
 function addBacklogItem(index) {
     let array = sortTasks[0][index];
-    board.push(array);
-    console.log('Board Array includes', board);
+    array['location'] = 'board';
+    console.log('New Location is', array['location']);
     deleteBacklogItem(index);
 }
 
