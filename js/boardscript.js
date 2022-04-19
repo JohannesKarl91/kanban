@@ -77,7 +77,7 @@ function colors(i){
 
 function taskassigned(i){
     for (let j=0; j<boardttasks[i].assigned.length; j++){
-        const assigned= boardttasks[i].assigned[j];
+        const assigned= boardttasks[i].assigned[j]['id'];
         let user= users.filter(f => f.userId == assigned);
         console.log("user", user);
         document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[i]['profileimage']}"></img></div>`;
