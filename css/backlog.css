@@ -32,7 +32,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 41%;
+    min-width: 39%;
 }
 
 .backlogMeta {
@@ -83,8 +83,8 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 40%;
-    max-width: 40%;
+    min-width: 39%;
+    max-width: 39%;
 }
 
 .titleElement {

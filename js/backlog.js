@@ -1,30 +1,6 @@
-let backlog = [{
-    'title': 'Board mit Drag and Drop erstellen',
-    'category': 'Sales',
-    'description': 'Hierbei muss das Video von Junus nochmal angesehen und sodann die Funktionalitäten in den Code überführt werden.',
-    'urgency': 'High',
-    'date': '14.04.2022',
-    'assigned': 'Alex Bachmann'
-},
-{
-    'title': 'Backlog erstellen',
-    'category': 'IT',
-    'description': 'Beschreibung 2',
-    'urgency': 'Middle',
-    'date': '15.04.2022',
-    'assigned': 'Rebecca Häckl'
-},
-{
-    'title': 'Board rendern',
-    'category': 'Marketing',
-    'description': 'Beschreibung 3',
-    'urgency': 'Low',
-    'date': '16.04.2022',
-    'assigned': 'Johannes Weber'
-}];
+let sortTasks = [];
 
 let board = [];
-let sortTasks = [];
 let addTaskArray = [
     {
         'title': 'Board mit Drag and Drop erstellen',
@@ -167,7 +143,7 @@ function checkImgRebecca(j, id) {
 function checkEmptyArray() {
     let textByEmptyArray = document.getElementById('emptyArray');
 
-    if (backlog.length == 0) {
+    if (sortTasks.length == 0) {
         console.log('Array is empty!');
         textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
         document.getElementById('backlogContent').classList.add('d-none');
