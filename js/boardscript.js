@@ -41,7 +41,7 @@ let testtask = [
     }
 
 function filtertask(board){   
-return sortTasks[0].filter(f => f.location == board)   //nahher wieder in sortTasks, ändern sucht alle trasks mit location board
+return tasks.filter(f => f.location == board)   //nahher wieder in tasks, ändern sucht alle trasks mit location board
 }
 
 function renderTaskstoBoard(){
@@ -65,13 +65,13 @@ function renderTaskstoBoard(){
 function colors(i){
     let color =boardttasks[i].urgency
     if (color== 'High'){
-        document.getElementById('header'+i).style='background-color: #de4e4e'
+        document.getElementById('header'+i).style='background-color: #de4e4e';
     }
     if (color== 'Middle'){
-        document.getElementById('header'+i).style='background-color: #ed9e00'
+        document.getElementById('header'+i).style='background-color: #ed9e00';
     }
     if (color== 'Low'){
-        document.getElementById('header'+i).style='background-color: #5376c9'
+        document.getElementById('header'+i).style='background-color: #5376c9';
     }
 }
 
@@ -79,8 +79,8 @@ function taskassigned(i){
     for (let j=0; j<boardttasks[i].assigned.length; j++){
         const assigned= boardttasks[i].assigned[j];
         let user= users.filter(f => f.userId == assigned);
-        // console.log(user);
-        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
+        console.log("user", user);
+        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[i]['profileimage']}"></img></div>`;
 
     }
 }

@@ -1,5 +1,5 @@
 let backlogCounter = 0;
-let sortTasks = [];
+let tasks = [];
 let addTaskArray = [
     {
         'title': 'Board mit Drag and Drop erstellen',
@@ -41,9 +41,8 @@ async function initBacklog() {
  * Loads all tasks from the backend in list 'tasks'.
  */
 async function loadTasks() {
-    let tasks = await backend.getItem('tasks');
-    sortTasks.push(JSON.parse(tasks));
-    console.log('sortTask', sortTasks);
+    tasks = await JSON.parse(backend.getItem('tasks')) || [];
+    console.log('tasks', tasks);
 }
 
 
@@ -53,9 +52,9 @@ async function loadTasks() {
 function renderBacklogItems() {
     checkEmptyArray();
     cleanBacklogContentRow();
-    for (let i = 0; i < sortTasks[0].length; i++) {
-        console.log(sortTasks[0][i]['location']);
-        if (sortTasks[0][i]['location'] == 'backlog') {
+    for (let i = 0; i < tasks.length; i++) {
+        console.log(tasks[i]['location']);
+        if (tasks[i]['location'] == 'backlog') {
             renderBacklogCardTemplate(i);
             backlogCounter = backlogCounter + 1;
         }
@@ -70,7 +69,7 @@ function renderBacklogItems() {
  * @param {*} i 
  */
 function renderBacklogCardTemplate(i) {
-    let backlogItem = sortTasks[0][i];
+    let backlogItem = tasks[i];
     let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
@@ -93,8 +92,8 @@ function renderBacklogCardTemplate(i) {
 
 
 function renderAssignedImg(j) {
-    for (let i = 0; i < sortTasks[0][j]['assigned'].length; i++) {
-        const id = sortTasks[0][j]['assigned'][i]['id'];
+    for (let i = 0; i < tasks[j]['assigned'].length; i++) {
+        const id = tasks[j]['assigned'][i]['id'];
         if (id !== 4) {
             checkImgAlex(j, id);
             checkImgJohannes(j, id);
@@ -160,8 +159,7 @@ function checkEmptyArray(backlogConter) {
  * Delete backlog item in beacklog array via the trash button.
  */
 function deleteBacklogItem(i) {
-    //    console.log('Board Array includes', sortTasks[0][i]);
-    sortTasks[0].splice(i, 1);
+    tasks.splice(i, 1);
     updateBoardTasksToBackend();
     renderBacklogItems();
 
@@ -172,9 +170,10 @@ function deleteBacklogItem(i) {
  * @param {*} index 
  */
 function addBacklogItem(index) {
-    let array = sortTasks[0][index];
+    let array = tasks[index];
     array['location'] = 'board';
     console.log('Array location is', array['location']);
+    updateBoardTasksToBackend();
     renderBacklogItems();
 }
 
@@ -189,8 +188,8 @@ function cleanBacklogContentRow() {
 }
 
 
-function updateBoardTasksToBackend() {
-    let boardArrayAsJSON = sortTasks;
+async function updateBoardTasksToBackend() {
+    let boardArrayAsJSON = tasks;
     console.log('Loaded array from backlog', boardArrayAsJSON);
-    //     backend.setItem('tasks', boardArrayAsJSON);
+    await backend.setItem('tasks', JSON.stringify(boardArrayAsJSON));
 }
