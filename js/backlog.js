@@ -183,7 +183,7 @@ function cleanBacklogContentRow() {
 }
 
 
-// function updateBoardArrayToBackend(){
-//     let boardArrayAsJSON = JSON.stringify(board);
+// function updateBoardTasksToBackend(){
+//     let boardArrayAsJSON = JSON.stringify(sortTasks);
 //     backend.setItem('board', boardArrayAsJSON);
 // }
