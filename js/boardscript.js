@@ -1,5 +1,6 @@
 let currentDraggedElement;
 let boardtasks = [];
+let boardtasks = [];
 
 async function initBoard() {
     await initUsers();
@@ -97,11 +98,25 @@ function moveto(newstatus) {
 }
 
 function deletetask(position) {
+<<<<<<< HEAD
     boardtasks.splice(position, 1)
     updateBoardTasksToBackend();
     renderTaskstoBoard()
 }
 
+=======
+    for (let index = 0; index < tasks.length; index++) {
+        if (boardtasks[position]['title'] == tasks[index]['title']) {
+
+            tasks.splice(position, 1)
+            updateBoardTasksToBackend();
+            renderTaskstoBoard()
+        }
+    }
+}
+
+
+>>>>>>> d4c88de52dbc004d4334648ec620cb5c932561e6
 function nextsection(position, progress) {
     currentDraggedElement = position;
     if (progress == 'todo') {
