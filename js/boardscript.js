@@ -31,7 +31,7 @@ let testtask = [
         'location': 'board',
     }];
 
-    let boardttasks=[];
+    let boardtasks=[];
 
     async function initBoard() {
         await initUsers();
@@ -46,14 +46,14 @@ return tasks.filter(f => f.location == board)   //nahher wieder in tasks, änder
 
 function renderTaskstoBoard(){
     let progresses= ['todo','inprogress','testing','done'];
-    boardttasks = filtertask('board'); 
+    boardtasks = filtertask('board'); 
 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
         let boardcolum= document.getElementById(progress);
         boardcolum.innerHTML='';
-        for (let i=0; i<boardttasks.length; i++){
-            const task = boardttasks[i];
+        for (let i=0; i<boardtasks.length; i++){
+            const task = boardtasks[i];
             if (task.status==progress){
                 boardcolum.innerHTML+=generateHTML(i,progress);
                 colors(i);
@@ -63,7 +63,7 @@ function renderTaskstoBoard(){
     }
 }
 function colors(i){
-    let color =boardttasks[i].urgency
+    let color =boardtasks[i].urgency
     if (color== 'High'){
         document.getElementById('header'+i).style='background-color: #de4e4e';
     }
@@ -76,11 +76,11 @@ function colors(i){
 }
 
 function taskassigned(i){
-    for (let j=0; j<boardttasks[i].assigned.length; j++){
-        const assigned= boardttasks[i].assigned[j]['id'];
+    for (let j=0; j<boardtasks[i].assigned.length; j++){
+        const assigned= boardtasks[i].assigned[j]['id'];
         let user= users.filter(f => f.userId == assigned);
         console.log("user", user);
-        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[i]['profileimage']}"></img></div>`;
+        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
 
     }
 }
@@ -89,23 +89,23 @@ function generateHTML(i,progress){
     return` <div draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div id='header${i}' style="background-color: black" class="task-header">
         <div class="task-title">
-            <h4>${boardttasks[i].title}</h4>
+            <h4>${boardtasks[i].title}</h4>
         </div>
         <div class="task-delete-btn"><span onclick="deletetask(${i})">&#x1F5D1;</span></div>
     </div>
     <div class="task-meta-info">
         <div class="task-duedate">
             <img src="./img/icons8-calendar-150.png" class="calendar-img">
-            <span>${boardttasks[i].date}</span>
+            <span>${boardtasks[i].date}</span>
         </div>
         <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
     <div class="task-description">
-        <span>${boardttasks[i].description}</span>
+        <span>${boardtasks[i].description}</span>
     </div>
     <div class="task-footer">
-        <div class="task-category"><span>${boardttasks[i].category}</span></div>
+        <div class="task-category"><span>${boardtasks[i].category}</span></div>
         <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
             <span>&#10149;</span>
         </div>
@@ -123,26 +123,28 @@ function startDragging(index){
 }
 
 function moveto(newstatus){
-    boardttasks[currentDraggedElement].status=newstatus;
+    boardtasks[currentDraggedElement].status=newstatus;
+    updateBoardTasksToBackend();
     renderTaskstoBoard();
 }
 
 function deletetask(position){
-    boardttasks.splice(position,1)
+    boardtasks.splice(position,1)
+    updateBoardTasksToBackend();
     renderTaskstoBoard()
 }
 
 function nextsection(position, progress){
     currentDraggedElement=position;
     if (progress=='todo'){
-        boardttasks[currentDraggedElement].status='inprogress'; 
+        boardtasks[currentDraggedElement].status='inprogress'; 
     }
     if (progress=='inprogress'){
-        boardttasks[currentDraggedElement].status='testing'; 
+        boardtasks[currentDraggedElement].status='testing'; 
     }
     if (progress=='testing'){
-        boardttasks[currentDraggedElement].status='done'; 
+        boardtasks[currentDraggedElement].status='done'; 
     }
-
+    updateBoardTasksToBackend();
     renderTaskstoBoard();
 }
