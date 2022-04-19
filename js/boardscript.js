@@ -77,8 +77,7 @@ function taskassigned(i){
         const assigned= testtask[i].assigned[j];
         let user= users.filter(f => f.userId == assigned);
         console.log(user);
-        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img src="${user[profileimage]}"></img></div>`;
-        console.log(profileimage);
+        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
 
     }
 }
