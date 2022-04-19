@@ -1,36 +1,5 @@
 let currentDraggedElement;
-let testtask = [
-    {
-        'title': 'Board mit Drag and Drop erstellen',
-        'category': 'Sales',
-        'description': 'Beschreibung 1',
-        'urgency': 'High',
-        'date': '14.04.2022',
-        'assigned': [1],
-        'status': 'todo',
-        'location': 'board',
-    },
-    {
-        'title': 'Titel 2',
-        'category': 'IT',
-        'description': 'Beschreibung 2',
-        'urgency': 'Middle',
-        'date': '15.04.2022',
-        'assigned': [3, 2],
-        'status': 'todo',
-        'location': 'board',
-    },
-    {
-        'title': 'Titel 3',
-        'category': 'Marketing',
-        'description': 'Beschreibung 3',
-        'urgency': 'Low',
-        'date': '16.04.2022',
-        'assigned': [2],
-        'status': 'todo',
-        'location': 'board',
-    }];
-
+let boardtasks = [];
 let boardtasks = [];
 
 async function initBoard() {
@@ -129,6 +98,13 @@ function moveto(newstatus) {
 }
 
 function deletetask(position) {
+<<<<<<< HEAD
+    boardtasks.splice(position, 1)
+    updateBoardTasksToBackend();
+    renderTaskstoBoard()
+}
+
+=======
     for (let index = 0; index < tasks.length; index++) {
         if (boardtasks[position]['title'] == tasks[index]['title']) {
 
@@ -140,6 +116,7 @@ function deletetask(position) {
 }
 
 
+>>>>>>> d4c88de52dbc004d4334648ec620cb5c932561e6
 function nextsection(position, progress) {
     currentDraggedElement = position;
     if (progress == 'todo') {
