@@ -1,6 +1,6 @@
 let currentDraggedElement;
 let boardtasks = [];
-let boardtasks = [];
+
 
 async function initBoard() {
     await initUsers();
