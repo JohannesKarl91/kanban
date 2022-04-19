@@ -155,8 +155,9 @@ function checkEmptyArray() {
  * Delete backlog item in beacklog array via the trash button.
  */
 function deleteBacklogItem(i) {
-    console.log('Board Array includes', sortTasks[0][i]);
+//    console.log('Board Array includes', sortTasks[0][i]);
     sortTasks[0].splice(i, 1);
+    updateBoardTasksToBackend();
     renderBacklogItems();
 
 }
@@ -168,8 +169,7 @@ function deleteBacklogItem(i) {
 function addBacklogItem(index) {
     let array = sortTasks[0][index];
     array['location'] = 'board';
-    console.log('New Location is', array['location']);
-    deleteBacklogItem(index);
+    console.log('Array location is', array['location']);
 }
 
 
@@ -183,7 +183,8 @@ function cleanBacklogContentRow() {
 }
 
 
-// function updateBoardTasksToBackend(){
-//     let boardArrayAsJSON = JSON.stringify(sortTasks);
-//     backend.setItem('board', boardArrayAsJSON);
-// }
+ function updateBoardTasksToBackend(){
+     let boardArrayAsJSON = sortTasks;
+     console.log('Loaded array from backlog', boardArrayAsJSON);
+//     backend.setItem('tasks', boardArrayAsJSON);
+}

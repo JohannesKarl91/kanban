@@ -222,4 +222,9 @@
     .backlogContentTaskAsElement{
         width: 0 !important;
     }
+
+    .backlogImg{
+        width: 45px;
+        height: 45px;
+    }
 }
