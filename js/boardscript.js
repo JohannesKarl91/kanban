@@ -41,7 +41,7 @@ let testtask = [
     }
 
 function filtertask(board){   
-return testtask.filter(f => f.location == board)   //nahher wieder in sortTasks, ändern sucht alle trasks mit location board
+return sortTasks[0].filter(f => f.location == board)   //nahher wieder in sortTasks, ändern sucht alle trasks mit location board
 }
 
 function renderTaskstoBoard(){
