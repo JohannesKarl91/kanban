@@ -6,7 +6,7 @@ let testtask = [
         'description': 'Beschreibung 1',
         'urgency': 'High',
         'date': '14.04.2022',
-        'assigned': 'Alex Bachmann',
+        'assigned': [1],
         'status': 'todo',
     },
     {
@@ -15,8 +15,9 @@ let testtask = [
         'description': 'Beschreibung 2',
         'urgency': 'Middle',
         'date': '15.04.2022',
-        'assigned': 'Rebecca Häckl',
+        'assigned': [3,2],
         'status': 'todo',
+        'location': 'board',
     },
     {
         'title': 'Titel 3',
@@ -24,12 +25,25 @@ let testtask = [
         'description': 'Beschreibung 3',
         'urgency': 'Low',
         'date': '16.04.2022',
-        'assigned': 'Johannes Weber',
+        'assigned': [2],
         'status': 'todo',
+        'location': 'board',
     }];
 
+    async function initBoard() {
+        await initUsers();
+        await loadTasks();
+        includeHTML();
+        renderTaskstoBoard();
+    }
+
+function filtertask(board){   
+return testtask.filter(f => f.location == board)   //nahher wieder in sortTasks, ändern sucht alle trasks mit location board
+}
+
 function renderTaskstoBoard(){
-    let progresses= ['todo','inprogress','testing','done']
+    let progresses= ['todo','inprogress','testing','done'];
+    let boardttasks = filtertask('board');
 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
@@ -40,7 +54,7 @@ function renderTaskstoBoard(){
             if (task.status==progress){
                 boardcolum.innerHTML+=generateHTML(i);
                 colors(i);
-            
+                taskassigned(i);
         }
     }
     }
@@ -58,22 +72,31 @@ function colors(i){
     }
 }
 
+function taskassigned(i){
+    for (let j=0; j<testtask[i].assigned.length; j++){
+        const assigned= testtask[i].assigned[j];
+        let user= users.filter(f => f.userId == assigned);
+        console.log(user);
+        document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img src="${user[profileimage]}"></img></div>`;
+        console.log(profileimage);
+
+    }
+}
+
 function generateHTML(i){
     return` <div draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div id='header${i}' style="background-color: black" class="task-header">
         <div class="task-title">
             <h4>${testtask[i].title}</h4>
         </div>
-        <div class="task-delete-btn"><span>&#x1F5D1;</span></div>
+        <div class="task-delete-btn"><span onclick="deletetask(${i})">&#x1F5D1;</span></div>
     </div>
     <div class="task-meta-info">
         <div class="task-duedate">
             <img src="./img/icons8-calendar-150.png" class="calendar-img">
             <span>${testtask[i].date}</span>
         </div>
-        <div class="task-assigned">
-            <img class="member-img" src="./img/users/test.jpg">
-            <img class="member-img" src="./img/users/alex.jpg">
+        <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
     <div class="task-description">
@@ -100,4 +123,9 @@ function startDragging(index){
 function moveto(newstatus){
     testtask[currentDraggedElement].status=newstatus;
     renderTaskstoBoard();
+}
+
+function deletetask(position){
+    testtask.splice(position,1)
+    renderTaskstoBoard()
 }
