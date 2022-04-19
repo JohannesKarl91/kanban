@@ -156,7 +156,7 @@ function checkEmptyArray() {
  */
 function deleteBacklogItem(i) {
     console.log('Board Array includes', sortTasks[0][i]);
-    sortTasks.splice[0][i];
+    sortTasks[0].splice(i, 1);
     renderBacklogItems();
 
 }

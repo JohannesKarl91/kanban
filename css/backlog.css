@@ -45,7 +45,7 @@
     color: rgb(93, 156, 112);
     font-size: 24px;
     font-weight: bold;
-    min-width: 19.5%;
+    min-width: 22.5%;
 }
 
 .backlogContentHeaderElementContainer {
@@ -66,8 +66,9 @@
 .backlogElementField {
     display: flex;
     align-items: center;
+    padding: 4px;
     min-height: 10vh;
-    width: 80vw;
+    width: 75vw;
     margin-top: 24px;
     margin-bottom: 24px;
     background-color: rgb(239, 245, 241);
@@ -98,12 +99,11 @@
 
 .backlogElement {
     height: 100%;
-    display: flex;
     justify-content: flex-start;
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 19.5%;
+    min-width: 22.5%;
 }
 
 .backlogElementContainer {
