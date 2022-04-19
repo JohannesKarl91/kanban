@@ -43,7 +43,7 @@ return testtask.filter(f => f.location == board)   //nahher wieder in sortTasks,
 
 function renderTaskstoBoard(){
     let progresses= ['todo','inprogress','testing','done'];
-    let boardttasks = filtertask('board');
+    // let boardttasks = filtertask('board'); für später zum fikter, welche tasks aufs board sollen
 
     for (let status=0; status<progresses.length; status++){
         const progress = progresses[status];
@@ -52,7 +52,7 @@ function renderTaskstoBoard(){
         for (let i=0; i<testtask.length; i++){
             const task = testtask[i];
             if (task.status==progress){
-                boardcolum.innerHTML+=generateHTML(i);
+                boardcolum.innerHTML+=generateHTML(i,progress);
                 colors(i);
                 taskassigned(i);
         }
@@ -76,13 +76,13 @@ function taskassigned(i){
     for (let j=0; j<testtask[i].assigned.length; j++){
         const assigned= testtask[i].assigned[j];
         let user= users.filter(f => f.userId == assigned);
-        console.log(user);
+        // console.log(user);
         document.getElementById('assigned'+i).innerHTML+=`<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
 
     }
 }
 
-function generateHTML(i){
+function generateHTML(i,progress){
     return` <div draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div id='header${i}' style="background-color: black" class="task-header">
         <div class="task-title">
@@ -103,7 +103,7 @@ function generateHTML(i){
     </div>
     <div class="task-footer">
         <div class="task-category"><span>${testtask[i].category}</span></div>
-        <div class="task-action-btn">
+        <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
             <span>&#10149;</span>
         </div>
     </div>
@@ -127,4 +127,19 @@ function moveto(newstatus){
 function deletetask(position){
     testtask.splice(position,1)
     renderTaskstoBoard()
+}
+
+function nextsection(position, progress){
+    currentDraggedElement=position;
+    if (progress=='todo'){
+        testtask[currentDraggedElement].status='inprogress'; 
+    }
+    if (progress=='inprogress'){
+        testtask[currentDraggedElement].status='testing'; 
+    }
+    if (progress=='testing'){
+        testtask[currentDraggedElement].status='done'; 
+    }
+
+    renderTaskstoBoard();
 }
