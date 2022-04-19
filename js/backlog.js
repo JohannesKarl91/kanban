@@ -1,6 +1,5 @@
 let backlogCounter = 0;
 let sortTasks = [];
-let board = [];
 let addTaskArray = [
     {
         'title': 'Board mit Drag and Drop erstellen',
