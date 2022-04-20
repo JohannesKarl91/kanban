@@ -81,9 +81,12 @@ function renderBacklogCardTemplate(i) {
             <div class="descriptionElement">${backlogItem['description']}</div>
         </div>
         <div class="backlogElementContainer">
-                <img onclick="deleteBacklogItem(${i})" class="backlogElementBtn" src="./img/delete.svg">
-                <img onclick="addBacklogItem(${i})" class="backlogElementBtn" src="./img/send.svg">
-            </div>
+            <a onclick="deleteBacklogItem(${i})" class="tipDelete"><img class="backlogElementBtn" src="./img/delete.svg">
+            <span class="deleteTip">delete</span>
+        </a>
+            <a onclick="deleteBacklogItem(${i})" class="tipSend"><img class="backlogElementBtn" src="./img/send.svg">
+            <span class="sendTip">add to board</span></a>
+        </div>
     </div>
 `;
     renderAssignedImg(i);

@@ -118,8 +118,7 @@
 }
 
 .backlogElementBtn {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-right: 20px;
     width: 30px;
     height: 30px;
 
@@ -129,7 +128,7 @@
     cursor: pointer;
 }
 
-.backlogImg{
+.backlogImg {
     object-fit: cover;
     width: 60px;
     height: 60px;
@@ -169,6 +168,34 @@
     justify-content: center;
     font-weight: bold;
     font-size: 16px;
+}
+
+.tipDelete,
+.tipSend{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tipDelete:hover .deleteTip {
+    display: block;
+}
+
+.tipSend:hover .sendTip {
+    display: block;
+}
+
+.sendTip {
+    display: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.deleteTip {
+    display: none;
+    font-size: 12px;
+    cursor: pointer;
+    
 }
 
 /*Responsive props for backlog*/
@@ -228,16 +255,16 @@
         margin-left: 0 !important;
     }
 
-    .backlogContentTaskAsElement{
+    .backlogContentTaskAsElement {
         width: 0 !important;
     }
 
-    .backlogImg{
+    .backlogImg {
         width: 45px;
         height: 45px;
     }
 
-    .emptyArray{
+    .emptyArray {
         text-align: center;
         margin-left: 0 !important;
     }
