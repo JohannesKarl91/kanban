@@ -170,33 +170,6 @@
     font-size: 16px;
 }
 
-.tipDelete,
-.tipSend{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.tipDelete:hover .deleteTip {
-    display: block;
-}
-
-.tipSend:hover .sendTip {
-    display: block;
-}
-
-.sendTip {
-    display: none;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.deleteTip {
-    display: none;
-    font-size: 12px;
-    cursor: pointer;
-    
-}
 
 /*Responsive props for backlog*/
 @media (max-width: 768px) {
