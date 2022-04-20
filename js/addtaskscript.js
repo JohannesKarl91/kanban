@@ -89,3 +89,8 @@ function duedate() {
     let Date = document.getElementById('date');;
     Date.min = todayfix;
 }
+
+function duedate2(i) {
+    let Date = document.getElementById('editdate'+i);;
+    Date.min = todayfix;
+}

@@ -20,6 +20,11 @@ body {
     margin-top: 24px;
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
 .boardSection {
     display: flex;
     align-items: space-between;

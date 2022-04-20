@@ -55,7 +55,7 @@ function taskassigned(i) {
 }
 
 function generateHTML(i, progress) {
-    return ` <div draggable="true" ondragstart="startDragging(${i})" class="task-card">
+    return ` <div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div id='header${i}' style="background-color: black" class="task-header">
         <div class="task-title">
             <h4>${boardtasks[i].title}</h4>
@@ -70,7 +70,7 @@ function generateHTML(i, progress) {
         <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
-    <div class="task-description">
+    <div class="task-description" onclick=openedit(${i})>
         <span>${boardtasks[i].description}</span>
     </div>
     <div class="task-footer">
@@ -125,4 +125,41 @@ function nextsection(position, progress) {
     }
     updateBoardTasksToBackend();
     renderTaskstoBoard();
+}
+
+function openedit(i){
+    let content=document.getElementById(`taskat${i}`);
+    content.innerHTML= editor(i);
+}
+
+function editor(i){
+    return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
+    <div class="column" id='header${i}' style="background-color:" class="task-header">
+        <div class="task-title">
+            <input id="title_edit${i}" type="text" placeholder="Bitte Titel eingeben" value='${boardtasks[i].title}'} 
+        </div>
+    </div>
+    <div class="task-meta-info">
+        <div class="task-duedate">
+            <img src="./img/icons8-calendar-150.png" class="calendar-img">
+            <input onclick="duedate2(${i})" class="relative bgr-input" type="date" id="editdate${i}" min="">
+        </div>
+        <div class="task-assigned" id="assigned${i}">
+        </div>
+    </div>
+    <textarea id="description_edit${i}" rows="5">${boardtasks[i].description}</textarea>
+    <div class="task-footer">
+    <label class="input center">CATEGORY:</label><br>
+                        <select class="input relative" value="${boardtasks[i].category}" id="category_change${i}">
+                            <option>Marketing</option>
+                            <option>Sale</option>
+                            <option>IT</option>
+                        </select>
+        <div class="task-action-btn"> <button onclick="changetask(${i})" <span class="material-symbols-outlined">
+        edit
+        </span>
+        </div>
+    </div>
+</div>
+`;
 }
