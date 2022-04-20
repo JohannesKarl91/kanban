@@ -31,8 +31,20 @@ function CreateTask(event) {
     };
 
     addTask(task);
+    showTaskAddedMessage();
 
 }
+
+
+function showTaskAddedMessage() {
+
+    let popup = document.getElementById("snackbar");
+    popup.classList.add('showSnack');
+    setTimeout(function () {
+        popup.classList.remove('showSnack');;
+    }, 5000);
+}
+
 
 function addTask(task) {
 
