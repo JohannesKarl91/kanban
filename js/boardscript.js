@@ -132,6 +132,7 @@ function renderTaskstoBoard() {
         let content = document.getElementById(`taskat${i}`);
         content.innerHTML = editor(i);
         renderCategory(i);
+        assignedto(i)
     }
 
     function editor(i) {
@@ -162,8 +163,14 @@ function renderTaskstoBoard() {
     }
 
     function changetask(i) {
-        let editTitle = document.getElementById('title_edit' + i).value;
+        let editTitle = document.getElementById('title_edit'+ i).value;
         allTasks[i].title = editTitle;
+        let editDate = document.getElementById('editdate'+i).value;
+        allTasks[i].date=editDate;
+        let editDescription= document.getElementById('escription_edit'+i).value;
+        allTasks[i].description= editDescription;
+        let editCategory=document.getElementById('category_change').value;
+        allTasks[i].category=editCategory
         renderTaskstoBoard()
     }
 
@@ -181,4 +188,14 @@ function renderTaskstoBoard() {
                 html.innerHTML += `<option>${categories[j]}</option>`;
             }
         }
+    }
+
+    function assignedto(i){
+        for (let j = 0; j < allTasks[i].assigned.length; j++) {
+            const assigned = allTasks[i].assigned[j]['id'];
+            let user = users.filter(f => f.userId == assigned);
+            document.getElementById('assigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
+
+        }
+
     }
