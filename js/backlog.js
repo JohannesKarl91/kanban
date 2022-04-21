@@ -56,11 +56,11 @@ function renderBacklogItems() {
         console.log(tasks[i]['location']);
         if (tasks[i]['location'] == 'backlog') {
             renderBacklogCardTemplate(i);
-            backlogCounter = backlogCounter + 1;
+            // backlogCounter = backlogCounter + 1;
         }
     }
-    checkEmptyArray(backlogCounter);
-    backlogCounter = 0;
+    // checkEmptyArray(backlogCounter);
+    // backlogCounter = 0;
 }
 
 
@@ -83,7 +83,7 @@ function renderBacklogCardTemplate(i) {
         <div class="backlogElementContainer">
             <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg">
         </a>
-            <a onclick="deleteBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg">
+            <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg">
         </div>
     </div>
 `;
@@ -174,6 +174,7 @@ function addBacklogItem(index) {
     let array = tasks[index];
     array['location'] = 'board';
     console.log('Array location is', array['location']);
+    console.log('tasks Array is', array);
     updateBoardTasksToBackend();
     renderBacklogItems();
 }
@@ -190,7 +191,7 @@ function cleanBacklogContentRow() {
 
 
 async function updateBoardTasksToBackend() {
-    let boardArrayAsJSON = tasks;
-    console.log('Loaded array from backlog', boardArrayAsJSON);
+    let boardArrayAsJSON = tasks; 
+    console.log('Loaded array to backlog', boardArrayAsJSON);
     await backend.setItem('tasks', JSON.stringify(boardArrayAsJSON));
 }
