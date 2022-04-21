@@ -141,8 +141,7 @@ function editor(i){
     </div>
     <div class="task-meta-info">
         <div class="task-duedate">
-            <img src="./img/icons8-calendar-150.png" class="calendar-img">
-            <input onclick="duedate2(${i})" class="relative bgr-input" type="date" id="editdate${i}" min="">
+            <input onclick="duedate2(${i})" value=${boardtasks[i].date} class="relative bgr-input" type="date" id="editdate${i}" min="">
         </div>
         <div class="task-assigned" id="assigned${i}">
         </div>
