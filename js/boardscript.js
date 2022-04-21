@@ -130,10 +130,11 @@ function nextsection(position, progress) {
 function openedit(i){
     let content=document.getElementById(`taskat${i}`);
     content.innerHTML= editor(i);
+    renderCategory(i);
 }
 
 function editor(i){
-    return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
+return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
             <input id="title_edit${i}" type="text" placeholder="Bitte Titel eingeben" value='${boardtasks[i].title}'} 
@@ -160,4 +161,20 @@ function editor(i){
     </div>
 </div>
 `;
+}
+
+
+function renderCategory(i){
+    let categories=['Marketing','Sale','IT']
+    let selectedcategory =boardtasks[i].category;
+    let html=document.getElementById('category_change'+i);
+    
+    for(let j=0; j<categories.length; j++){
+        if(selectedcategory==categories[j]){
+        html.innerHTML +=`<option selected>${categories[j]}</option>`;
+    }
+    else{
+        html.innerHTML+=`<option>${categories[j]}</option>`;
+    }
+}
 }
