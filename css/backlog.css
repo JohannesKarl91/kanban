@@ -140,7 +140,7 @@
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .border-left-High {

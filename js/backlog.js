@@ -151,6 +151,7 @@ function checkEmptyArray(backlogConter) {
         console.log('Array is empty!');
         textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
         document.getElementById('backlogContent').classList.add('d-none');
+        document.getElementById('emptyArray').classList.remove('d-none');
     }
 }
 
