@@ -91,6 +91,7 @@ body {
     margin-top: 24px;
     margin-bottom: 14px;
     box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+    background-color: rgb(238, 245, 240);
 }
 
 .task-header {
