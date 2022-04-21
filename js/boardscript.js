@@ -74,11 +74,12 @@ function renderTaskstoBoard() {
         <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
-    <div class="task-description" onclick=openedit(${i})>
+    <div class="task-description">
         <span>${allTasks[i].description}</span>
     </div>
     <div class="task-footer">
         <div class="task-category"><span>${allTasks[i].category}</span></div>
+        <span onclick=openedit(${i}) class="material-symbols-outlined">edit</span>
         <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
             <span>&#10149;</span>
         </div>
