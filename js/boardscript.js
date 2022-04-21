@@ -150,9 +150,6 @@ return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" c
     <textarea style="border-radius: 5px;" id="description_edit${i}" rows="5">${boardtasks[i].description}</textarea>
     <div class="task-footer">
                         <select style="border-radius: 5px;" class="input relative" value="${boardtasks[i].category}" id="category_change${i}">
-                            <option>Marketing</option>
-                            <option>Sale</option>
-                            <option>IT</option>
                         </select>
         <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changetask(${i})" <span class="material-symbols-outlined">
         edit
