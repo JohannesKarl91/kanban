@@ -1,32 +1,10 @@
 let backlogCounter = 0;
 let tasks = [];
-let addTaskArray = [
-    {
-        'title': 'Board mit Drag and Drop erstellen',
-        'category': 'Sales',
-        'description': 'Beschreibung 1',
-        'urgency': 'High',
-        'date': '14.04.2022',
-        'assigned': 'Alex Bachmann'
-    },
-    {
-        'title': 'Titel 2',
-        'category': 'IT',
-        'description': 'Beschreibung 2',
-        'urgency': 'Middle',
-        'date': '15.04.2022',
-        'assigned': 'Rebecca Häckl'
-    },
-    {
-        'title': 'Titel 3',
-        'category': 'Marketing',
-        'description': 'Beschreibung 3',
-        'urgency': 'Low',
-        'date': '16.04.2022',
-        'assigned': 'Johannes Weber'
-    }];
 
 
+/**
+ * Initialize the backlog content by body onload funcionality. 
+ */
 async function initBacklog() {
     await initUsers();
     await loadTasks();
@@ -91,6 +69,10 @@ function renderBacklogCardTemplate(i) {
 }
 
 
+/**
+ * Creates the imgs of the assigned persons.
+ * @param {*} j 
+ */
 function renderAssignedImg(j) {
     for (let i = 0; i < tasks[j]['assigned'].length; i++) {
         const id = tasks[j]['assigned'][i]['id'];
@@ -110,6 +92,11 @@ function renderAssignedImg(j) {
 }
 
 
+/**
+ * Compares the user id and renders the correct img to assigned person.
+ * index: @param {*} j 
+ * user id of assigned person: @param {*} id 
+ */
 function checkImgAlex(j, id) {
     if (id == 1) {
         assignedImg = document.getElementById(`assigned${j}`);
@@ -120,6 +107,11 @@ function checkImgAlex(j, id) {
 }
 
 
+/**
+ * Compares the user id and renders the correct img to assigned person.
+ * index: @param {*} j 
+ * user id of assigned person: @param {*} id 
+ */
 function checkImgJohannes(j, id) {
     if (id == 2) {
         assignedImg = document.getElementById(`assigned${j}`);
@@ -130,6 +122,11 @@ function checkImgJohannes(j, id) {
 }
 
 
+/**
+ * Compares the user id and renders the correct img to assigned person.
+ * index: @param {*} j 
+ * user id of assigned person: @param {*} id 
+ */
 function checkImgRebecca(j, id) {
     if (id == 3) {
         assignedImg = document.getElementById(`assigned${j}`);
@@ -166,6 +163,7 @@ function deleteBacklogItem(i) {
 
 }
 
+
 /**
  * Add backlog item into board array via the send button.
  * @param {*} index 
@@ -189,7 +187,9 @@ function cleanBacklogContentRow() {
     return backlogContentRow.innerHTML = '';
 }
 
-
+/**
+ * Updates the local array "tasks" to the backend in string element "tasks"
+ */
 async function updateBoardTasksToBackend() {
     let boardArrayAsJSON = tasks;
     //console.log('Loaded array to backlog', boardArrayAsJSON);
@@ -197,6 +197,9 @@ async function updateBoardTasksToBackend() {
 }
 
 
+/**
+ * Shows a confirmation for sending the backlog item to KANBAN board.
+ */
 function showBacklogAddedToBoard() {
     let backlogPopup = document.getElementById("backlogSnackbar");
     backlogPopup.classList.add('showSnack');
