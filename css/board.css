@@ -23,6 +23,8 @@ body {
 .column{
     display: flex;
     flex-direction: column;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .boardSection {
@@ -81,6 +83,16 @@ body {
     box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
 }
 
+.task-card-edit {
+    min-width: 15.5rem;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    margin-top: 24px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+}
+
 .task-header {
     display: flex;
     justify-content: space-between;
@@ -88,6 +100,10 @@ body {
     background-color: #d72700;
     border-radius: 6px 6px 0 0;
     padding: 6px;
+}
+
+.task-title{
+    margin-bottom: 4px;
 }
 
 .task-title h4 {
@@ -99,8 +115,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px;
     border-bottom: 1px solid #ccc;
+    margin-bottom: 4px;
 }
 
 .calendar-img {
@@ -112,6 +128,7 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-bottom: 4px;
 }
 
 .task-duedate span {
@@ -151,7 +168,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px;
     padding-top: 8px;
     padding-bottom: 8px;
 }

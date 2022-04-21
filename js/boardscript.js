@@ -137,24 +137,24 @@ function editor(i){
 return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
-            <input id="title_edit${i}" type="text" placeholder="Bitte Titel eingeben" value='${boardtasks[i].title}'} 
+            <input id="title_edit${i}" type="text" style="border-radius: 5px;" placeholder="Bitte Titel eingeben" value='${boardtasks[i].title}'} 
         </div>
     </div>
     <div class="task-meta-info">
         <div class="task-duedate">
-            <input onclick="duedate2(${i})" value=${boardtasks[i].date} class="relative bgr-input" type="date" id="editdate${i}" min="">
+            <input onclick="duedate2(${i})" style="border-radius: 5px;" value=${boardtasks[i].date} class="relative bgr-input" type="date" id="editdate${i}" min="">
         </div>
         <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
-    <textarea id="description_edit${i}" rows="5">${boardtasks[i].description}</textarea>
+    <textarea style="border-radius: 5px;" id="description_edit${i}" rows="5">${boardtasks[i].description}</textarea>
     <div class="task-footer">
-                        <select class="input relative" value="${boardtasks[i].category}" id="category_change${i}">
+                        <select style="border-radius: 5px;" class="input relative" value="${boardtasks[i].category}" id="category_change${i}">
                             <option>Marketing</option>
                             <option>Sale</option>
                             <option>IT</option>
                         </select>
-        <div class="task-action-btn"> <button onclick="changetask(${i})" <span class="material-symbols-outlined">
+        <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changetask(${i})" <span class="material-symbols-outlined">
         edit
         </span>
         </div>
