@@ -20,7 +20,7 @@ body {
     margin-top: 24px;
 }
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
     padding: 8px;
@@ -103,7 +103,7 @@ body {
     padding: 6px;
 }
 
-.task-title{
+.task-title {
     margin-bottom: 4px;
 }
 
@@ -117,7 +117,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 4px;
+    padding: 4px;
 }
 
 .calendar-img {
@@ -169,8 +169,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 4px;
+}
+
+.boardBtnSection{
+    display: flex;
+    align-items: center;
 }
 
 .task-category span {
@@ -213,6 +217,6 @@ body {
     }
 
     .task-card {
-       width: 100%;
+        width: 100%;
     }
 }

@@ -79,9 +79,11 @@ function renderTaskstoBoard() {
     </div>
     <div class="task-footer">
         <div class="task-category"><span>${allTasks[i].category}</span></div>
-        <span onclick=openedit(${i}) class="material-symbols-outlined">edit</span>
-        <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
-            <span>&#10149;</span>
+        <div class="boardBtnSection">
+            <img onclick="openedit(${i})" style="width: 20px; height: 20px;" class="member-img" src="./img/edit.svg">
+            <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
+                <span>&#10149;</span>
+            </div>
         </div>
     </div>
 </div>
@@ -137,7 +139,7 @@ function renderTaskstoBoard() {
     }
 
     function editor(i) {
-        return `<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
+        return `<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card-edit">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
             <input id="title_edit${i}" type="text" style="border-radius: 5px;" placeholder="Bitte Titel eingeben" value='${allTasks[i].title}'} 
