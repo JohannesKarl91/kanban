@@ -148,7 +148,6 @@ function editor(i){
     </div>
     <textarea id="description_edit${i}" rows="5">${boardtasks[i].description}</textarea>
     <div class="task-footer">
-    <label class="input center">CATEGORY:</label><br>
                         <select class="input relative" value="${boardtasks[i].category}" id="category_change${i}">
                             <option>Marketing</option>
                             <option>Sale</option>
