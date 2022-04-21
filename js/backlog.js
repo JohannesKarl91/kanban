@@ -56,11 +56,11 @@ function renderBacklogItems() {
         console.log(tasks[i]['location']);
         if (tasks[i]['location'] == 'backlog') {
             renderBacklogCardTemplate(i);
-            // backlogCounter = backlogCounter + 1;
+            backlogCounter = backlogCounter + 1;
         }
     }
-    // checkEmptyArray(backlogCounter);
-    // backlogCounter = 0;
+    checkEmptyArray(backlogCounter);
+    backlogCounter = 0;
 }
 
 
@@ -173,10 +173,10 @@ function deleteBacklogItem(i) {
 function addBacklogItem(index) {
     let array = tasks[index];
     array['location'] = 'board';
-    console.log('Array location is', array['location']);
-    console.log('tasks Array is', array);
+    //console.log('Array location is', array['location']);
     updateBoardTasksToBackend();
     renderBacklogItems();
+    showBacklogAddedToBoard();
 }
 
 
@@ -191,7 +191,16 @@ function cleanBacklogContentRow() {
 
 
 async function updateBoardTasksToBackend() {
-    let boardArrayAsJSON = tasks; 
-    console.log('Loaded array to backlog', boardArrayAsJSON);
+    let boardArrayAsJSON = tasks;
+    //console.log('Loaded array to backlog', boardArrayAsJSON);
     await backend.setItem('tasks', JSON.stringify(boardArrayAsJSON));
+}
+
+
+function showBacklogAddedToBoard() {
+    let backlogPopup = document.getElementById("backlogSnackbar");
+    backlogPopup.classList.add('showSnack');
+    setTimeout(function () {
+        backlogPopup.classList.remove('showSnack');;
+    }, 5000);
 }

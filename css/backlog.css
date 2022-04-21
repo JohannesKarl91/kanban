@@ -170,6 +170,28 @@
     font-size: 16px;
 }
 
+#backlogSnackbar {
+    visibility: hidden;
+    font-size: 18px;
+    min-width: 240px;
+    margin-left: -125px;
+    background-color: rgb(93, 156, 112);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 50px;
+    transition: all 125ms ease-in-out;
+}
+
+#backlogSnackbar.showSnack {
+    visibility: visible;
+    transform: scale(1.2);
+}
+
 
 /*Responsive props for backlog*/
 @media (max-width: 768px) {
