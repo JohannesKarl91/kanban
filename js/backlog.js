@@ -51,7 +51,8 @@ function renderBacklogCardTemplate(i) {
     let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
-    <div id="backlogElementField(${i})" class="backlogElementField">
+    <div onclick="openBacklogEditMode(${i})" id="backlogElementField(${i})" class="backlogElementField">
+        <div id="backlogEditContainer${i}"></div>
         <div id="assigned${i}" class="backlogElement"></div>
         <div class="backlogElement">${backlogItem['category']}</div>
         <div class="backlogElementTitleDescription">
@@ -59,6 +60,7 @@ function renderBacklogCardTemplate(i) {
             <div class="descriptionElement">${backlogItem['description']}</div>
         </div>
         <div class="backlogElementContainer">
+            <a title="edit task"><img class="backlogElementBtn" src="./img/edit.svg"></a>
             <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg"></a>
             <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg"></a>
         </div>
@@ -66,6 +68,86 @@ function renderBacklogCardTemplate(i) {
 `;
     renderAssignedImg(i);
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
+}
+
+
+function openBacklogEditMode(i) {
+    let content = document.getElementById(`backlogEditContainer${i}`);
+    content.innerHTML = backlogEditor(i);
+    renderBacklogCategory(i);
+    assignedTo(i);
+}
+
+
+function backlogEditor(i) {
+    return /*html*/ `<div id="backlogEditItem${i}" class="backlog-card-edit">
+        <div class="column" id='backlogHeader${i}' class="task-header">
+            <div class="task-title">
+                <input id="backlogTitle_edit${i}" type="text" style="border-radius: 5px; width: 150px;" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'> 
+            </div>
+        </div>
+        <div class="backlog-meta-info">
+            <div class="task-duedate">
+                <input onclick="BacklogDuedate2(${i})" style="border-radius: 5px; width: 150px;" value=${tasks[i].date} class="relative bgr-input" type="date" id="backlogEditdate${i}" min="">
+            </div>
+            <div class="task-assigned" id="backlogAssigned${i}"></div>
+        </div>
+        <textarea class="textField" style="border-radius: 5px;" id="backlogDescription_edit${i}" rows="5">${tasks[i].description}</textarea>
+        <div class="task-footer">
+                            <select style="border-radius: 5px;" class="input relative" value="${tasks[i].category}" id="backlogCategory_change${i}">
+                            </select>
+            <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changeBacklogItem(${i})" class="material-symbols-outlined">
+                <img class="backlogElementBtn" src="./img/edit.svg">
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+
+function changeBacklogItem(i) {
+    let editTitle = document.getElementById('backlogTitle_edit' + i).value;
+    tasks[i].title = editTitle;
+    let editDate = document.getElementById('backlogEditdate' + i).value;
+    tasks[i].date = editDate;
+    let editDescription = document.getElementById('backlogDescription_edit' + i).value;
+    tasks[i].description = editDescription;
+    let editCategory = document.getElementById('backlogCategory_change' + i).value;
+    tasks[i].category = editCategory;
+    renderBacklogItems();
+}
+
+
+function assignedTo(i) {
+    for (let j = 0; j < tasks[i].assigned.length; j++) {
+        const assigned = tasks[i].assigned[j]['id'];
+        let user = users.filter(f => f.userId == assigned);
+        document.getElementById('backlogAssigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
+
+    }
+
+}
+
+
+function renderBacklogCategory(i) {
+    let categories = ['Marketing', 'Sale', 'IT']
+    let selectedcategory = tasks[i].category;
+    let html = document.getElementById('backlogCategory_change' + i);
+
+    for (let j = 0; j < categories.length; j++) {
+        if (selectedcategory == categories[j]) {
+            html.innerHTML += `<option selected>${categories[j]}</option>`;
+        }
+        else {
+            html.innerHTML += `<option>${categories[j]}</option>`;
+        }
+    }
+}
+
+
+function BacklogDuedate2(i) {
+    let Date = document.getElementById('editdate'+i);;
+    Date.min = todayfix;
 }
 
 

@@ -84,6 +84,7 @@ body {
 }
 
 .task-card-edit {
+    position: absolute;
     min-width: 15.5rem;
     border-radius: 6px;
     background-color: white;

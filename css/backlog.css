@@ -3,6 +3,8 @@
     margin-top: 24px;
     margin-left: 16px;
     margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .backlogHeader {
@@ -84,8 +86,8 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 8px;
-    min-width: 39%;
-    max-width: 39%;
+    min-width: 38%;
+    max-width: 38%;
 }
 
 .titleElement {
@@ -118,7 +120,6 @@
 }
 
 .backlogElementBtn {
-    margin-right: 20px;
     width: 30px;
     height: 30px;
 
@@ -190,6 +191,43 @@
 #backlogSnackbar.showSnack {
     visibility: visible;
     transform: scale(1.2);
+}
+
+
+.backlog-card-edit {
+    min-width: 60%;
+    position: absolute;
+    z-index: 4;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+    background-color: rgb(238, 245, 240);
+    top: 140px;
+    left: 15%;
+}
+
+.backlog-meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+}
+
+
+.textField{
+    min-width: 80%;
+    margin: 8px;
+}
+
+.backlogBackground{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 3;
+    background-color: black;
+    opacity: 0.8;
 }
 
 
