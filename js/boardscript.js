@@ -134,7 +134,7 @@ function openedit(i){
 }
 
 function editor(i){
-return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card">
+return`<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card-edit">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
             <input id="title_edit${i}" type="text" style="border-radius: 5px;" placeholder="Bitte Titel eingeben" value='${boardtasks[i].title}'} 
