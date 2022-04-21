@@ -167,9 +167,9 @@ function renderTaskstoBoard() {
         allTasks[i].title = editTitle;
         let editDate = document.getElementById('editdate'+i).value;
         allTasks[i].date=editDate;
-        let editDescription= document.getElementById('escription_edit'+i).value;
+        let editDescription= document.getElementById('description_edit'+i).value;
         allTasks[i].description= editDescription;
-        let editCategory=document.getElementById('category_change').value;
+        let editCategory=document.getElementById('category_change'+i).value;
         allTasks[i].category=editCategory
         renderTaskstoBoard()
     }
