@@ -203,8 +203,8 @@
     color: black;
     box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
     background-color: rgb(238, 245, 240);
-    top: 140px;
-    left: 15%;
+    top: 25%;
+    left: 25%;
 }
 
 .backlog-meta-info {
@@ -216,12 +216,12 @@
 }
 
 
-.textField{
-    min-width: 80%;
+.textField {
+    min-width: 92.5%;
     margin: 8px;
 }
 
-.backlogBackground{
+.backlogBackground {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -300,5 +300,16 @@
     .emptyArray {
         text-align: center;
         margin-left: 0 !important;
+    }
+
+    .backlog-card-edit {
+        left: 10%;
+        width: 80%;
+    }
+}
+
+@media (max-width: 300px) {
+    .backlog-card-edit {
+        left: 9%;
     }
 }

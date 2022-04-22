@@ -87,18 +87,18 @@ function backlogEditor(i) {
     return /*html*/ `<div id="backlogEditItem${i}" class="backlog-card-edit">
         <div class="column" id='backlogHeader${i}' class="task-header">
             <div class="task-title">
-                <input id="backlogTitle_edit${i}" type="text" style="border-radius: 5px; width: 150px;" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'> 
+                <input id="backlogTitle_edit${i}" type="text" style="border-radius: 5px; width: 150px; height: 35px;" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'> 
             </div>
         </div>
         <div class="backlog-meta-info">
             <div class="task-duedate">
-                <input onclick="BacklogDuedate2(${i})" style="border-radius: 5px; width: 150px;" value=${tasks[i].date} class="relative bgr-input" type="date" id="backlogEditdate${i}" min="">
+                <input onclick="BacklogDuedate2(${i})" style="border-radius: 5px; width: 150px; height: 35px" value=${tasks[i].date} class="relative bgr-input" type="date" id="backlogEditdate${i}" min="">
             </div>
             <div class="task-assigned" id="backlogAssigned${i}"></div>
         </div>
         <textarea class="textField" style="border-radius: 5px;" id="backlogDescription_edit${i}" rows="5">${tasks[i].description}</textarea>
         <div class="task-footer">
-                            <select style="border-radius: 5px;" class="input relative" value="${tasks[i].category}" id="backlogCategory_change${i}">
+                            <select style="border-radius: 5px; width: 150px; height: 30px;" class="input relative" value="${tasks[i].category}" id="backlogCategory_change${i}">
                             </select>
             <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changeBacklogItem(${i})" class="material-symbols-outlined">
                 <img class="backlogElementBtn" src="./img/edit.svg">
