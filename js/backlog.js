@@ -51,8 +51,8 @@ function renderBacklogCardTemplate(i) {
     let background = backlogItem['urgency'];
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
-    <div onclick="openBacklogEditMode(${i})" id="backlogElementField(${i})" class="backlogElementField">
-        <div id="backlogEditContainer${i}"></div>
+    <div id="backlogElementField(${i})" class="backlogElementField">
+        
         <div id="assigned${i}" class="backlogElement"></div>
         <div class="backlogElement">${backlogItem['category']}</div>
         <div class="backlogElementTitleDescription">
@@ -60,7 +60,7 @@ function renderBacklogCardTemplate(i) {
             <div class="descriptionElement">${backlogItem['description']}</div>
         </div>
         <div class="backlogElementContainer">
-            <a title="edit task"><img class="backlogElementBtn" src="./img/edit.svg"></a>
+            <a onclick="openBacklogEditMode(${i})" title="edit task"><img class="backlogElementBtn" src="./img/edit.svg"></a>
             <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg"></a>
             <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg"></a>
         </div>
@@ -72,10 +72,14 @@ function renderBacklogCardTemplate(i) {
 
 
 function openBacklogEditMode(i) {
+    let container = document.getElementById('backlogEditSection');
+    container.innerHTML =/*html*/`<div id="backlogEditContainer${i}"></div>`;
+
     let content = document.getElementById(`backlogEditContainer${i}`);
     content.innerHTML = backlogEditor(i);
     renderBacklogCategory(i);
     assignedTo(i);
+    showEditCard();
 }
 
 
@@ -114,7 +118,22 @@ function changeBacklogItem(i) {
     tasks[i].description = editDescription;
     let editCategory = document.getElementById('backlogCategory_change' + i).value;
     tasks[i].category = editCategory;
+    disappearEditCard();
     renderBacklogItems();
+}
+
+function disappearEditCard() {
+    let background = document.getElementById('backlogBackgroundEdit');
+    background.classList.add('d-none');
+    let container = document.getElementById('backlogEditSection');
+    container.classList.add('d-none');
+}
+
+function showEditCard(){
+    let background = document.getElementById('backlogBackgroundEdit');
+    background.classList.remove('d-none');
+    let container = document.getElementById('backlogEditSection');
+    container.classList.remove('d-none');
 }
 
 
@@ -146,7 +165,7 @@ function renderBacklogCategory(i) {
 
 
 function BacklogDuedate2(i) {
-    let Date = document.getElementById('editdate'+i);;
+    let Date = document.getElementById('editdate' + i);;
     Date.min = todayfix;
 }
 
