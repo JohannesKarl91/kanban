@@ -146,6 +146,7 @@ body {
     gap: 6px;
     overflow-x: auto;
     max-width: 120px;
+    margin-left: 7px;
 }
 
 .member-img {

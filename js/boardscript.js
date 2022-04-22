@@ -195,7 +195,7 @@ function renderTaskstoBoard() {
 
     function assignedto(i){
         for (let k=0; k<users.length; k++)
-        {document.getElementById('assigned' + i).innerHTML += `<div class="user"><img id="user${k}" class="member-img" src="${users[k]['profileimage']}"></img></div>`;
+        {document.getElementById('assigned' + i).innerHTML += `<div onclick="changeassign(${i},${k})"  class="user"><img id="user${k}" class="member-img" src="${users[k]['profileimage']}"></img></div>`;
         checkassign(i,k)
     }
 }
@@ -206,6 +206,9 @@ function renderTaskstoBoard() {
                 document.getElementById('user' + k).classList.add('edit')
     }
 }
+
+function changeassign(i,k){}
+// if user ist assigned methode delete else add
 
     //     let assign=[1,2,3,4]
     //     let assigntotask= allTasks[i].assigned
