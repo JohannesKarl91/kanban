@@ -194,11 +194,31 @@ function renderTaskstoBoard() {
     }
 
     function assignedto(i){
-        for (let j = 0; j < allTasks[i].assigned.length; j++) {
-            const assigned = allTasks[i].assigned[j]['id'];
-            let user = users.filter(f => f.userId == assigned);
-            document.getElementById('assigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
-
-        }
-
+        for (let k=0; k<users.length; k++)
+        {document.getElementById('assigned' + i).innerHTML += `<div class="user"><img id="user${k}" class="member-img" src="${users[k]['profileimage']}"></img></div>`;
+        checkassign(i,k)
     }
+}
+
+    function checkassign(i,k){
+        for (let j = 0; j < allTasks[i].assigned.length; j++) {
+        if (users[k].userId == allTasks[i].assigned[j]['id'])
+                document.getElementById('user' + k).classList.add('edit')
+    }
+}
+
+    //     let assign=[1,2,3,4]
+    //     let assigntotask= allTasks[i].assigned
+    //     for(let k=0; k< assigntotask.length; k++){
+    //         for(let j = 0; j < assign.length; j++) {
+    //             if(assigntotask[k] == assign[j])
+    //             document.getElementById('assigned'+i).innerHTML 
+    //     }
+    //     for (let j = 0; j < allTasks[i].assigned.length; j++) {
+    //         const assigned = allTasks[i].assigned[j]['id'];
+    //         let user = users.filter(f => f.userId == assigned);
+    //         document.getElementById('assigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
+    //         document.getElementById('assigned'+i).innerHTML 
+    //     }
+
+    // }
