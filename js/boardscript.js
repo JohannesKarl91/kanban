@@ -225,9 +225,9 @@ function addperson(i,k){
 }
 
 function deleteperson(i,k){
-    k--;
-    let index= tasks[i].assigned.indexOf(k)
+    let index=(tasks[i].assigned.findIndex(elem => elem.id ==k));
     tasks[i].assigned.splice(index,1);
+    k--;
     document.getElementById('user' + k).classList.remove('edit')
 }
 
