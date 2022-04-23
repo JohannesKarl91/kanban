@@ -143,7 +143,7 @@ function renderTaskstoBoard() {
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
             <input id="title_edit${i}" type="text" style="border-radius: 5px; width:90%" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'>
-            <img onclick="disappearEdit${i}" class="backlogElementBtn" src="./img/close.svg">
+            <img onclick="disappearEdit()" class="backlogElementBtn" src="./img/close.svg">
         </div>
     </div>
     <div class="task-meta-info">
@@ -229,4 +229,8 @@ function deleteperson(i,k){
     tasks[i].assigned.splice(index,1);
     k--;
     document.getElementById('user' + k).classList.remove('edit')
+}
+
+function disappearEdit(){
+    renderTaskstoBoard();
 }
