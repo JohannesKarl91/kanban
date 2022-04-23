@@ -71,83 +71,6 @@ function renderBacklogCardTemplate(i) {
 }
 
 
-function openBacklogEditMode(i) {
-    let container = document.getElementById('backlogEditSection');
-    container.innerHTML =/*html*/`<div id="backlogEditContainer${i}"></div>`;
-
-    let content = document.getElementById(`backlogEditContainer${i}`);
-    content.innerHTML = backlogEditor(i);
-    renderBacklogCategory(i);
-    assignedTo(i);
-    showEditCard();
-}
-
-
-function backlogEditor(i) {
-    return /*html*/ `<div id="backlogEditItem${i}" class="backlog-card-edit">
-        <div class="backlogColumn" id='backlogHeader${i}' class="task-header">
-            <div class="backlog-task-title">
-                <input id="backlogTitle_edit${i}" type="text" class="editFields editTitle" style="" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'>
-                <img onclick="disappearEditCard()" class="backlogElementBtn" src="./img/close.svg">
-            </div>
-        </div>
-        <div class="backlog-meta-info">
-            <div class="backlog-duedate">
-                <input onclick="BacklogDuedate2(${i})" class="editFields" value=${tasks[i].date} class="relative bgr-input" type="date" id="backlogEditdate${i}" min="">
-            </div>
-            <div class="backlog-task-assigned" id="backlogAssigned${i}"></div>
-        </div>
-        <textarea class="textField" style="border-radius: 5px;" id="backlogDescription_edit${i}" rows="5">${tasks[i].description}</textarea>
-        <div class="backlog-task-footer">
-                            <select class="input relative editFields" value="${tasks[i].category}" id="backlogCategory_change${i}">
-                            </select>
-            <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changeBacklogItem(${i})" class="material-symbols-outlined">
-                <img class="backlogElementBtn" src="./img/edit.svg">
-            </div>
-        </div>
-    </div>
-    `;
-}
-
-
-function changeBacklogItem(i) {
-    let editTitle = document.getElementById('backlogTitle_edit' + i).value;
-    tasks[i].title = editTitle;
-    let editDate = document.getElementById('backlogEditdate' + i).value;
-    tasks[i].date = editDate;
-    let editDescription = document.getElementById('backlogDescription_edit' + i).value;
-    tasks[i].description = editDescription;
-    let editCategory = document.getElementById('backlogCategory_change' + i).value;
-    tasks[i].category = editCategory;
-    disappearEditCard();
-    renderBacklogItems();
-}
-
-function disappearEditCard() {
-    let background = document.getElementById('backlogBackgroundEdit');
-    background.classList.add('d-none');
-    let container = document.getElementById('backlogEditSection');
-    container.classList.add('d-none');
-}
-
-function showEditCard(){
-    let background = document.getElementById('backlogBackgroundEdit');
-    background.classList.remove('d-none');
-    let container = document.getElementById('backlogEditSection');
-    container.classList.remove('d-none');
-}
-
-
-function assignedTo(i) {
-    for (let j = 0; j < tasks[i].assigned.length; j++) {
-        const assigned = tasks[i].assigned[j]['id'];
-        let user = users.filter(f => f.userId == assigned);
-        document.getElementById('backlogAssigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
-
-    }
-
-}
-
 
 function renderBacklogCategory(i) {
     let categories = ['Marketing', 'Sale', 'IT']
@@ -308,4 +231,131 @@ function showBacklogAddedToBoard() {
     setTimeout(function () {
         backlogPopup.classList.remove('showSnack');;
     }, 5000);
+}
+
+
+
+
+//Section for edition a task as a backlog item.
+
+
+function openBacklogEditMode(i) {
+    let container = document.getElementById('backlogEditSection');
+    container.innerHTML =/*html*/`<div id="backlogEditContainer${i}"></div>`;
+
+    let content = document.getElementById(`backlogEditContainer${i}`);
+    content.innerHTML = backlogEditor(i);
+    renderBacklogCategory(i);
+    assignedTo(i);
+    showEditCard();
+}
+
+
+function backlogEditor(i) {
+    return /*html*/ `<div id="backlogEditItem${i}" class="backlog-card-edit">
+        <div class="backlogColumn" id='backlogHeader${i}' class="task-header">
+            <div class="backlog-task-title">
+                <input id="backlogTitle_edit${i}" type="text" class="editFields editTitle" style="" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'>
+                <img onclick="disappearEditCard()" class="backlogElementBtn" src="./img/close.svg">
+            </div>
+        </div>
+        <div class="backlog-meta-info">
+            <div class="backlog-duedate">
+                <input onclick="BacklogDuedate2(${i})" class="editFields" value=${tasks[i].date} class="relative bgr-input" type="date" id="backlogEditdate${i}" min="">
+            </div>
+            <div class="backlog-task-assigned" id="backlogAssigned${i}"></div>
+        </div>
+        <textarea class="textField" style="border-radius: 5px;" id="backlogDescription_edit${i}" rows="5">${tasks[i].description}</textarea>
+        <div class="backlog-task-footer">
+                            <select class="input relative editFields" value="${tasks[i].category}" id="backlogCategory_change${i}">
+                            </select>
+            <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changeBacklogItem(${i})" class="material-symbols-outlined">
+                <img class="backlogElementBtn" src="./img/edit.svg">
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+
+function changeBacklogItem(i) {
+    let editTitle = document.getElementById('backlogTitle_edit' + i).value;
+    tasks[i].title = editTitle;
+    let editDate = document.getElementById('backlogEditdate' + i).value;
+    tasks[i].date = editDate;
+    let editDescription = document.getElementById('backlogDescription_edit' + i).value;
+    tasks[i].description = editDescription;
+    let editCategory = document.getElementById('backlogCategory_change' + i).value;
+    tasks[i].category = editCategory;
+    disappearEditCard();
+    renderBacklogItems();
+}
+
+
+function disappearEditCard() {
+    let background = document.getElementById('backlogBackgroundEdit');
+    background.classList.add('d-none');
+    let container = document.getElementById('backlogEditSection');
+    container.classList.add('d-none');
+}
+
+function showEditCard() {
+    let background = document.getElementById('backlogBackgroundEdit');
+    background.classList.remove('d-none');
+    let container = document.getElementById('backlogEditSection');
+    container.classList.remove('d-none');
+}
+
+
+function assignedTo(i) {
+    for (let k = 0; k < users.length; k++) {
+        document.getElementById('backlogAssigned' + i).innerHTML += /*html*/ `
+            <div onclick="changeAssign(${i}, ${k})" class="user"><img id="user${k}" class="member-img" src="${users[k]['profileimage']}"></div>
+            `;
+        checkAssign(i, k);
+    }
+}
+
+
+function checkAssign(i, k) {
+    for (let j = 0; j < tasks[i].assigned.length; j++) {
+        if (users[k].userId == tasks[i].assigned[j]['id']) {
+            document.getElementById('user' + k).classList.add('edit-frame');
+        }
+    }
+}
+
+
+function changeAssign(i, k) {
+    if (tasks[i].assigned.some(any => any.id == k + 1)) {
+        deletePerson(i, k);
+    }
+    else {
+        //console.log('add')
+        addPerson(i, k);
+    }
+}
+
+
+function addPerson(i, k) {
+    let currentId = k + 1;
+    tasks[i].assigned.push({ 'id': currentId });
+    console.log('Add Assignee Array', tasks[i].assigned);
+    document.getElementById('user' + k).classList.add('edit-frame');
+}
+
+
+function deletePerson(i, k) {
+    let index = tasks[i]['assigned'][k]['id'];
+    console.log('deletePerson Index', index);
+
+    for (let j = 0; j < tasks[i].assigned.length; j++) {
+        let currentAssignedElement = tasks[i]['assigned'][j]; 
+        console.log('For Loop', currentAssignedElement);
+        if (index == currentAssignedElement['id']) {
+            tasks[i]['assigned'].splice(j, 1);
+        }
+    }
+    document.getElementById('user' + k).classList.remove('edit-frame');
+    console.log('Delete Assignee Array', tasks[i].assigned);
 }

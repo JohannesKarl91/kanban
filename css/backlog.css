@@ -366,6 +366,10 @@
 
 }
 
+.edit-frame{
+    border: 3px solid rgb(93, 156, 112);
+}
+
 @media (max-width: 300px) {
     .backlog-card-edit {
         left: 9%;
