@@ -88,7 +88,7 @@ function backlogEditor(i) {
         <div class="backlogColumn" id='backlogHeader${i}' class="task-header">
             <div class="backlog-task-title">
                 <input id="backlogTitle_edit${i}" type="text" class="editFields editTitle" style="" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'>
-                <img class="backlogElementBtn" src="./img/close.svg">
+                <img onclick="disappearEditCard()" class="backlogElementBtn" src="./img/close.svg">
             </div>
         </div>
         <div class="backlog-meta-info">
