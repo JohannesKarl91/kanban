@@ -142,7 +142,7 @@ function renderTaskstoBoard() {
         return `<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card-edit">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
-            <input id="title_edit${i}" type="text" style="border-radius: 5px;" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'} 
+            <input id="title_edit${i}" type="text" style="border-radius: 5px; width:100%" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'} 
         </div>
     </div>
     <div class="task-meta-info">
@@ -207,7 +207,30 @@ function renderTaskstoBoard() {
     }
 }
 
-function changeassign(i,k){}
+function changeassign(i,k){
+    k++;
+   if (tasks[i].assigned.some(any => any.id == k)){
+       deleteperson(i,k);
+   }
+   else{
+       console.log('add')
+       addperson(i,k);
+   }    
+}
+
+function addperson(i,k){
+    tasks[i].assigned.push(k);
+    k--;
+    document.getElementById('user' + k).classList.add('edit')
+}
+
+function deleteperson(i,k){
+    k--;
+    let index= tasks[i].assigned.indexOf(k)
+    tasks[i].assigned.splice(index,1);
+    document.getElementById('user' + k).classList.remove('edit')
+}
+
 // if user ist assigned methode delete else add
 
     //     let assign=[1,2,3,4]
