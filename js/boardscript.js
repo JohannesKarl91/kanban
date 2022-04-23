@@ -213,13 +213,12 @@ function changeassign(i,k){
        deleteperson(i,k);
    }
    else{
-       console.log('add')
        addperson(i,k);
    }    
 }
 
 function addperson(i,k){
-    tasks[i].assigned.push(k);
+    tasks[i].assigned.push({id: k});
     k--;
     document.getElementById('user' + k).classList.add('edit')
 }
