@@ -327,33 +327,41 @@ function checkAssign(i, k) {
 
 
 function changeAssign(i, k) {
-    if (tasks[i].assigned.some(any => any.id == k + 1)) {
-        deletePerson(i, k);
+    let currentId = k + 1;
+    if (tasks[i].assigned.some(any => any.id == currentId)) {
+        console.log('Input of changeAssign', currentId);
+        deletePerson(i, k, currentId);
     }
     else {
         //console.log('add')
-        addPerson(i, k);
+        addPerson(i, k, currentId);
     }
 }
 
 
-function addPerson(i, k) {
-    let currentId = k + 1;
+function addPerson(i, k, currentId) {
     tasks[i].assigned.push({ 'id': currentId });
-    console.log('Add Assignee Array', tasks[i].assigned);
     document.getElementById('user' + k).classList.add('edit-frame');
 }
 
 
-function deletePerson(i, k) {
-    let index = tasks[i]['assigned'][k]['id'];
-    console.log('deletePerson Index', index);
+function deletePerson(i, k, currentId) {
 
     for (let j = 0; j < tasks[i].assigned.length; j++) {
-        let currentAssignedElement = tasks[i]['assigned'][j]; 
-        console.log('For Loop', currentAssignedElement);
-        if (index == currentAssignedElement['id']) {
-            tasks[i]['assigned'].splice(j, 1);
+        let currentAssignedElement = tasks[i]['assigned'][j];
+
+        if (tasks[i].assigned.length == 0) {
+            //console.log('array is empty!')
+            // tasks[i].assigned = [];
+        }
+
+        if (currentId == currentAssignedElement['id']) {
+            console.log('currentId', currentId);
+            console.log('For Loop', currentAssignedElement['id']);
+            //console.log('Cut out', tasks[i]['assigned'][k]);
+            //console.log('currentAssignedElement', currentAssignedElement)
+            console.log('After Array Cut out', tasks[i]['assigned'][j])
+            tasks[i]['assigned'].splice(j,1);
         }
     }
     document.getElementById('user' + k).classList.remove('edit-frame');
