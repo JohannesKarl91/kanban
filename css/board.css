@@ -95,6 +95,10 @@ body {
     background-color: rgb(238, 245, 240);
 }
 
+.infochanged{
+    font-size: small;
+}
+
 .task-header {
     display: flex;
     justify-content: space-between;
