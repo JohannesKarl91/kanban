@@ -210,17 +210,20 @@ function renderTaskstoBoard() {
 function changeassign(i,k){
     k++;
    if (tasks[i].assigned.some(any => any.id == k)){
-       console.log('löschen')
+       deleteperson(i,k);
    }
    else{
        console.log('add')
+       addperson(i,k);
    }
 
     
 }
 
-function addperson(){
-    console.log('hinzufügen')
+function addperson(i,k){
+    tasks[i].assigned.push(k);
+    k--;
+    document.getElementById('user' + k).classList.add('edit')
 }
 
 function deleteperson(){
