@@ -215,9 +215,7 @@ function changeassign(i,k){
    else{
        console.log('add')
        addperson(i,k);
-   }
-
-    
+   }    
 }
 
 function addperson(i,k){
@@ -226,8 +224,11 @@ function addperson(i,k){
     document.getElementById('user' + k).classList.add('edit')
 }
 
-function deleteperson(){
-    console.log('löschen')
+function deleteperson(i,k){
+    k--;
+    let index= tasks[i].assigned.indexOf(k)
+    tasks[i].assigned.splice(index,1);
+    document.getElementById('user' + k).classList.remove('edit')
 }
 
 // if user ist assigned methode delete else add
