@@ -207,7 +207,26 @@ function renderTaskstoBoard() {
     }
 }
 
-function changeassign(i,k){}
+function changeassign(i,k){
+    k++;
+   if (tasks[i].assigned.some(any => any.id == k)){
+       console.log('löschen')
+   }
+   else{
+       console.log('add')
+   }
+
+    
+}
+
+function addperson(){
+    console.log('hinzufügen')
+}
+
+function deleteperson(){
+    console.log('löschen')
+}
+
 // if user ist assigned methode delete else add
 
     //     let assign=[1,2,3,4]
