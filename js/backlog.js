@@ -20,7 +20,7 @@ async function initBacklog() {
  */
 async function loadTasks() {
     tasks = await JSON.parse(backend.getItem('tasks')) || [];
-    console.log('tasks', tasks);
+    //console.log('tasks', tasks);
 }
 
 
@@ -31,7 +31,7 @@ function renderBacklogItems() {
     checkEmptyArray();
     cleanBacklogContentRow();
     for (let i = 0; i < tasks.length; i++) {
-        console.log(tasks[i]['location']);
+        //console.log(tasks[i]['location']);
         if (tasks[i]['location'] == 'backlog') {
             renderBacklogCardTemplate(i);
             backlogCounter = backlogCounter + 1;
@@ -71,7 +71,10 @@ function renderBacklogCardTemplate(i) {
 }
 
 
-
+/**
+ * 
+ * @param {*} i index in reference to tasks[] array. 
+ */
 function renderBacklogCategory(i) {
     let categories = ['Marketing', 'Sale', 'IT']
     let selectedcategory = tasks[i].category;
@@ -88,8 +91,12 @@ function renderBacklogCategory(i) {
 }
 
 
+/**
+ * Limits the user just to choose today`s date or further in the future.
+ * @param {*} i index in reference to tasks[] array. 
+ */
 function BacklogDuedate2(i) {
-    let Date = document.getElementById('editdate' + i);;
+    let Date = document.getElementById('backlogEditdate' + i);;
     Date.min = todayfix;
 }
 
@@ -170,7 +177,7 @@ function checkEmptyArray(backlogConter) {
     let textByEmptyArray = document.getElementById('emptyArray');
 
     if (backlogConter == 0) {
-        console.log('Array is empty!');
+        //console.log('Array is empty!');
         textByEmptyArray.innerHTML = 'There is no backlog available. Please add some tasks!';
         document.getElementById('backlogContent').classList.add('d-none');
         document.getElementById('emptyArray').classList.remove('d-none');
@@ -213,7 +220,7 @@ function cleanBacklogContentRow() {
 }
 
 /**
- * Updates the local array "tasks" to the backend in string element "tasks"
+ * Updates the local array "tasks" to the backend in string element "tasks".
  */
 async function updateBoardTasksToBackend() {
     let boardArrayAsJSON = tasks;
@@ -223,7 +230,7 @@ async function updateBoardTasksToBackend() {
 
 
 /**
- * Shows a confirmation for sending the backlog item to KANBAN board.
+ * Shows a confirmation for sending the backlog item to KANBAN Board.
  */
 function showBacklogAddedToBoard() {
     let backlogPopup = document.getElementById("backlogSnackbar");
@@ -236,9 +243,12 @@ function showBacklogAddedToBoard() {
 
 
 
-//Section for edition a task as a backlog item.
+//Section for editing a task as a backlog item.
 
-
+/**
+ * This onclick function opens the edit mode for each task via pen button.
+ * @param {*} i index in reference to tasks[] array. 
+ */
 function openBacklogEditMode(i) {
     let container = document.getElementById('backlogEditSection');
     container.innerHTML =/*html*/`<div id="backlogEditContainer${i}"></div>`;
@@ -251,6 +261,11 @@ function openBacklogEditMode(i) {
 }
 
 
+/**
+ * Renders the backlog card for edit mode in each task.
+ * @param {*} i index in reference to tasks[] array. 
+ * @returns the backlogEditor(i) template via pen button in task card.
+ */
 function backlogEditor(i) {
     return /*html*/ `<div id="backlogEditItem${i}" class="backlog-card-edit">
         <div class="backlogColumn" id='backlogHeader${i}' class="task-header">
@@ -278,6 +293,10 @@ function backlogEditor(i) {
 }
 
 
+/**
+ * Changes the current inputs (e.g. date, input fields, ect.) and update the backend to save new data.
+ * @param {*} i index in reference to tasks[] array. 
+ */
 function changeBacklogItem(i) {
     let editTitle = document.getElementById('backlogTitle_edit' + i).value;
     tasks[i].title = editTitle;
@@ -293,6 +312,9 @@ function changeBacklogItem(i) {
 }
 
 
+/**
+ * Closes edit mode via the (x) / close button on the right hand side on the top of the backlog edit card.
+ */
 function disappearEditCard() {
     let background = document.getElementById('backlogBackgroundEdit');
     background.classList.add('d-none');
@@ -300,6 +322,9 @@ function disappearEditCard() {
     container.classList.add('d-none');
 }
 
+/**
+ * Shows the div container of backlogEditSection & backlo9gBackground Edit.
+ */
 function showEditCard() {
     let background = document.getElementById('backlogBackgroundEdit');
     background.classList.remove('d-none');
@@ -308,6 +333,11 @@ function showEditCard() {
 }
 
 
+
+/**
+ * Renders the assigned person/s to each tasks.
+ * @param {*} i index in reference to tasks[] array.  
+ */
 function assignedTo(i) {
     for (let k = 0; k < users.length; k++) {
         document.getElementById('backlogAssigned' + i).innerHTML += /*html*/ `
@@ -318,6 +348,11 @@ function assignedTo(i) {
 }
 
 
+/**
+ * 
+ * @param {*} i index in reference to tasks[] array. 
+ * @param {*} k index in reference to user[] array. 
+ */
 function checkAssign(i, k) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         if (users[k].userId == tasks[i].assigned[j]['id']) {
@@ -327,6 +362,11 @@ function checkAssign(i, k) {
 }
 
 
+/**
+ * 
+ * @param {*} i index in reference to tasks[] array. 
+ * @param {*} k index in reference as array counter in assigned section (in tasks[]).
+ */
 function changeAssign(i, k) {
     let currentId = k + 1;
     if (tasks[i].assigned.some(any => any.id == currentId)) {
@@ -339,22 +379,27 @@ function changeAssign(i, k) {
 }
 
 
+/**
+ * Adds a new assigend person via a green frame in assigned img. 
+ * @param {*} i index in reference to tasks[] array.  
+ * @param {*} k index in reference as array counter in assigned section (in tasks[]).
+ * @param {*} currentId Current id of assigend person for further comparing via if branch.
+ */
 function addPerson(i, k, currentId) {
     tasks[i].assigned.push({ 'id': currentId });
     document.getElementById('user' + k).classList.add('edit-frame');
 }
 
 
+/**
+ * Deletes a new assigend person via disappearing the green frame in assigned img.
+ * @param {*} i index in reference to tasks[] array.  
+ * @param {*} k index in reference as array counter in assigned section (in tasks[]). 
+ * @param {*} currentId Current id of assigend person for further comparing via if branch.
+ */
 function deletePerson(i, k, currentId) {
-
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let currentAssignedElement = tasks[i]['assigned'][j];
-
-        if (tasks[i].assigned.length == 0) {
-            //console.log('array is empty!')
-            // tasks[i].assigned = [];
-        }
-
         if (currentId == currentAssignedElement['id']) {
             //console.log('currentId', currentId);
             //console.log('For Loop', currentAssignedElement['id']);
