@@ -287,6 +287,7 @@ function changeBacklogItem(i) {
     tasks[i].description = editDescription;
     let editCategory = document.getElementById('backlogCategory_change' + i).value;
     tasks[i].category = editCategory;
+    updateBoardTasksToBackend();
     disappearEditCard();
     renderBacklogItems();
 }
@@ -329,7 +330,6 @@ function checkAssign(i, k) {
 function changeAssign(i, k) {
     let currentId = k + 1;
     if (tasks[i].assigned.some(any => any.id == currentId)) {
-        console.log('Input of changeAssign', currentId);
         deletePerson(i, k, currentId);
     }
     else {
@@ -356,14 +356,13 @@ function deletePerson(i, k, currentId) {
         }
 
         if (currentId == currentAssignedElement['id']) {
-            console.log('currentId', currentId);
-            console.log('For Loop', currentAssignedElement['id']);
+            //console.log('currentId', currentId);
+            //console.log('For Loop', currentAssignedElement['id']);
             //console.log('Cut out', tasks[i]['assigned'][k]);
             //console.log('currentAssignedElement', currentAssignedElement)
-            console.log('After Array Cut out', tasks[i]['assigned'][j])
+            //console.log('After Array Cut out', tasks[i]['assigned'][j])
             tasks[i]['assigned'].splice(j,1);
         }
     }
     document.getElementById('user' + k).classList.remove('edit-frame');
-    console.log('Delete Assignee Array', tasks[i].assigned);
 }
