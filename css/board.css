@@ -103,9 +103,13 @@ body {
     border-radius: 6px 6px 0 0;
     padding: 6px;
 }
+.d-none{
+    display: none;
+}
 
 .task-title {
     margin-bottom: 4px;
+    display: flex;
 }
 
 .task-title h4 {

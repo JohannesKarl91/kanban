@@ -139,10 +139,11 @@ function renderTaskstoBoard() {
     }
 
     function editor(i) {
-        return `<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card-edit">
+        return `<div id="taskat${i}"class="task-card-edit" >
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
-            <input id="title_edit${i}" type="text" style="border-radius: 5px; width:100%" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'} 
+            <input id="title_edit${i}" type="text" style="border-radius: 5px; width:90%" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'>
+            <img onclick="disappearEdit${i}" class="backlogElementBtn" src="./img/close.svg">
         </div>
     </div>
     <div class="task-meta-info">
@@ -213,38 +214,19 @@ function changeassign(i,k){
        deleteperson(i,k);
    }
    else{
-       console.log('add')
        addperson(i,k);
    }    
 }
 
 function addperson(i,k){
-    tasks[i].assigned.push(k);
+    tasks[i].assigned.push({id: k});
     k--;
     document.getElementById('user' + k).classList.add('edit')
 }
 
 function deleteperson(i,k){
-    k--;
-    let index= tasks[i].assigned.indexOf(k)
+    let index=(tasks[i].assigned.findIndex(elem => elem.id ==k));
     tasks[i].assigned.splice(index,1);
+    k--;
     document.getElementById('user' + k).classList.remove('edit')
 }
-
-// if user ist assigned methode delete else add
-
-    //     let assign=[1,2,3,4]
-    //     let assigntotask= tasks[i].assigned
-    //     for(let k=0; k< assigntotask.length; k++){
-    //         for(let j = 0; j < assign.length; j++) {
-    //             if(assigntotask[k] == assign[j])
-    //             document.getElementById('assigned'+i).innerHTML 
-    //     }
-    //     for (let j = 0; j < tasks[i].assigned.length; j++) {
-    //         const assigned = tasks[i].assigned[j]['id'];
-    //         let user = users.filter(f => f.userId == assigned);
-    //         document.getElementById('assigned' + i).innerHTML += `<div class="user"><img class="member-img" src="${user[0]['profileimage']}"></img></div>`;
-    //         document.getElementById('assigned'+i).innerHTML 
-    //     }
-
-    // }
