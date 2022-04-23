@@ -142,7 +142,7 @@ function renderTaskstoBoard() {
         return `<div id="taskat${i}" draggable="true" ondragstart="startDragging(${i})" class="task-card-edit">
     <div class="column" id='header${i}' style="background-color:" class="task-header">
         <div class="task-title">
-            <input id="title_edit${i}" type="text" style="border-radius: 5px;" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'} 
+            <input id="title_edit${i}" type="text" style="border-radius: 5px; width:100%" placeholder="Bitte Titel eingeben" value='${tasks[i].title}'} 
         </div>
     </div>
     <div class="task-meta-info">
