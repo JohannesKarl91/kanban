@@ -168,7 +168,7 @@ function renderTaskstoBoard() {
         <div class="task-assigned" id="assigned${i}">
         </div>
     </div>
-    <textarea style="border-radius: 5px;" id="description_edit${i}" rows="5">${tasks[i].description}</textarea>
+    <textarea class="textarea-edit" id="description_edit${i}" rows="5">${tasks[i].description}</textarea>
     <div class="task-footer">
                         <select style="border-radius: 5px;" class="input relative" value="${tasks[i].category}" id="category_change${i}">
                         </select>
