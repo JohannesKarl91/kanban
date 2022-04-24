@@ -34,7 +34,7 @@
         <div class="board">
             <div class="boardSection">
                 <div class="boardSectionHeader">TO DO</div>
-                <div class="boardSectionField" id="todo" ondrop="moveto('todo')" ondragover="allowDrop(event)">
+                <div class="boardSectionField" id="todo" ondrop="moveto('todo'); removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')">
                     <!-- <div class="task-card">
                         <div class="task-header">
                             <div class="task-title">
@@ -99,7 +99,7 @@
     
             <div class="boardSection">
                 <div class="boardSectionHeader">IN PROGRESS</div>
-                <div class="boardSectionField" id="inprogress" ondrop="moveto('inprogress')" ondragover="allowDrop(event)">
+                <div class="boardSectionField" id="inprogress" ondrop="moveto('inprogress'); removeHighlight('inprogress')" ondragover="allowDrop(event); highlight('inprogress')" ondragleave="removeHighlight('inprogress')">
     
                     <!-- <div class="task-card">
                         <div class="task-header" style="background-color: #4caf50;">
@@ -137,12 +137,12 @@
     
             <div class="boardSection">
                 <div class="boardSectionHeader">TESTING</div>
-                <div class="boardSectionField" id="testing" ondrop="moveto('testing')" ondragover="allowDrop(event)"></div>
+                <div class="boardSectionField" id="testing" ondrop="moveto('testing'); removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"></div>
             </div>
     
             <div class="boardSection">
                 <div class="boardSectionHeader">DONE</div>
-                <div class="boardSectionField" id="done" ondrop="moveto('done')" ondragover="allowDrop(event)">
+                <div class="boardSectionField" id="done" ondrop="moveto('done'); removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
     
                     <!-- <div class="task-card">
                         <div class="task-header" style="background-color: #ed9e00;">

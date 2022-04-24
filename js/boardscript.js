@@ -1,9 +1,4 @@
 let currentDraggedElement;
-// let boardtasks = [];
-
-
-
-
 
 async function initBoard() {
     await initUsers();
@@ -62,6 +57,7 @@ function renderTaskstoBoard() {
         }
     }
 
+
     function taskassigned(i) {
         for (let j = 0; j < tasks[i].assigned.length; j++) {
             const assigned = tasks[i].assigned[j]['id'];
@@ -105,8 +101,18 @@ function renderTaskstoBoard() {
 `;
     }
 
+
     function allowDrop(ev) {
         ev.preventDefault();
+
+    }
+
+    function highlight(id) {
+        document.getElementById(id).classList.add('boardSectionField-highlight');
+    }
+
+    function removeHighlight(id) {
+        document.getElementById(id).classList.remove('boardSectionField-highlight');
     }
 
     function startDragging(index) {

@@ -23,7 +23,6 @@ body {
 .column {
     display: flex;
     flex-direction: column;
-    padding: 8px;
     border-radius: 5px;
 }
 
@@ -58,16 +57,22 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-top: -10px;
-    border-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     background-color: rgba(93, 156, 112, 0.1);
     min-height: 70px;
+}
+
+.boardSectionField-highlight {
+    background-color: rgb(93 156 112 / 48%);
+    box-shadow: 0 0 9px 0px rgb(0 0 0 / 60%);
 }
 
 .innercontent {
     margin-top: 24px;
     margin-bottom: 24px;
 }
+
 
 /* Kanban-Tasks */
 .task-card {
@@ -84,18 +89,14 @@ body {
 }
 
 .task-card-edit {
-    position: absolute;
-    min-width: 15.5rem;
+    padding: 4px;
     border-radius: 6px;
-    background-color: white;
     color: black;
-    margin-top: 24px;
-    margin-bottom: 14px;
-    box-shadow: 0 0 2px 0px rgb(0 0 0 / 60%);
+    box-shadow: 0 0 9px 0px rgb(255 0 0);
     background-color: rgb(238, 245, 240);
 }
 
-.infochanged{
+.infochanged {
     font-size: 9px;
     margin-top: 6px;
     flex: 100%;
@@ -109,13 +110,15 @@ body {
     border-radius: 6px 6px 0 0;
     padding: 6px;
 }
-.d-none{
+
+.d-none {
     display: none;
 }
 
 .task-title {
     margin-bottom: 4px;
     display: flex;
+    justify-content: space-between;
 }
 
 .task-title h4 {
@@ -124,14 +127,23 @@ body {
 }
 
 .task-meta-info {
+    padding: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    padding: 4px;
 }
 
-.textarea-edit{
+.task-card-edit .task-meta-info {
+    border-bottom: 0;
+    padding: 0;
+}
+
+.task-card-edit .task-footer {
+    padding: 0;
+}
+
+.textarea-edit {
     width: 100%;
     resize: none;
     border-radius: 5px;
@@ -191,7 +203,7 @@ body {
     padding: 4px;
 }
 
-.boardBtnSection{
+.boardBtnSection {
     display: flex;
     align-items: center;
 }
@@ -215,7 +227,7 @@ body {
     color: white;
 }
 
-.edit{
+.edit {
     border: 3px solid rgb(93, 156, 112);
 }
 
