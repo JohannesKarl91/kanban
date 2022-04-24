@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let boardtasks = [];
+// let boardtasks = [];
 
 
 
@@ -123,8 +123,6 @@ function renderTaskstoBoard() {
         tasks.splice(position,1)
                 updateBoardTasksToBackend();
                 renderTaskstoBoard()
-            
-        
     }
 
 
@@ -189,8 +187,9 @@ function renderTaskstoBoard() {
         let editDescription= document.getElementById('description_edit'+i).value;
         tasks[i].description= editDescription;
         let editCategory=document.getElementById('category_change'+i).value;
-        tasks[i].category=editCategory
-        renderTaskstoBoard()
+        tasks[i].category=editCategory;
+        updateBoardTasksToBackend();
+        renderTaskstoBoard();
         stamp(i)
     }
 
