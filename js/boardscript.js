@@ -196,9 +196,8 @@ function renderTaskstoBoard() {
     function stamp(i){
         let date = new Date();
         tasks[i].edited=date;
-        document.getElementById('changed'+i).textContent ='';
-        document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
-        document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+        document.getElementById('changed'+i).innerHTML = `last change:<br>`;
+        document.getElementById('changed'+i).innerHTML += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
     }
 
 
