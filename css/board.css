@@ -96,7 +96,8 @@ body {
 }
 
 .infochanged{
-    font-size: 8px;
+    font-size: 9px;
+    flex: 100%;
 }
 
 .task-header {
@@ -183,6 +184,7 @@ body {
 .task-footer {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 4px;
 }
