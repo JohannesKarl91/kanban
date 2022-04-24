@@ -1,6 +1,5 @@
 let currentDraggedElement;
 let boardtasks = [];
-const date = new Date();
 
 
 
@@ -42,7 +41,7 @@ function renderTaskstoBoard() {
 
     function timestamp(i){
         if (tasks[i].edited>1){
-            const date=tasks[i].edited;
+            date=tasks[i].edited;
         document.getElementById('changed'+i).textContent ='';
         document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
         document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
@@ -196,6 +195,7 @@ function renderTaskstoBoard() {
     }
 
     function stamp(i){
+        let date = new Date();
         tasks[i].edited=date;
         document.getElementById('changed'+i).textContent ='';
         document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
