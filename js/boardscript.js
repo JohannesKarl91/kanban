@@ -43,7 +43,7 @@ function renderTaskstoBoard() {
         if (tasks[i].edited>1){
             date=tasks[i].edited;
         document.getElementById('changed'+i).textContent ='';
-        document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
+        document.getElementById('changed'+i).textContent += `last change: `;
         document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 
         }
@@ -93,13 +93,13 @@ function renderTaskstoBoard() {
     </div>
     <div class="task-footer">
         <div class="task-category"><span>${tasks[i].category}</span></div>
-        <div class="infochanged" id="changed${i}"></div>
         <div class="boardBtnSection">
             <img onclick="openedit(${i})" style="width: 20px; height: 20px;" class="member-img" src="./img/edit.svg">
             <div class="task-action-btn" onclick="nextsection(${i},'${progress}')">
                 <span>&#10149;</span>
             </div>
         </div>
+        <div class="infochanged" id="changed${i}"></div>
     </div>
 </div>
 `;
@@ -188,15 +188,16 @@ function renderTaskstoBoard() {
         tasks[i].description= editDescription;
         let editCategory=document.getElementById('category_change'+i).value;
         tasks[i].category=editCategory;
-        updateBoardTasksToBackend();
+        stamp(i);
         renderTaskstoBoard();
-        stamp(i)
+        updateBoardTasksToBackend();
+
     }
 
     function stamp(i){
         let date = new Date();
         tasks[i].edited=date;
-        document.getElementById('changed'+i).innerHTML = `last change:<br>`;
+        document.getElementById('changed'+i).innerHTML = `last change: `;
         document.getElementById('changed'+i).innerHTML += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
     }
 

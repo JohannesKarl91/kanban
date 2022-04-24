@@ -89,7 +89,6 @@ label {
 form input {
     margin-right: 10px;
     font-size: 1rem;
-    margin-top: 15px;
     padding: 5px;
     height: 40px;
     width: 300px;
@@ -296,5 +295,7 @@ textarea {
         margin-top: 90px;
     }
 
-
+    .assigned_img {
+        height: 45px;
+        width: 45px;
 }
