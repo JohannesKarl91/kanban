@@ -34,9 +34,20 @@ function renderTaskstoBoard() {
                         boardcolum.innerHTML += generateHTML(i, progress);
                         colors(i);
                         taskassigned(i);
+                        timestamp(i)
                     }
                 }
             }
+    }
+
+    function timestamp(i){
+        if (tasks[i].edited>1){
+            const date=tasks[i].edited;
+        document.getElementById('changed'+i).textContent ='';
+        document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
+        document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+
+        }
     }
 
     function colors(i) {
@@ -185,6 +196,7 @@ function renderTaskstoBoard() {
     }
 
     function stamp(i){
+        tasks[i].edited=date;
         document.getElementById('changed'+i).textContent ='';
         document.getElementById('changed'+i).textContent += `Zuletzt geändert: `;
         document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);

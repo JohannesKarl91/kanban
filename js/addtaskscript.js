@@ -28,6 +28,7 @@ function CreateTask(event) {
         'assigned': assigned,
         'location': 'backlog',
         'status': 'todo',
+        'edited':'',
     };
 
     addTask(task);
