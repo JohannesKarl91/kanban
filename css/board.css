@@ -133,6 +133,7 @@ body {
 
 .textarea-edit{
     width: 100%;
+    resize: none;
     border-radius: 5px;
 }
 

@@ -217,7 +217,8 @@
 }
 
 .textField {
-    min-width: 92.5%;
+    width: 100%;
+    resize: none;
     margin-top: 8px;
     margin-bottom: 8px;
 }

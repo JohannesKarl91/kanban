@@ -188,8 +188,8 @@ function renderTaskstoBoard() {
         tasks[i].description= editDescription;
         let editCategory=document.getElementById('category_change'+i).value;
         tasks[i].category=editCategory;
-        stamp(i);
         renderTaskstoBoard();
+        stamp(i);
         updateBoardTasksToBackend();
 
     }

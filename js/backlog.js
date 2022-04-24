@@ -418,6 +418,6 @@ function backlogStamp(i){
     let date = new Date();
     tasks[i].edited=date;
     document.getElementById('backlogChanged'+i).textContent ='';
-    document.getElementById('backlogChanged'+i).textContent += `Zuletzt geändert: `;
+    document.getElementById('backlogChanged'+i).textContent += `last change: `;
     document.getElementById('backlogChanged'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 }
