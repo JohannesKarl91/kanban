@@ -334,7 +334,6 @@ function showEditCard() {
 }
 
 
-
 /**
  * Renders the assigned person/s to each tasks.
  * @param {*} i index in reference to tasks[] array.  
@@ -402,11 +401,6 @@ function deletePerson(i, k, currentId) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let currentAssignedElement = tasks[i]['assigned'][j];
         if (currentId == currentAssignedElement['id']) {
-            //console.log('currentId', currentId);
-            //console.log('For Loop', currentAssignedElement['id']);
-            //console.log('Cut out', tasks[i]['assigned'][k]);
-            //console.log('currentAssignedElement', currentAssignedElement)
-            //console.log('After Array Cut out', tasks[i]['assigned'][j])
             tasks[i]['assigned'].splice(j,1);
         }
     }
@@ -414,6 +408,10 @@ function deletePerson(i, k, currentId) {
 }
 
 
+/**
+ * Creates time stamp for latest change of backlog edit card.
+ * @param {*} i index in reference to tasks[] array. 
+ */
 function backlogStamp(i){
     let date = new Date();
     tasks[i].edited=date;
