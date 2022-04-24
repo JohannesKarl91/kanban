@@ -258,6 +258,7 @@ function openBacklogEditMode(i) {
     renderBacklogCategory(i);
     assignedTo(i);
     showEditCard();
+    backlogStamp(i);
 }
 
 
@@ -282,12 +283,12 @@ function backlogEditor(i) {
         </div>
         <textarea class="textField" style="border-radius: 5px;" id="backlogDescription_edit${i}" rows="5">${tasks[i].description}</textarea>
         <div class="backlog-task-footer">
-                            <select class="input relative editFields" value="${tasks[i].category}" id="backlogCategory_change${i}">
-                            </select>
+            <select class="input relative editFields" value="${tasks[i].category}" id="backlogCategory_change${i}"></select>
             <div class="task-action-btn"> <button style="border-radius: 5px; background-color: rgb(93, 156, 112);" onclick="changeBacklogItem(${i})" class="material-symbols-outlined">
                 <img class="backlogElementBtn" src="./img/edit.svg">
             </div>
         </div>
+        <div class="backlogInfoChanged" id="backlogChanged${i}"></div>
     </div>
     `;
 }
@@ -410,4 +411,13 @@ function deletePerson(i, k, currentId) {
         }
     }
     document.getElementById('user' + k).classList.remove('edit-frame');
+}
+
+
+function backlogStamp(i){
+    let date = new Date();
+    tasks[i].edited=date;
+    document.getElementById('backlogChanged'+i).textContent ='';
+    document.getElementById('backlogChanged'+i).textContent += `Zuletzt geändert: `;
+    document.getElementById('backlogChanged'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 }

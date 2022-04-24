@@ -275,6 +275,9 @@
     margin-left: 7px;
 }
 
+.backlogInfoChanged{
+    font-size: small;
+}
 
 /*Responsive props for backlog*/
 @media (max-width: 768px) {
