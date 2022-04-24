@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let boardtasks = [];
+// let boardtasks = [];
 
 
 
@@ -123,8 +123,6 @@ function renderTaskstoBoard() {
         tasks.splice(position,1)
                 updateBoardTasksToBackend();
                 renderTaskstoBoard()
-            
-        
     }
 
 
@@ -192,7 +190,11 @@ function renderTaskstoBoard() {
         tasks[i].category=editCategory;
         updateBoardTasksToBackend();
         renderTaskstoBoard();
+<<<<<<< HEAD
         stamp(i);
+=======
+        stamp(i)
+>>>>>>> 071baa2d6a1bd659044056ac65490d048b66d427
     }
 
     function stamp(i){
