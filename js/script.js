@@ -477,3 +477,13 @@ function renderLegalStuff() {
 </div>
 `;
 }
+
+
+/**
+ * Updates the local array "tasks" to the backend in string element "tasks".
+ */
+ async function updateBoardTasksToBackend() {
+    let boardArrayAsJSON = tasks;
+    //console.log('Loaded array to backlog', boardArrayAsJSON);
+    await backend.setItem('tasks', JSON.stringify(boardArrayAsJSON));
+}
