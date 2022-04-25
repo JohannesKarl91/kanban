@@ -28,7 +28,7 @@ function renderTaskstoBoard() {
                         boardcolum.innerHTML += generateHTML(i, progress);
                         colors(i);
                         taskassigned(i);
-                        timestamp(i)
+                        // timestamp(i)
                     }
                 }
             }
@@ -36,7 +36,7 @@ function renderTaskstoBoard() {
 
     function timestamp(i){
         if (tasks[i].edited =! null){
-            date=tasks[i].edited;
+            date=new Date(tasks[i].edited);
         document.getElementById('changed'+i).textContent ='';
         document.getElementById('changed'+i).textContent += `last change: `;
         document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
