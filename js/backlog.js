@@ -429,7 +429,9 @@ function backlogStamp(i) {
 }
 
 function updateBacklogStampInCardTemplate(i) {
-    let date = tasks[i].edited;
+    let date_edit = tasks[i].edited;
+        date_edit=tasks[i].edited;
+        date=new Date(date_edit);
     console.log(console.log(tasks[i].edited));
     document.getElementById('backlogChangedCard' + i).textContent = '';
     document.getElementById('backlogChangedCard' + i).textContent += `last change: `;
