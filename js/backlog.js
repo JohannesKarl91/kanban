@@ -435,5 +435,5 @@ function updateBacklogStampInCardTemplate(i) {
     console.log(console.log(tasks[i].edited));
     document.getElementById('backlogChangedCard' + i).textContent = '';
     document.getElementById('backlogChangedCard' + i).textContent += `last change: `;
-    document.getElementById('backlogChangedCard' + i).textContent += `${date}`;
+    document.getElementById('backlogChangedCard' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 }
