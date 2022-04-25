@@ -222,8 +222,6 @@ function cleanBacklogContentRow() {
 }
 
 
-
-
 /**
  * Shows a confirmation for sending the backlog item to KANBAN Board.
  */
