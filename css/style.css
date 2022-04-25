@@ -179,7 +179,6 @@ body {
 #legal-modal-imprint, #legal-modal-dataprotection {
     display: none;
     position: fixed;
-    z-index: 2;
     padding-top: 100px;
     left: 0;
     top: 0;
