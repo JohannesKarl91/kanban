@@ -12,6 +12,7 @@ async function initBacklog() {
     navHighlightDesktop('navbarAnchor1', 'navbarLine1');
     navHighlightMobile('navbarAnchor5', 'navbarLine5');
     renderBacklogItems();
+    updateBoardTasksToBackend();
 }
 
 
@@ -52,21 +53,24 @@ function renderBacklogCardTemplate(i) {
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
     <div id="backlogElementField(${i})" class="backlogElementField">
-        
-        <div id="assigned${i}" class="backlogElement"></div>
-        <div class="backlogElement">${backlogItem['category']}</div>
-        <div class="backlogElementTitleDescription">
-            <div class="titleElement">${backlogItem['title']}</div>
-            <div class="descriptionElement">${backlogItem['description']}</div>
+        <div class="backlogElementFieldTop">
+            <div id="assigned${i}" class="backlogElement"></div>
+            <div class="backlogElement">${backlogItem['category']}</div>
+            <div class="backlogElementTitleDescription">
+                <div class="titleElement">${backlogItem['title']}</div>
+                <div class="descriptionElement">${backlogItem['description']}</div>
+            </div>
+            <div class="backlogElementContainer">
+                <a onclick="openBacklogEditMode(${i})" title="edit task"><img class="backlogElementBtn" src="./img/edit.svg"></a>
+                <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg"></a>
+                <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg"></a>
+            </div>
         </div>
-        <div class="backlogElementContainer">
-            <a onclick="openBacklogEditMode(${i})" title="edit task"><img class="backlogElementBtn" src="./img/edit.svg"></a>
-            <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg"></a>
-            <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg"></a>
-        </div>
+        <div id="backlogChangedCard${i}" class="backlogInfoChanged backlogElement"></div>
     </div>
 `;
     renderAssignedImg(i);
+    updateBacklogStampInCardTemplate(i)
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
 }
 
@@ -307,9 +311,11 @@ function changeBacklogItem(i) {
     tasks[i].description = editDescription;
     let editCategory = document.getElementById('backlogCategory_change' + i).value;
     tasks[i].category = editCategory;
-    updateBoardTasksToBackend();
     disappearEditCard();
     renderBacklogItems();
+    backlogStamp(i);
+    updateBacklogStampInCardTemplate(i);
+    updateBoardTasksToBackend();
 }
 
 
@@ -401,7 +407,7 @@ function deletePerson(i, k, currentId) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let currentAssignedElement = tasks[i]['assigned'][j];
         if (currentId == currentAssignedElement['id']) {
-            tasks[i]['assigned'].splice(j,1);
+            tasks[i]['assigned'].splice(j, 1);
         }
     }
     document.getElementById('user' + k).classList.remove('edit-frame');
@@ -412,10 +418,19 @@ function deletePerson(i, k, currentId) {
  * Creates time stamp for latest change of backlog edit card.
  * @param {*} i index in reference to tasks[] array. 
  */
-function backlogStamp(i){
+function backlogStamp(i) {
     let date = new Date();
-    tasks[i].edited=date;
-    document.getElementById('backlogChanged'+i).textContent ='';
-    document.getElementById('backlogChanged'+i).textContent += `last change: `;
-    document.getElementById('backlogChanged'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+    tasks[i].edited = date;
+    document.getElementById('backlogChanged' + i).textContent = '';
+    document.getElementById('backlogChanged' + i).textContent += `last change: `;
+    document.getElementById('backlogChanged' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+    updateBacklogStampInCardTemplate(i);
+}
+
+function updateBacklogStampInCardTemplate(i) {
+    let date = tasks[i].edited;
+    console.log(console.log(tasks[i].edited));
+    document.getElementById('backlogChangedCard' + i).textContent = '';
+    document.getElementById('backlogChangedCard' + i).textContent += `last change: `;
+    document.getElementById('backlogChangedCard' + i).textContent += Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 }
