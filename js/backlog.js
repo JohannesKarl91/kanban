@@ -70,7 +70,7 @@ function renderBacklogCardTemplate(i) {
     </div>
 `;
     renderAssignedImg(i);
-    updateBacklogStampInCardTemplate(i)
+    // updateBacklogStampInCardTemplate(i)
     document.getElementById(`backlogElementField(${i})`).classList.add('border-left-' + background);
 }
 
@@ -420,11 +420,12 @@ function deletePerson(i, k, currentId) {
  */
 function backlogStamp(i) {
     let date = new Date();
-    tasks[i].edited = date;
     document.getElementById('backlogChanged' + i).textContent = '';
     document.getElementById('backlogChanged' + i).textContent += `last change: `;
     document.getElementById('backlogChanged' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
-    updateBacklogStampInCardTemplate(i);
+    let date_editet=date.getTime()
+    tasks[i].edited=date_editet;
+    // updateBacklogStampInCardTemplate(i);
 }
 
 function updateBacklogStampInCardTemplate(i) {
