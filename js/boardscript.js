@@ -28,15 +28,16 @@ function renderTaskstoBoard() {
                         boardcolum.innerHTML += generateHTML(i, progress);
                         colors(i);
                         taskassigned(i);
-                        // timestamp(i)
+                        timestamp(i)
                     }
                 }
             }
     }
 
     function timestamp(i){
-        if (tasks[i].edited =! null){
-            date=new Date(tasks[i].edited);
+        if (tasks[i].edited > 50000){
+            date_edit=tasks[i].edited;
+            date=new Date(date_edit);
         document.getElementById('changed'+i).textContent ='';
         document.getElementById('changed'+i).textContent += `last change: `;
         document.getElementById('changed'+i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
