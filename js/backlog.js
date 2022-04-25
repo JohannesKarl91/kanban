@@ -53,7 +53,6 @@ function renderBacklogCardTemplate(i) {
     let backlogContentRow = document.getElementById('backlogContentTaskAsElement');
     backlogContentRow.innerHTML += /*html*/`
     <div id="backlogElementField(${i})" class="backlogElementField">
-        <div class="backlogElementFieldTop">
             <div id="assigned${i}" class="backlogElement"></div>
             <div class="backlogElement">${backlogItem['category']}</div>
             <div class="backlogElementTitleDescription">
@@ -65,7 +64,6 @@ function renderBacklogCardTemplate(i) {
                 <a onclick="deleteBacklogItem(${i})" title="delete"><img class="backlogElementBtn" src="./img/delete.svg"></a>
                 <a onclick="addBacklogItem(${i})" title="send to board"><img class="backlogElementBtn" src="./img/send.svg"></a>
             </div>
-        </div>
         <div id="backlogChangedCard${i}" class="backlogInfoChanged backlogElement"></div>
     </div>
 `;
@@ -262,7 +260,7 @@ function openBacklogEditMode(i) {
     renderBacklogCategory(i);
     assignedTo(i);
     showEditCard();
-    backlogStamp(i);
+    backlogTimeStamp(i);
 }
 
 
@@ -314,7 +312,7 @@ function changeBacklogItem(i) {
     disappearEditCard();
     renderBacklogItems();
     backlogStamp(i);
-    updateBacklogStampInCardTemplate(i);
+    //updateBacklogStampInCardTemplate(i);
     updateBoardTasksToBackend();
 }
 
@@ -428,12 +426,12 @@ function backlogStamp(i) {
     // updateBacklogStampInCardTemplate(i);
 }
 
-function updateBacklogStampInCardTemplate(i) {
+function backlogTimeStamp(i) {
     let date_edit = tasks[i].edited;
         date_edit=tasks[i].edited;
         date=new Date(date_edit);
     console.log(console.log(tasks[i].edited));
-    document.getElementById('backlogChangedCard' + i).textContent = '';
-    document.getElementById('backlogChangedCard' + i).textContent += `last change: `;
-    document.getElementById('backlogChangedCard' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+    document.getElementById('backlogChanged' + i).textContent = '';
+    document.getElementById('backlogChanged' + i).textContent += `last change: `;
+    document.getElementById('backlogChanged' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
 }
