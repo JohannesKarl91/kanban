@@ -427,6 +427,7 @@ function backlogStamp(i) {
 }
 
 function backlogTimeStamp(i) {
+    if (tasks[i].edited>50000){
     let date_edit = tasks[i].edited;
         date_edit=tasks[i].edited;
         date=new Date(date_edit);
@@ -434,4 +435,4 @@ function backlogTimeStamp(i) {
     document.getElementById('backlogChanged' + i).textContent = '';
     document.getElementById('backlogChanged' + i).textContent += `last change: `;
     document.getElementById('backlogChanged' + i).textContent += new Intl.DateTimeFormat('de-DE', { dateStyle: 'full', timeStyle: 'long' }).format(date);
-}
+}}
