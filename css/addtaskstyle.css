@@ -262,6 +262,8 @@ textarea {
         align-items: center;
     }
 
+    
+
 }
 
 @media(max-width:768px) {
@@ -299,4 +301,5 @@ textarea {
         height: 45px;
         width: 45px;
     }
+
 }

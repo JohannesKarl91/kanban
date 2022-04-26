@@ -15,7 +15,6 @@ body {
 .board {
     display: flex;
     align-items: flex-start;
-    flex-wrap: wrap;
     width: 100%;
     margin-top: 24px;
 }
@@ -56,11 +55,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-wrap: wrap;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     background-color: rgba(93, 156, 112, 0.1);
     min-height: 70px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
 }
 
 .boardSectionField-highlight {
@@ -248,6 +248,7 @@ body {
 
     .boardSectionField {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-evenly;
     }
 
